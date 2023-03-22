@@ -1,0 +1,18 @@
+#aboutPage{
+    background-image: url();
+    
+    object-fit: contain;
+   background-repeat: no-repeat;
+   height: 50vh;
+   background-size: cover;
+   background-image: linear-gradient(rgba(249, 250, 252, 0.575),rgba(247, 178, 49, 0.603)),url("https://img.freepik.com/free-vector/blue-futuristic-networking-technology_53876-97395.jpg?w=740&t=st=1679487238~exp=1679487838~hmac=b019e47c79d6afca6b4ed051c59fd3d70ff7f95a35338bae2eed542b330bbb65"); 
+}
+#aboutHome{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#aboutHome h1{
+   text-align: center;
+   font-weight: 700;
+}

@@ -1,0 +1,43 @@
+#hometxt{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  
+   /* object-fit: contain;
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-image: linear-gradient(rgba(249, 250, 252, 0.986),rgba(247, 247, 248, 0.938)),url("https://img.freepik.com/free-vector/blue-futuristic-networking-technology_53876-97395.jpg?w=740&t=st=1679487238~exp=1679487838~hmac=b019e47c79d6afca6b4ed051c59fd3d70ff7f95a35338bae2eed542b330bbb65"); */
+
+}
+
+.homeText{
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin-top: 130px;
+   z-index: 1;
+}
+.homeText h1, h4, p{
+    margin-top: 20px;
+}
+.homeText h4 span{
+    color: #e6a61c;
+    font-weight: 700;
+}
+
+.homeText button{
+    padding: 10px 25px;
+    color: #e6a61c;
+    background-color: transparent;
+    font-weight: 500;
+    font-size: 22px;
+    border: 1px solid grey;
+    margin-top: 20px;
+}
+
+
+#visionBox{
+    margin-top: 100px;
+}
