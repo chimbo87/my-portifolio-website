@@ -21,13 +21,17 @@
     text-decoration: underline;
 }
 #textBtn{
-    color: black;
+    color: #fff;
     background-color:  rgb(228, 190, 110);
    
     padding: 10px 20px;
     font-size: 20px;
     font-weight: bold;
 }
+#textBtn:hover{
+    color: black;
+}
+
 /* #textBtn:hover{
     background-color:  rgb(228, 190, 110);
     border: none;

@@ -1,0 +1,16 @@
+#visionBox{
+    padding: 60px 0px;
+}
+#visionBox h2{
+    margin-left: 40px;
+    color: #e6a61c;
+    font-weight: 700;
+}
+#visionCard{
+    padding: 0px 50px;
+  
+}
+#visionCard img{
+   object-fit: contain;
+   width: 100%;
+}

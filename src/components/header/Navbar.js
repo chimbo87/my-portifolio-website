@@ -25,9 +25,7 @@ function Navbar(){
                 <li className="nav-item">
                 <Link className="nav-link"  to={"/project"} id="navTxt">project</Link>
                 </li>
-                <li className="nav-item">
-                <Link className="nav-link"  to={"/contact"} id="navTxt">contact</Link>
-                </li>
+                
                 </ul>
           <ul className ="navbar-nav ml-auto">
             <button className="btn" type="submit" id='textBtn'>let's chat</button>
