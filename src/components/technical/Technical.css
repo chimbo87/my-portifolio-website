@@ -24,14 +24,12 @@
  
     width: 300px;
     border-radius: 5px;
-    /* background-color: rgba(207, 206, 206, 0.144);
-    border: 1px solid rgba(128, 128, 128, 0.185); */
+  
 }
-.innerBox:hover{
-    background-color: #e6a61c2c;
-}
+
 .innerBox li{
     font-weight: 700;
     margin: 10px 0px;
-    /* color: #e6a61c; */
+    font-size: 20px;
+   color: gray;
 }

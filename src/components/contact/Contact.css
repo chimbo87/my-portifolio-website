@@ -22,8 +22,8 @@
     top: 0%;
     left: 25%;
     right: 0%;
-    background-color:  #e6a61c;
-    border: 1px solid rgba(128, 128, 128, 0.205);
+    background-color:  rgba(248, 147, 32, 0.849);
+    
     padding: 20px;
   }
   #contactTxtWrap {
@@ -31,11 +31,10 @@
     align-items: center;
     justify-content: center;
   }
-  .contactTextBox h3 {
+  .contactTextBox h2 {
     max-width: 300px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     font-weight: 700;
-    font-size: 36px;
     line-height: 150%;
     text-align: start;
     color: #eeeeee;
@@ -84,7 +83,7 @@
     font-size: 20px;
     padding: 5px;
     cursor: pointer;
-    background-color: #e6a61c;
+    background-color: rgba(248, 147, 32, 0.849);
     margin: 10px;
     width: 24px;
     height: 24px;
@@ -104,7 +103,7 @@
     max-width: 100%;
   }
   
-  .contactFormBox h3 {
+  .contactFormBox h2 {
     border-bottom: 1px solid #e6a61c56;
     padding-bottom: 4px;
     max-width: 500px;
@@ -113,7 +112,7 @@
     font-weight: 700;
     font-size: 36px;
     line-height: 150%;
-    color: #e6a61c;
+    color: rgba(248, 147, 32, 0.849);
   }
   .contactFormBox input {
     height: 48px;
@@ -129,13 +128,13 @@
     gap: 8px;
     width: 140px;
     height: 48px;
-    background: #e6a61c;
+    background: rgba(248, 147, 32, 0.849);
     border-radius: 5px;
     font-weight: bold;
     border: none;
   }
   .contactFormBox button:hover{
-    background-color: #bb8002;
+    background-color:rgba(248, 147, 32, 0.849);
   }
   
   

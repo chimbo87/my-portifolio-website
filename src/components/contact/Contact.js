@@ -7,7 +7,7 @@ function Contact() {
         <div class="row">
           <div class="col-12 col-lg-3" id="contactTxtWrap">
             <div className="contactTextBox">
-              <h3>Contact Me</h3>
+              <h2>Contact Me</h2>
               <div className="contactTxtBoxIcon">
                 <div id="contactIcon">
                   <img src="./Vector (3).png" alt="..." />
@@ -32,7 +32,7 @@ function Contact() {
                 </div>
               </div>
               <div id="contactIconBox">
-                <i class="fab fa-git"></i>
+              <i class="fab fa-github"></i>
                 <i class="fab fa-facebook"></i>
                 <i class="fab fa-linkedin"></i>
              
@@ -41,7 +41,7 @@ function Contact() {
           </div>
           <div class="col-12 col-lg-9" id="contactFormWrap">
             <div className="contactFormBox">
-              <h3>Get in Touch</h3>
+              <h2>Get in Touch</h2>
               <form>
                 <div class="row g-3">
                   <div class="col">
