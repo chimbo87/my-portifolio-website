@@ -32,8 +32,20 @@
     color: black;
 }
 
-/* #textBtn:hover{
+#modalSendBtn{
+    color: #fff;
     background-color:  rgb(228, 190, 110);
+    padding: 8px 20px;
+    font-size: 20px;
+    font-weight: bold;
     border: none;
-   
-} */
+    border-radius: 4px;
+}
+#modalSendBtn:hover{
+    color: black;
+}
+#exampleModalLabel{
+    color: #e6a61c;
+    font-weight: 700;
+  
+}

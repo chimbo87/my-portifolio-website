@@ -1,21 +1,39 @@
 #aboutPage{
-    object-fit: contain;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   object-fit: contain;
    background-repeat: no-repeat;
-   height: 80vh;
+   background-attachment: fixed;
+   height: 100vh;
    background-size: cover;
    background-image: linear-gradient(rgb(249, 250, 252),rgba(247, 178, 49, 0.384)),url("https://img.freepik.com/premium-photo/top-view-workspace-with-tablet-blank-white-screen-keyboard-working-device-copy-space_37714-1247.jpg"); 
 }
 #aboutHome{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 800px;
 }
 #aboutHome h1{
    text-align: center;
    font-size: 36px;
    font-weight: 700;
-   margin-top: 25%;
+   color: rgb(80, 79, 79);
 }
+ .aboutIcons{
+    margin-top: 15px;
+    border-top: 1px solid rgba(128, 128, 128, 0.212);
+ }
+ .aboutIcons i{
+    font-size: 30px;
+    margin: 10px;
+    color: rgb(80, 79, 79);
+    cursor: pointer;
+ }
+
 #aboutWrap{
    
     padding: 50px 0px;

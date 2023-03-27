@@ -6,12 +6,12 @@ import Home from './components/home/Home';
 import Project from './components/myProjects/Project';
 import { Route,Routes } from 'react-router-dom';
 
+
 function App() {
   return (
     <div>
+      <Navbar/>
     
-      <Navbar></Navbar>
-
           <Routes>
                 <Route path='/home' element={<Home/>}/>
                 <Route path='/about' element={<About/>}/>

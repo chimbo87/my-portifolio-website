@@ -10,7 +10,17 @@ function About() {
     <>
     <div className='container-fluid' id='aboutPage'>
       <div className='container'id='aboutHome'>
-          <h1>about me</h1>
+          <h1>Front end Engineer</h1>
+          <p>Lorem ipsum dolor sit amet. Qui ipsa deleniti in fuga voluptatum et
+            possimus sint eum nulla debitis! Est Quis incidunt sed aliquid
+            inventore quo velit rerum qui nesciunt pariatur id doloremque natus
+            ea ipsam sunt. Aut ducimus assumenda non debitis ratione hic</p>
+            <div className='aboutIcons'>
+                <i class="fab fa-github"></i>
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-linkedin"></i>
+             
+            </div>
       </div>
     </div>
     <div className='container' id='aboutWrap'>
