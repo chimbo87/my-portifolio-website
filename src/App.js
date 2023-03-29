@@ -7,10 +7,12 @@ import Project from './components/myProjects/Project';
 import { Route,Routes } from 'react-router-dom';
 
 
+
 function App() {
+ 
   return (
     <div>
-      <Navbar/>
+        <Navbar/>
     
           <Routes>
                 <Route path='/home' element={<Home/>}/>
@@ -18,6 +20,7 @@ function App() {
                 <Route path='/project' element={<Project/>}/>
           </Routes>
        <Footer></Footer>
+ 
     </div>
   );
 }
