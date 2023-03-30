@@ -34,8 +34,18 @@
     justify-content: center;
     padding: 5px 10px;
 }
+#projectTxt h5{
+    font-weight: 700;
+}
+#projectTxt p{
+    font-size: 14px;
+}
 #projectLinks{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+#projectLinks a{
+    margin: 0px 10px;
+    text-decoration: none;
 }

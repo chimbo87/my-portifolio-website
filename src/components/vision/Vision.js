@@ -1,13 +1,14 @@
 import React from "react";
 import "./Vision.css";
-import visionImg from "../../assets/tools4.jpeg";
+import visionImg from "../../assets/vision01.jpeg";
 
 function Vision() {
   return (
     <div className="container" id="visionBox">
-        <h2>Vision</h2>
+       
       <div class="row">
         <div class="col-12 col-lg-6 col-md-4 col-sm-3 " id="visionCard">
+        <h2>Vision</h2>
           <p>
             Lorem ipsum dolor sit amet. Qui ipsa deleniti in fuga voluptatum et
             possimus sint eum nulla debitis! Est Quis incidunt sed aliquid

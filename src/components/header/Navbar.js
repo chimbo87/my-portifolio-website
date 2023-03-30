@@ -53,6 +53,8 @@ function Navbar() {
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
               >
+                	
+                  <i class="far fa-comments"></i>
                 let's chat
               </button>
             </ul>
@@ -68,10 +70,10 @@ function Navbar() {
         aria-hidden="true"
       >
         <div class="modal-dialog modal-dialog-centered modal-lg" >
-          <div class="modal-content">
+          <div class="modal-content" id="modalContent">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="exampleModalLabel">
-                Lets Chat
+                Send me a message
               </h1>
               <button
                 type="button"
