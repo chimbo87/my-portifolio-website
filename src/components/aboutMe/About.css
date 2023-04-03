@@ -21,7 +21,7 @@
    text-align: center;
    font-size: 36px;
    font-weight: 700;
-   color: rgb(80, 79, 79);
+   color: #e6a61c;
 }
  .aboutIcons{
     margin-top: 15px;
@@ -30,26 +30,30 @@
  .aboutIcons i{
     font-size: 30px;
     margin: 10px;
-    color: rgb(80, 79, 79);
+    color: #e6a61c;
     cursor: pointer;
  }
 
 #aboutWrap{
-   
-    padding: 50px 0px;
+
+    padding: 50px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 #aboutWrap h2{
     font-weight: 700;
     font-size: 36px;
+    text-align: center;
     color: #e6a61c;
 }
-/* #aboutCard {
-    border: 1px solid black;
-} */
+
 #aboutCard img{
     width: 100%;
     object-fit: contain;
     height: fit-content;
+    border-radius: 4px;
 }
 
 
@@ -60,27 +64,36 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    bottom: 22%;
     border-radius: 50%;
     transform: translate(-60%);
     left: 60%;
  }
- #missionCard{
-    border: 1px solid rgba(128, 128, 128, 0.205);
-    background-color: #e6a61c73;
-    margin: 50px 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.404);
-    cursor: pointer;
+ #mission{
+    padding: 50px 10px;
  }
- #missionCard:hover{
-    background-color: #e6a61c56;
-   
+ #mission h2{
+    font-weight: 700;
+    font-size: 36px;
+    text-align: center;
+    color: #e6a61c;
  }
+
  #missionCard h4{
     text-align: center;
     color: black;
     border-bottom: 1px solid #e6a61c4d;
     padding-bottom: 4px;
+ }
+ #missionInnerCard{
+    border: 1px solid rgba(128, 128, 128, 0.205);
+    background-color: #e6a61c73;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.404);
+    margin: 10px 0px ;
+    padding: 10px;
+    cursor: pointer;
+ }
+ #missionInnerCard:hover{
+    background-color: #e6a61c56;
  }
 
  #innerCard i{
@@ -107,6 +120,7 @@
     height: 100%;
     object-fit: cover;
     filter: brightness(0.4);
+    opacity: 0;
 }
 #homeTextBox{
     display: flex;
@@ -115,20 +129,31 @@
     justify-content: center;
 
 }
+#carouselExampleFade{
+   box-shadow: 2px 2px 12px grey;
+   border-radius: 5px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+#carouselExampleFade h2{
+    font-weight: 700;
+    font-size: 36px;
+    text-align: center;
+    color: #e6a61c;
+    margin-top: 50px;
+}
 #reviewCard{
     max-width: 700px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-left: 22%;
-    margin-bottom: 25%;
+   
+    margin: 200px 100px;
+  
 }
 #reviewCard p{
     font-style: italic;
     color: #e6a61c;
     font-weight: bold;
-
 }
 #reviewCard p i{
     font-size: 30px;
