@@ -13,7 +13,7 @@ function Home() {
         <div className='homeText'>
           <h4>hello there i'm...</h4>
           <h1>Archford N</h1>
-          <h4>front-end  <span>Software Engineer</span> </h4>
+          <h4>Front-End  <span> Software Engineer</span> </h4>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, 
              consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>

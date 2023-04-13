@@ -8,7 +8,7 @@
    background-attachment: fixed;
    height: 100vh;
    background-size: cover;
-   background-image: linear-gradient(rgb(249, 250, 252),rgba(247, 178, 49, 0.384)),url("https://img.freepik.com/premium-photo/top-view-workspace-with-tablet-blank-white-screen-keyboard-working-device-copy-space_37714-1247.jpg"); 
+   background-image: linear-gradient(rgba(249, 250, 252, 0.911),#cfcecd67),url("https://img.freepik.com/premium-photo/top-view-workspace-with-tablet-blank-white-screen-keyboard-working-device-copy-space_37714-1247.jpg"); 
 }
 #aboutHome{
     display: flex;

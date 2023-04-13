@@ -53,8 +53,7 @@ function Navbar() {
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
               >
-                	
-                  <i class="far fa-comments"></i>
+                <i class="	far fa-comment-alt"></i>
                 let's chat
               </button>
             </ul>
@@ -69,7 +68,7 @@ function Navbar() {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog modal-dialog-centered modal-lg" >
+        <div class="modal-dialog modal-dialog-centered modal-lg">
           <div class="modal-content" id="modalContent">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="exampleModalLabel">
@@ -91,7 +90,6 @@ function Navbar() {
                   type="email"
                   class="form-control"
                   id="exampleFormControlInput1"
-                  
                 />
               </div>
               <div class="mb-3">
@@ -102,7 +100,6 @@ function Navbar() {
                   type="number"
                   class="form-control"
                   id="exampleFormControlInput1"
-                  
                 />
               </div>
               <div class="mb-3">
