@@ -4,20 +4,22 @@ import './Home.css';
 import Technical from '../technical/Technical';
 import Vision from '../vision/Vision';
 import Contact from '../contact/Contact';
+import { useNavigate } from 'react-router-dom';
 
 
 function Home() {
+  const navigate = useNavigate();
   return (
     <>
     <div className='container-fluid' id='hometxt'>
         <div className='homeText'>
-          <h4>hello there i'm...</h4>
-          <h1>Archford N</h1>
-          <h4>Front-End  <span> Software Engineer</span> </h4>
+          <h4>hello i'm,</h4>
+          <h1>Archford Nhanga</h1>
+          <h4><span>Front-End   Software Engineer</span> </h4>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, 
              consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-             <button>see my work</button>
+             <button onClick={()=>{navigate("/project")}}>see my work</button>
         </div>
     </div>
   <Technical></Technical>

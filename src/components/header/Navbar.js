@@ -9,7 +9,7 @@ function Navbar() {
       <nav className="navbar navbar-expand-lg" id="navBarBox">
         <div className="container">
           <a className="navbar-brand" href="#" id="logo">
-            archford
+            Archford
           </a>
           <button
             className="navbar-toggler"

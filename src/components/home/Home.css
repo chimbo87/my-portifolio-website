@@ -19,6 +19,10 @@
    
    
 }
+.homeText h1{
+    font-weight: 500;
+    font-size: 35px; 
+}
 .homeText h1, h4, p{
     margin-top: 20px;
 }
@@ -28,13 +32,18 @@
 }
 
 .homeText button{
-    padding: 10px 25px;
+    padding: 8px 25px;
     color: #e6a61c;
     background-color: transparent;
     font-weight: 500;
     font-size: 22px;
-    border: 1px solid grey;
+    border: 1px solid rgba(128, 128, 128, 0.479);
+    border-radius: 4px;
     margin-top: 20px;
+}
+.homeText button:hover{
+    background-color: rgba(128, 128, 128, 0.075);
+    border: none;
 }
 
 
