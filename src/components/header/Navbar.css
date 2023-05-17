@@ -19,7 +19,8 @@
    color: #e6a61c;
    font-weight: 700;
    font-size: 30px;
-   font-family: 'Poppins', sans-serif;
+   text-shadow: black;
+ 
 }
 #navTxt{
     color: black;
