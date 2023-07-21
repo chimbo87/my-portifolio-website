@@ -95,11 +95,7 @@ function Navbar() {
             <div class="modal-body">
               <div id="chats">
                 <p>
-                  The is a long established fact that a reader will be
-                  distracted by the readable content of a page when looking at
-                  its layout. The point of using Lorem Ipsum is that it has a
-                  more-or-less normal distribution t is a long established fact
-                  that a reader will..
+                  Hello there, please enter your name and email to continue...
                 </p>
               </div>
             </div>
