@@ -1,0 +1,80 @@
+#visionSection{
+    margin-top: 20px;
+}
+#visionText{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#visionText span{
+    border-bottom: 2px solid goldenrod;
+    padding-bottom: 3px;
+}
+#visionText h4{
+    text-align: center;
+    color: goldenrod;
+    font-weight: 700;
+}
+#visionText h5{
+    font-style: italic;
+    font-weight: 700;
+    font-family: 'Yuji Boku', serif;
+    line-height: 2rem;
+    margin-top: 20px;
+}
+#visionText p{
+    line-height: 2rem;
+}
+#visionText a{
+    color: goldenrod;
+}
+
+#visionImage img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    cursor: pointer;
+}
+#visionImage img:hover{
+    transform: translate3D(0,-1px,0) scale(1.03);
+    box-shadow: 8px 28px 50px rgba(39,44,49,.07), 1px 6px 12px rgba(39,44,49,.04);
+    transition: all .4s ease; 
+}
+#skillTec{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+#visionTecWrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#skillsTake{
+    border-width: 5px;
+    border-style: solid;
+    background-color: gainsboro;
+    border-image: linear-gradient(45deg,rgba(159, 159, 159, 0.788), rgba(218, 165, 32, 0.582));
+    border-image-slice: 2;
+    width: 250px;
+    height:250px ;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+#skillsTake:hover{
+    transform: translate3D(0,-1px,0) scale(1.03);
+    box-shadow: 8px 28px 50px rgba(39,44,49,.07), 1px 6px 12px rgba(39,44,49,.04);
+    transition: all .4s ease; 
+    background-color: rgba(185, 182, 182, 0.37);
+}
+#skillsTake h4{
+    font-size: 50px;
+    font-weight: 700;
+    background: -webkit-linear-gradient(#232222, #f7cf9f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

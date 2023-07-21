@@ -1,0 +1,39 @@
+
+#homeBox{
+  height: 100vh;
+}
+#homeBox img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(50%);
+}
+
+#homeTexts{
+  margin-bottom: 170px;
+}
+#homeTexts h2{
+  font-size: 45px;
+  font-weight: 700;
+  font-size: 50px;
+  background: -webkit-linear-gradient(#eee, #f7af57);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#homeTexts h5{
+  color: goldenrod;
+  font-size: 30px;
+}
+#homeTexts p{
+  color: antiquewhite;
+  text-align: start;
+  line-height: 2rem;
+}
+#homeTexts button{
+  padding: 10px 40px;
+  border: 1px solid antiquewhite;
+  background-color: transparent;
+  color: goldenrod;
+  font-weight: 700;
+  font-size: 20px;
+}

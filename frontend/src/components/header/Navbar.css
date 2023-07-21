@@ -1,0 +1,67 @@
+.navbar{
+    background-color: rgba(41, 41, 41, 0.963);
+    z-index: 100;
+}
+#logo {
+    background: -webkit-linear-gradient(#eee, #f7af57);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  font-weight: 700;
+ 
+  font-size: 25px;
+}
+#navBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#navBtn i{
+    color: antiquewhite;
+    font-size: 30px;
+    margin-right: 22px;
+    cursor: pointer;
+}
+#navItem a{
+    color: antiquewhite;
+}
+#contentBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#navBtn button{
+    color: antiquewhite;
+    border: 1px solid rgba(250, 235, 215, 0.253);
+    padding: 10px 20px;
+    background-color: transparent;
+}
+#staticBackdropLabel{
+  
+    font-weight: 700;
+}
+#chatBoxHead{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(128, 128, 128, 0.212);
+}
+#chatBoxHead span{
+    background-color: green;
+    font-size: 25px;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+#chats{
+    max-width: 250px;
+    padding: 10px;
+    background-color: rgba(59, 58, 58, 0.909);
+    border-radius: 0px 30px 30px 30px;
+}
+#chats p{
+    color: whitesmoke;
+    font-size: 14px;
+    text-align: start;
+}

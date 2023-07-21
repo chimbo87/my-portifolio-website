@@ -1,0 +1,43 @@
+#footerSection{
+    margin-top: 20px;
+    background-color: rgba(133, 112, 91, 0.153);
+}
+#footerText h5{
+   text-align: center;
+   color: goldenrod;
+   margin-top: 10px;
+   font-weight: 700;
+}
+#footerText small{
+    color: black;
+    text-align: justify;
+    line-height: 2rem;
+}
+#footerSocialLinks{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#footerLinkHead h5{
+    color: goldenrod;
+    font-weight: 700;
+}
+#footerLinkIcon i{
+   color: grey;
+   font-size: 25px;
+   margin: 10px;
+   cursor: pointer;
+
+}
+#footerRightText{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid rgba(255, 228, 196, 0.352);
+}
+#footerRightText small{
+    margin-top: 10px;
+    color: rgb(121, 89, 10);
+ 
+}
