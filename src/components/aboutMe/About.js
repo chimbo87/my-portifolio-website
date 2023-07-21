@@ -63,11 +63,7 @@ function About() {
               natus ea ipsam sunt. Aut ducimus assumenda non debitis ratione hic
               pariatur tempora At excepturi nesciunt ut aliquam possimus eum
               commodi earum qui voluptas minima. Hic ipsum dolore est quibusdam
-              repudiandae quo nulla obcaecati aut dolores debitis. Non laborum
-              necessitatibus et alias necessitatibus ut officia neque et
-              repudiandae dolores? Rem quam illo qui quia ullam aut natus
-              ducimus qui porro enim id dicta reprehenderit aut quos illo sed
-              saepe earum?
+              repudiandae quo nulla obcaecati aut dolores debitis. 
             </p>
           </div>
           <div class="col-12 col-lg-6 col-md-4 col-sm-4" id="aboutCard">
@@ -81,7 +77,7 @@ function About() {
           <div class="col-12 col-lg-4 col-md-6 col-sm-4" id="missionCard">
             <div id="missionInnerCard">
               <div id="innerCard">
-                <i class="fas fa-drafting-compass"></i>
+                <i class="fas fa-laptop-code"></i>
               </div>
               <h4>Developing</h4>
               <p>
@@ -93,7 +89,7 @@ function About() {
           <div class="col-12 col-lg-4 col-md-6 col-sm-4" id="missionCard">
             <div id="missionInnerCard">
               <div id="innerCard">
-                <i class="fas fa-drafting-compass"></i>
+                <i class="fas fa-tools"></i>
               </div>
               <h4>API Integrations</h4>
               <p>
@@ -105,7 +101,7 @@ function About() {
           <div class="col-12 col-lg-4 col-md-6 col-sm-4" id="missionCard">
             <div id="missionInnerCard">
               <div id="innerCard">
-                <i class="fas fa-drafting-compass"></i>
+                <i class="fas fa-paint-brush"></i>
               </div>
               <h4>Designing</h4>
               <p>

@@ -13,7 +13,7 @@ function Home() {
     <>
     <div className='container-fluid' id='hometxt'>
         <div className='homeText'>
-          <h4>hello i'm,</h4>
+          <h4>Hello i'm,</h4>
           <h1>Archford Nhanga</h1>
           <h4><span>Front-End   Software Engineer</span> </h4>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
