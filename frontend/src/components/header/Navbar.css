@@ -31,9 +31,13 @@
 }
 #navBtn button{
     color: antiquewhite;
-    border: 1px solid rgba(250, 235, 215, 0.253);
+    border: 2px solid rgba(250, 235, 215, 0.253);
     padding: 10px 20px;
     background-color: transparent;
+}
+#navBtn button:hover{
+    background-color: antiquewhite;
+    color: black;
 }
 #staticBackdropLabel{
   

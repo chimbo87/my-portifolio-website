@@ -17,9 +17,9 @@
     font-weight: 700;
 }
 #visionText h5{
-    font-style: italic;
+    
     font-weight: 700;
-    font-family: 'Yuji Boku', serif;
+   
     line-height: 2rem;
     margin-top: 20px;
 }
@@ -36,11 +36,34 @@
     object-fit: contain;
     cursor: pointer;
 }
-#visionImage img:hover{
+#visionImgText{
+    position: relative;
+    top: -28%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.053), rgba(12, 12, 12, 0.977));
+}
+#visionImgText h5{
+    color: rgb(240, 211, 173);
+    text-align: end;
+    line-height: 2rem;
+    font-size: 25px;
+    padding: 10px 10px;
+    font-family: 'Yuji Boku', serif;
+    font-style: italic;
+}
+#visionImgText small{
+    color: rgb(240, 211, 173);
+    text-align: end;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+/* #visionImage img:hover{
     transform: translate3D(0,-1px,0) scale(1.03);
     box-shadow: 8px 28px 50px rgba(39,44,49,.07), 1px 6px 12px rgba(39,44,49,.04);
     transition: all .4s ease; 
-}
+} */
 #skillTec{
     margin-top: 50px;
     margin-bottom: 50px;

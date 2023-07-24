@@ -32,9 +32,16 @@ function Vision() {
               this the first true generator on the Internet. It uses a
               dictionary of over 200 Latin words, combined with a handful of
               model sentence structures, to generate Lorem Ipsum which looks
-              reasonable. The generated Lorem Ipsum is therefore always free    <a href="" onClick={() => { navigate("/about") }}>read more</a>
+              reasonable. The generated Lorem Ipsum is therefore always free{" "}
+              <a
+                href=""
+                onClick={() => {
+                  navigate("/about");
+                }}
+              >
+                read more
+              </a>
             </p>
-         
           </div>
           <div class="col-lg-6 md-4" id="visionImage">
             <img
@@ -43,6 +50,18 @@ function Vision() {
               alt="..."
               id="visionImg"
             />
+            <div id="visionImgText">
+              <h5>
+                {" "}
+                <span>
+                  <i class="bx bxs-quote-alt-left"></i>
+                </span>
+                There are many variations of passages <br />
+                of Lorem Ipsum available, but <br /> the majority have suffered{" "}
+                <br /> alteration in some form
+              </h5>
+              <small>J Smith.</small>
+            </div>
           </div>
         </div>
       </div>
