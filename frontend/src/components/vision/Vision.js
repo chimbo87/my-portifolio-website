@@ -76,7 +76,7 @@ function Vision() {
           <div class="col-lg-4 md-4" id="visionTecWrap">
             <div id="skillsTake">
               <h4>+20</h4>
-              <h5> Projects Build</h5>
+              <h5> Projects Completed</h5>
             </div>
           </div>
           <div class="col-lg-4 md-4" id="visionTecWrap">
