@@ -181,6 +181,16 @@ function About() {
       </div>
 
       <div className="container" id="moreExperience">
+        <h4>Aws Solution Architecture</h4>
+        <p>
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum'{" "}
+        </p>
         <div class="accordion accordion-flush" id="accordionFlushExample">
           <div class="accordion-item">
             <h2 class="accordion-header">
@@ -192,7 +202,7 @@ function About() {
                 aria-expanded="false"
                 aria-controls="flush-collapseOne"
               >
-                Cloud Solution Architect
+                Cloud Techinical Essentials
               </button>
             </h2>
             <div
@@ -217,7 +227,7 @@ function About() {
                 aria-expanded="false"
                 aria-controls="flush-collapseTwo"
               >
-                Designing
+                Migrating to Aws
               </button>
             </h2>
             <div
@@ -233,8 +243,7 @@ function About() {
               </div>
             </div>
           </div>
-        
-        
+
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button
@@ -245,7 +254,7 @@ function About() {
                 aria-expanded="false"
                 aria-controls="flush-collapseThree"
               >
-                Digital Markerting
+                Solution Architecturing
               </button>
             </h2>
             <div

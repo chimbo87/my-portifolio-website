@@ -51,6 +51,11 @@ function Navbar() {
                     Blog
                   </Link>
                 </li>
+                <li class="nav-item" id="navItem">
+                  <Link className="nav-link" to="/admni" as={Link} id="navTxt">
+                    Admin
+                  </Link>
+                </li>
               </ul>
               <div class="d-flex" id="navBtn">
                 <div>

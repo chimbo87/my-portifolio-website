@@ -1,6 +1,10 @@
 .navbar{
     background-color: rgba(41, 41, 41, 0.963);
     z-index: 100;
+    position: fixed;
+    left: 0%;
+    right: 0%;
+    top: 0%;
 }
 #logo {
     background: -webkit-linear-gradient(#eee, #f7af57);

@@ -62,10 +62,11 @@
   transition: all .4s ease; 
 }
 #aboutSkillTexts {
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     rgba(128, 128, 128, 0.311),
     rgba(218, 165, 32, 0.297)
-  );
+  ); */
+  background-color:white;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -73,10 +74,11 @@
   justify-content: center;
   margin-top: 20px;
   cursor: pointer;
+  border-radius: 4px;
 }
 #aboutTxtBox:hover{
   transform: translate3D(0,-1px,0) scale(1.03);
-  box-shadow: 8px 28px 50px rgba(39,44,49,.07), 1px 6px 12px rgba(39,44,49,.04);
+  /* box-shadow: 8px 28px 50px rgba(39,44,49,.07), 1px 6px 12px rgba(39,44,49,.04); */
   transition: all .4s ease; 
 }
 #aboutSkillTexts i {
@@ -103,6 +105,27 @@
   background-color: transparent;
  
 }
+#moreExperience{
+  background-color:white ;
+  border-radius: 4px;
+}
+#moreExperience h4{
+  color: goldenrod;
+  text-align: center;
+}
+#moreExperience p{
+  text-align: start;
+  line-height: 2rem;
+  margin-bottom: 10px;
+}
+.accordion-header button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #593c19;
+  font-weight: 700;
+}
 #reviewCard {
   display: flex;
   justify-content: center;
@@ -128,7 +151,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background-color: gainsboro;
+  background-color: white;
 }
 #reviewCardBox:hover {
   box-shadow: 2px 2px 10px rgba(218, 165, 32, 0.402);
