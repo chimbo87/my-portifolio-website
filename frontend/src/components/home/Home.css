@@ -1,6 +1,7 @@
 
 #homeBox{
   height: 100vh;
+
 }
 #homeBox img{
   width: 100%;
@@ -10,7 +11,7 @@
 }
 
 #homeTexts{
-  margin-bottom: 170px;
+  margin-bottom: 100px;
 }
 #homeTexts h2{
   font-size: 45px;

@@ -2,6 +2,7 @@ import React from "react";
 import "./About.css";
 import aboutImg from "../assets/avat.jpg";
 import avata2 from "../assets/avata2.jpeg";
+import aboutSection from "../assets/aboutSection.jpg";
 import avata3 from "../assets/avata3.jpeg";
 import Slider from "react-slick";
 import Footer from "../footer/Footer";
@@ -45,33 +46,23 @@ function About() {
   return (
     <>
       <div className="container-fluid" id="aboutSection">
+        {/* <div id="aboutSectionImg">  <img src={aboutImg} /></div> */}
         <div id="aboutTexts">
-          <h4>ABOUT ME</h4>
+          <h4>About Me</h4>
         </div>
-        <div id="aboutPara">
-          {" "}
+        {/* <div id="aboutPara">
           <p>
             here are many variations of passages of Lorem Ipsum available, but
             the majority have suffered alteration in some form, by injected
             humour, or
           </p>
-        </div>
+        </div> */}
         <div id="aboutIcons">
           <i class="bx bxl-github"></i>
           <i class="bx bxl-linkedin"></i>
           <i class="bx bxl-facebook"></i>
           <i class="bx bxl-whatsapp"></i>
         </div>
-
-        {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-          <path
-            fill="#dedddd"
-            fill-opacity="1"
-            d="M0,288L34.3,272C68.6,256,137,224,206,218.7C274.3,213,343,235,411,240C480,245,549,235,617,202.7C685.7,171,754,117,823,101.3C891.4,85,960,107,1029,133.3C1097.1,160,1166,192,1234,186.7C1302.9,181,1371,139,1406,117.3L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"
-          >
-            <h3>hello world</h3>
-          </path>
-        </svg> */}
       </div>
 
       <div className="container" id="aboutMe">
@@ -103,7 +94,7 @@ function About() {
             </h5>
           </div>
           <div class="col-lg-6 md-4" id="aboutMeImg">
-            <img src={aboutImg} />
+            <img src={aboutSection} />
           </div>
         </div>
       </div>

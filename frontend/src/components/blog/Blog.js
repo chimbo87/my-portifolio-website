@@ -3,8 +3,13 @@ import "./Blog.css";
 import project02 from "../assets/project02.jpeg";
 import project03 from "../assets/project03.jpeg";
 import coffeeCode from "../assets/coffee&code.jpeg";
+import Footer from "../footer/Footer";
 function Blog() {
   return (
+    <>
+    <div className="container-fluid" id="blogSectionBox">
+      <h4>Blogs</h4>
+    </div>
     <div className="container" id="blogContainer">
       <div class="row" id="blogWrap">
         <div class="col-lg-6 md-4" id="blogImg">
@@ -127,6 +132,10 @@ function Blog() {
         
       </div>
     </div>
+    <div>
+      <Footer/>
+    </div>
+    </>
   );
 }
 

@@ -1,3 +1,27 @@
+#blogSectionBox{
+    background-image: linear-gradient(#2c2c2be5, rgba(128, 128, 128, 0.977)),
+    url("https://ncube-digest.com/wp-content/uploads/2020/02/Top-8-Software-Development-Models.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+}
+#blogSectionBox h4{
+    font-weight: 700;
+    font-size: 35px;
+    background: -webkit-linear-gradient(#dedddd, #f7af57);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#blogContainer{
+    position: relative;
+    top: -100px;
+}
 #blogWrap{
     border: 1px solid #80808036;
     margin-top: 20px;

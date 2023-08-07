@@ -1,9 +1,37 @@
+#projectSectionBox{
+    background-image: linear-gradient(#2c2c2be5, rgba(128, 128, 128, 0.977)),
+    url("https://ncube-digest.com/wp-content/uploads/2020/02/Top-8-Software-Development-Models.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+}
+#projectSectionBox H4{
+    font-weight: 700;
+  font-size: 35px;
+  background: -webkit-linear-gradient(#dedddd, #f7af57);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+}
+#projectWrapBox{
+    position: relative;
+    top: -100px;
+    background-color: #f8f5f5;
+    padding: 10px 10px;
+    border-radius: 5px;
+}
 #projectsNav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0px;
-   
+    padding: 10px 10px;
+  
 }
 #projectNavSelect{
     display: flex;
@@ -17,8 +45,8 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border: 1px solid grey;
-    background-color: whitesmoke;
+    border: 1px solid grey; 
+     background-color: whitesmoke;
     margin-top: 16px;
     border-radius: 4px;
 }
@@ -31,11 +59,39 @@
     color: goldenrod;
 }
 #projectImg{
+    position: relative;
     width: 100%;
     height: inherit;
+    cursor: pointer;
 }
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+ 
+  #projectImg:hover #overlay {
+    opacity: 1;
+  }
+  #overlay p{
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    display: none;
+  }
+  #projectImg:hover  #overlay p{
+    display: block;
+    cursor: pointer;
+  }
 #projectBoxCard{
-    border: 1px solid rgba(218, 165, 32, 0.358);
     margin-top: 20px;
     background-color: white;
 }
@@ -57,15 +113,17 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
 }
 #projectsHead h5{
     font-weight: 700;
     color: grey;
+    margin-top: 15px;
 }
 #projectsHead p{
     line-height: 2rem;
     text-align: start;
+    margin-top: 15px;
 }
 #projectsIconWrap{
     display: flex;
@@ -90,6 +148,7 @@
 #projectIconsContent a{
     margin-right: 15px;
     text-decoration: none;
+    color: grey;
 }
 #projectIconsContent a:hover{
     text-decoration: underline;
@@ -104,5 +163,50 @@
     margin-right: 4px;
     color: grey;
     font-size: 18px;
+    cursor: pointer;
+}
+#projectModalImgBox img{
+  width: 100%;
+  height: inherit;
+  object-fit: cover;
+  object-position: center;
+}
+#projectModalTextsBox{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-between;
+}
+#projectModalTextsBox p{
+    line-height: 2rem;
+}
+#projectCardIcon{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#projectLinks{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 50px;
+}
+#projectLinks a{
+    color: grey;
+}
+#modalProjectIcons{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 50px;
+}
+#modalProjectIcons i{
+    /* color: goldenrod; */
+    font-size: 20px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
 }

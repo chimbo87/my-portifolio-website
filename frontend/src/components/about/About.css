@@ -1,36 +1,59 @@
 #aboutSection {
-  background-image: linear-gradient(#594b29e5, rgba(128, 128, 128, 0.977)),
-    url("https://www.betterteam.com/images/software-developer-job-description-3599x2401-2020128.jpeg?crop=21:16,smart&width=420&dpr=2");
+  background-image: linear-gradient(#2c2c2be5, rgba(128, 128, 128, 0.977)),
+    url("https://ncube-digest.com/wp-content/uploads/2020/02/Top-8-Software-Development-Models.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 80vh;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-top: 50px;
+}
+#aboutSectionImg{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+ 
+}
+#aboutSectionImg img{
+  width: 100%;
+  height: inherit;
+  border-radius: 50%;
+  object-fit: contain;
+  border: 2px solid goldenrod;
 }
 #aboutTexts h4 {
   font-weight: 700;
-  font-size: 45px;
-  /* margin-top: 30px; */
+  font-size: 35px;
   background: -webkit-linear-gradient(#dedddd, #f7af57);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  
 }
 #aboutPara p{
     text-align: center;
-    max-width: 500px;
+    max-width: 700px;
     color: antiquewhite;
 }
 #aboutIcons i {
-  font-size: 30px;
-  color: #fda54e;
+  font-size: 25px;
+  background: -webkit-linear-gradient(#dedddd, #f7af57);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin: 0px 10px;
   cursor: pointer;
 }
+#aboutIcons i:hover{
+  rotate: 20deg;
+}
 #aboutMe {
-  margin-top: 40px;
+  position: relative;
+  margin-top: -100px;
+  background-color: white;
+  padding: 20px 10px;
+  border-radius: 5px;
 }
 
 #aboutMeText h4 {
@@ -54,7 +77,7 @@
   width: 100%;
   height: inherit;
   object-fit: cover;
-  border-radius: 4px;
+ opacity: 0.5;
 }
 #aboutMeImg img:hover{
   transform: translate3D(0,-1px,0) scale(1.03);
@@ -62,10 +85,7 @@
   transition: all .4s ease; 
 }
 #aboutSkillTexts {
-  /* background-image: linear-gradient(
-    rgba(128, 128, 128, 0.311),
-    rgba(218, 165, 32, 0.297)
-  ); */
+
   background-color:white;
   padding: 10px;
   display: flex;
@@ -75,10 +95,10 @@
   margin-top: 20px;
   cursor: pointer;
   border-radius: 4px;
+  box-shadow: 2px 2px 10px grey;
 }
 #aboutTxtBox:hover{
   transform: translate3D(0,-1px,0) scale(1.03);
-  /* box-shadow: 8px 28px 50px rgba(39,44,49,.07), 1px 6px 12px rgba(39,44,49,.04); */
   transition: all .4s ease; 
 }
 #aboutSkillTexts i {
@@ -86,6 +106,9 @@
   background: -webkit-linear-gradient(#3a3737, #8c6b42);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+#aboutSkillTexts i:hover{
+  rotate: 35deg;
 }
 #aboutSkillTexts h5{
   font-size: 15px;
@@ -108,6 +131,7 @@
 #moreExperience{
   background-color:white ;
   border-radius: 4px;
+  box-shadow: 2px 2px 5px grey;
 }
 #moreExperience h4{
   color: goldenrod;
