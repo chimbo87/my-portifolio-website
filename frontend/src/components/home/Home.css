@@ -26,13 +26,13 @@
   align-items: center;
   justify-content: space-between;
 }
-#textBoxWrap h5{
+#textBoxWrap h3{
   color: goldenrod;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 #textBoxWrap h2{
   color: antiquewhite;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 #textBoxWrap p{
   color: antiquewhite;

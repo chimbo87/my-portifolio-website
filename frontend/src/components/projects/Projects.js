@@ -321,6 +321,7 @@ function Projects() {
             </div>
           </div>
         </div>
+        
         <div id="projectPagination">
         <nav aria-label="...">
           <ul class="pagination">

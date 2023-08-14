@@ -10,9 +10,9 @@ function Home() {
       <div className="container-fluid" id="homeSection">
         <div className="container" id="homeContainerTextBox">
           <div id="textBoxWrap">
-            <h5>Hi There, Iam</h5>
+            <h3>Hi There, Iam</h3>
             <h2>ARCHFORD NHANGA</h2>
-            <h5>Frontend Software Engineer</h5>
+            <h3>Frontend Software Engineer</h3>
             <p>
               Contrary to popular belief, Lorem Ipsum is not simply random text.
               It has roots in a piece of classical Latin literature from 45 BC,
