@@ -19,12 +19,7 @@
     align-items: center;
     justify-content: center;
 }
-#navBtn i{
-    color: antiquewhite;
-    font-size: 30px;
-    margin-right: 22px;
-    cursor: pointer;
-}
+
 #navItem a{
     color: antiquewhite;
 }
@@ -38,15 +33,68 @@
     border: 2px solid rgba(250, 235, 215, 0.253);
     padding: 10px 20px;
     background-color: transparent;
+    display: flex;
+    align-items: center;
+    
+}
+#navBtn button i{
+    margin-left: 5px;
+    font-size: 30px;
+    color: rgb(248, 211, 119);
 }
 #navBtn button:hover{
-    background-color: antiquewhite;
-    color: black;
+ border: 2px solid #faebd7;
+ background-color: rgb(60, 58, 58);
+    
 }
 #staticBackdropLabel{
   
     font-weight: 700;
 }
+#chatModalBody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#chatUserDetailsBox{
+    width: 450px;
+    box-shadow: 2px 2px 15px grey;
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#chatUserDetailsBox label{
+    color: #916d3d;
+}
+
+#chatUserDetailsBox input{
+    border-radius: 4px;
+    width: 100%;
+    background-color: rgba(223, 221, 221, 0.418);
+}
+#chatModalBtn{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#chatModalBtn button{
+    padding: 8px 0px;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background-color: #916d3d;
+}
+#chatModalBtn button:hover{
+    background-color: #574834;
+}
+
+
+
+
 #chatBoxHead{
     display: flex;
     align-items: center;

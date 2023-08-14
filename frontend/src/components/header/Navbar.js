@@ -1,6 +1,9 @@
 import React from "react";
 import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
+import io from "socket.io-client";
+
+const socket = io.connect("http://localhost:3001");
 
 function Navbar() {
   return (
@@ -58,15 +61,14 @@ function Navbar() {
                 </li>
               </ul>
               <div class="d-flex" id="navBtn">
-                <div>
-                  <i class="bx bxs-moon"></i>
-                </div>
+             
                 <button
                   type="button"
                   data-bs-toggle="modal"
                   data-bs-target="#staticBackdrop"
                 >
                   LET'S TALK
+                  <i class='bx bxl-whatsapp'></i>
                 </button>
               </div>
             </div>
@@ -97,12 +99,44 @@ function Navbar() {
                 aria-label="Close"
               ></button>
             </div>
+            <div class="modal-body" id="chatModalBody">
+              <small>
+                Please provide your email address and phone number to continue
+              </small>
+              <form id="chatUserDetailsBox">
+                <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">
+                    Email address
+                  </label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">
+                    Phone number
+                  </label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                  />
+                </div>
+                <div id="chatModalBtn">
+                  <button>Submit</button>
+                </div>
+              </form>
+            </div>
             <div class="modal-body">
-              <div id="chats">
-                <p>
-                  Hello there, please enter your name and email to continue...
-                </p>
-              </div>
+              <p>
+                ontrary to popular belief, Lorem Ipsum is not simply random
+                text. It has roots in a piece of classical Latin literature from
+                45 BC, making it over 2000 years old. Richard McClintock, a
+                Latin professor at Hampden-Sydney College in Virginia, looked up
+                one of the more obscure Latin words, consectetur,
+              </p>
             </div>
             <div class="modal-footer">
               <button
