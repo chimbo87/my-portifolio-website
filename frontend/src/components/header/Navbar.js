@@ -68,7 +68,7 @@ function Navbar() {
                   data-bs-target="#staticBackdrop"
                 >
                   LET'S TALK
-                  <i class='bx bxl-whatsapp'></i>
+                  <i class='bx bxl-whatsapp'><a href="http://wa.me/27817338886"></a></i>
                 </button>
               </div>
             </div>
