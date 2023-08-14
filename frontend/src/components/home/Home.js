@@ -7,7 +7,7 @@ function Home() {
   const navigate = useNavigate();
   return (
     <>
-      <div className="container-fluid"id="homeSection">
+      <div className="container-fluid" id="homeSection">
         <div className="container" id="homeContainerTextBox">
           <div id="textBoxWrap">
             <h5>Hi There, Iam</h5>
@@ -20,6 +20,12 @@ function Home() {
               professor at Hampden-Sydney College in Virginia, looked up one of
               the more obscure Latin words, consectetur,
             </p>
+            <div id="aboutIcons">
+          <i class="bx bxl-github"></i>
+          <i class="bx bxl-linkedin"></i>
+          <i class="bx bxl-facebook"></i>
+          <i class="bx bxl-whatsapp"></i>
+        </div>
             <div>
               <button
                 onClick={() => {
@@ -32,7 +38,6 @@ function Home() {
           </div>
         </div>
       </div>
-
     </>
   );
 }

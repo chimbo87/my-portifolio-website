@@ -43,7 +43,9 @@ function Projects() {
               >
                 <img src={project03} />
                 <div id="overlay">
-                  <p>View More <i class='bx bx-arrow-back bx-rotate-180' ></i></p>
+                  <p>
+                    View More <i class="bx bx-arrow-back bx-rotate-180"></i>
+                  </p>
                 </div>
               </div>
               <div id="projectCardText">
@@ -88,7 +90,9 @@ function Projects() {
               >
                 <img src={project03} />
                 <div id="overlay">
-                  <p>View More <i class='bx bx-arrow-back bx-rotate-180' ></i></p>
+                  <p>
+                    View More <i class="bx bx-arrow-back bx-rotate-180"></i>
+                  </p>
                 </div>
               </div>
               <div id="projectCardText">
@@ -125,7 +129,6 @@ function Projects() {
             </div>
           </div>
 
-
           <div class="col-lg-4 md-4">
             <div id="projectBoxCard">
               <div
@@ -135,7 +138,9 @@ function Projects() {
               >
                 <img src={project03} />
                 <div id="overlay">
-                  <p>View More <i class='bx bx-arrow-back bx-rotate-180' ></i></p>
+                  <p>
+                    View More <i class="bx bx-arrow-back bx-rotate-180"></i>
+                  </p>
                 </div>
               </div>
               <div id="projectCardText">
@@ -172,7 +177,6 @@ function Projects() {
             </div>
           </div>
 
-
           <div class="col-lg-4 md-4">
             <div id="projectBoxCard">
               <div
@@ -182,7 +186,9 @@ function Projects() {
               >
                 <img src={project03} />
                 <div id="overlay">
-                  <p>View More <i class='bx bx-arrow-back bx-rotate-180' ></i></p>
+                  <p>
+                    View More <i class="bx bx-arrow-back bx-rotate-180"></i>
+                  </p>
                 </div>
               </div>
               <div id="projectCardText">
@@ -219,7 +225,6 @@ function Projects() {
             </div>
           </div>
 
-
           <div class="col-lg-4 md-4">
             <div id="projectBoxCard">
               <div
@@ -229,7 +234,9 @@ function Projects() {
               >
                 <img src={project03} />
                 <div id="overlay">
-                  <p>View More <i class='bx bx-arrow-back bx-rotate-180' ></i></p>
+                  <p>
+                    View More <i class="bx bx-arrow-back bx-rotate-180"></i>
+                  </p>
                 </div>
               </div>
               <div id="projectCardText">
@@ -265,7 +272,6 @@ function Projects() {
               </div>
             </div>
           </div>
-
 
           <div class="col-lg-4 md-4">
             <div id="projectBoxCard">
@@ -276,7 +282,9 @@ function Projects() {
               >
                 <img src={project01} />
                 <div id="overlay">
-                  <p>View More <i class='bx bx-arrow-back bx-rotate-180' ></i></p>
+                  <p>
+                    View More <i class="bx bx-arrow-back bx-rotate-180"></i>
+                  </p>
                 </div>
               </div>
               <div id="projectCardText">
@@ -312,9 +320,37 @@ function Projects() {
               </div>
             </div>
           </div>
-
-      
         </div>
+        <div id="projectPagination">
+        <nav aria-label="...">
+          <ul class="pagination">
+            <li class="page-item disabled">
+              <a class="page-link">Previous</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">
+                1
+              </a>
+            </li>
+            <li class="page-item active" aria-current="page">
+              <a class="page-link" href="#">
+                2
+              </a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">
+                3
+              </a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">
+                Next
+              </a>
+            </li>
+          </ul>
+        </nav>
+        </div>
+        
       </div>
 
       <div

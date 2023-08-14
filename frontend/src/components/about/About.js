@@ -46,22 +46,8 @@ function About() {
   return (
     <>
       <div className="container-fluid" id="aboutSection">
-        {/* <div id="aboutSectionImg">  <img src={aboutImg} /></div> */}
         <div id="aboutTexts">
           <h4>About Me</h4>
-        </div>
-        {/* <div id="aboutPara">
-          <p>
-            here are many variations of passages of Lorem Ipsum available, but
-            the majority have suffered alteration in some form, by injected
-            humour, or
-          </p>
-        </div> */}
-        <div id="aboutIcons">
-          <i class="bx bxl-github"></i>
-          <i class="bx bxl-linkedin"></i>
-          <i class="bx bxl-facebook"></i>
-          <i class="bx bxl-whatsapp"></i>
         </div>
       </div>
 

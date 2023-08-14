@@ -203,10 +203,15 @@
     margin-left: 50px;
 }
 #modalProjectIcons i{
-    /* color: goldenrod; */
     font-size: 20px; 
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+}
+#projectPagination{
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
