@@ -27,9 +27,10 @@
 #aboutTexts h4 {
   font-weight: 700;
   font-size: 35px;
-  background: -webkit-linear-gradient(#dedddd, #f7af57);
+  background: -webkit-linear-gradient(0deg,#FFB800,#22DC12,#0E9DEE);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-weight: 700;
   
 }
 #aboutPara p{

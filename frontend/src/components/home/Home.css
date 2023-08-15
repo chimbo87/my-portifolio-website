@@ -31,7 +31,11 @@
   margin-top: 10px;
 }
 #textBoxWrap h2{
-  color: antiquewhite;
+  background: -webkit-linear-gradient(0deg,#FFB800,#22DC12,#0E9DEE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  /* color: antiquewhite; */
   margin-top: 10px;
 }
 #textBoxWrap p{

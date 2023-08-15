@@ -1,0 +1,17 @@
+#feedbackSection{
+    margin-top: 20px;
+}
+#tableHeadRow{
+    background-color: antiquewhite;
+}
+#feedbackUpdateBtn{
+    padding: 8px 20px;
+    color: brown;
+    border: 1px solid #80808024;
+}
+#feedbackUpdateBtn:hover{
+    background-color: rgba(255, 0, 0, 0.064);
+}
+#loader{
+    margin-top: 15px;
+}

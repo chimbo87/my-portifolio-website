@@ -4,8 +4,8 @@ import { Link, Outlet } from "react-router-dom";
 function Admin() {
   return (
     <>
-      <div className="container" id="adminSection">
-        <div id="adminBox">
+      <div className="container-fluid" id="adminSection">
+        <div className="container-fluid" id="adminBox">
           <Link className="nav-link" to="addproject" as={Link} id="adminNavTxt">
             <p>ADD PROJECTS</p>
           </Link>
@@ -30,10 +30,7 @@ function Admin() {
             <p> VIEW CHATS</p>
           </Link>
 
-          {/* <div id="projectNotification">
-            <i class="bx bx-bell"></i>
-            <small>3</small>
-          </div> */}
+        
         </div>
       </div>
       <div className="container" id="adminPanel">
