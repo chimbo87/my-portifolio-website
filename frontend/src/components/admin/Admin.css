@@ -10,7 +10,71 @@
     align-items: center;
     margin-top: 20px;
 }
-#adminNavTxt{
+#dropdownMenu{
+  
+    
+    background-color: white;
+}
+#dropdownMenu li{
+   margin: 0px 5px;
+    padding: 5px 20px;
+    text-decoration: underline;
+    font-weight: 700;
+}
+#dropdownMenu li:hover{
+    background-color: rgba(128, 128, 128, 0.267);
+}
+#admniNotifications{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+#admniNotifications button{
+    margin-right: 20px;
+}
+#admniNotifications button i{
+    font-size: 20px;
+}
+#offcanvas-header{
+    background-color: gray;
+}
+#offcanvasWithBothOptionsLabel{
+    color: antiquewhite;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#offcanvasWithBothOptionsLabel i{
+    font-size: 25px;
+    color: rgb(247, 190, 120);
+    margin-left: 10px;
+}
+#noficationList{
+    background-color: #dcdcdc54;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+#noficationList:hover{
+    background-color: #dcdcdca1;
+}
+#noficationListItem{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+#noficationListItem small{
+    font-weight: 500;
+    color: rgb(13, 13, 71);
+    font-size: 14px;
+}
+#noficationListItemText small{
+    font-size: 13px;
+}
+/* #adminNavTxt{
     margin: 0px 10px;
     padding: 0px 40px;
     display: flex;
@@ -24,4 +88,4 @@
     font-weight: 700;
     margin-top: 12px;
     font-size: 12px;
-}
+} */

@@ -8,7 +8,6 @@ import About from "./components/about/About";
 import AddProject from "./components/addProject/AddProject";
 import AddBlog from "./components/addBlog/AddBlog";
 import Feedbacks from "./components/feedbacks/Feedbacks";
-import Chats from "./components/chats/Chats";
 import Admin from "./components/admin/Admin";
 import Blog from "./components/blog/Blog";
 import FrontPage from "./components/frontPage/FrontPage";
@@ -33,7 +32,7 @@ function App() {
           <Route path="addblog" element={<AddBlog />} />
           <Route path="viewblog" element={<ViewBlogs />} />
           <Route path="feedbacks" element={<Feedbacks />} />
-          <Route path="chats" element={<Chats />} />
+          
         </Route>
       </Route>
     )
