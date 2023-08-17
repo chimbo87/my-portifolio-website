@@ -1,8 +1,14 @@
 import React from "react";
 import "./Admin.css";
+import { useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 
 function Admin() {
+  const [headingText, setHeadingText] = useState("ADD PROJECTS ");
+
+  const handleButtonClick = (buttonName) => {
+    setHeadingText(buttonName);
+  };
   const navigate = useNavigate();
   return (
     <>
@@ -11,7 +17,7 @@ function Admin() {
           <div id="admniNotifications">
             <button
               type="button"
-              class="btn btn-secondary position-relative"
+              class="btn btn-dark position-relative"
               data-bs-toggle="offcanvas"
               data-bs-target="#offcanvasWithBothOptions"
               aria-controls="offcanvasWithBothOptions"
@@ -25,9 +31,10 @@ function Admin() {
 
             <button
               type="button"
-              class="btn btn-secondary position-relative"
+              class="btn btn-dark position-relative"
               onClick={() => {
                 navigate("feedbacks");
+                handleButtonClick("VIEW EMAILS");
               }}
             >
               <i class="bx bx-envelope"></i>
@@ -37,40 +44,72 @@ function Admin() {
               </span>
             </button>
           </div>
+          <div id="admnSectionHead">
+            <h4>{headingText}</h4>
+          </div>
           <div class="dropdown">
             <a
-              class="btn btn-secondary dropdown-toggle"
+              class="btn btn-dark dropdown-toggle"
               href="#"
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
+              id="admnMenu"
             >
-              <b>ADMNI PANEL</b>
+              <small>
+                {" "}
+                ADMN MENU <i class="bx bx-menu-alt-right"></i>
+              </small>
             </a>
 
             <ul class="dropdown-menu" id="dropdownMenu">
               <li>
-                <Link className="nav-link" to="addproject" as={Link}>
+                <Link
+                  className="nav-link"
+                  to="addproject"
+                  as={Link}
+                  onClick={() => handleButtonClick("ADD PROJECTS")}
+                >
                   <small>ADD PROJECT</small>
                 </Link>
               </li>
               <li>
-                <Link className="nav-link" to="viewproject" as={Link}>
+                <Link
+                  className="nav-link"
+                  to="viewproject"
+                  as={Link}
+                  onClick={() => handleButtonClick("VIEW PROJECTS")}
+                >
                   <small>VIEW PROJECTS</small>
                 </Link>
               </li>
               <li>
-                <Link className="nav-link" to="addblog" as={Link}>
+                <Link
+                  className="nav-link"
+                  to="addblog"
+                  as={Link}
+                  onClick={() => handleButtonClick("ADD BLOGS")}
+                >
                   <small>ADD BLOG</small>
                 </Link>
               </li>
               <li>
-                <Link className="nav-link" to="viewblog" as={Link}>
+                <Link
+                  className="nav-link"
+                  to="viewblog"
+                  as={Link}
+                  onClick={() => handleButtonClick("VIEW BLOGS")}
+                >
                   <small>BLOGS</small>
                 </Link>
               </li>
               <li>
-                <Link className="nav-link" to="feedbacks" as={Link}>
+                <Link
+                  className="nav-link"
+                  to="feedbacks"
+                  as={Link}
+                  onClick={() => handleButtonClick("VIEW EMAILS")}
+                >
                   <small>EMAILS</small>
                 </Link>
               </li>
@@ -183,7 +222,7 @@ function Admin() {
               </small>
             </div>
           </ul>
-          {/* <h5>See more</h5> */}
+       
         </div>
       </div>
     </>

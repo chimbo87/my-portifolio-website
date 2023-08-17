@@ -10,6 +10,16 @@ const projectSchema = mongoose.Schema({
         required:true,
         
     },
+    githubLink:{
+        type: String,
+        required:true,
+        
+    },
+    siteLink:{
+        type: String,
+        required:true,
+        
+    },
     description:{
         type: String,
         required:true

@@ -1,8 +1,31 @@
 #adminSection{
+    background-image: linear-gradient(#2c2c2be5, rgba(128, 128, 128, 0.47)),
+    url("https://s.astonaccountants.com.au/wp-content/uploads/businesswoman-670x415.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 100px;
+    height: 60vh;
+   
+}
+#admnSectionHead h4{
+    background: -webkit-linear-gradient(0deg,#ffa200,#77a8ce,#d29968);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+#admnMenu{
+    border-radius: none;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#adminPanel{
+    position: relative;
+    top: -140px;
 }
 #adminBox{
     display: flex;

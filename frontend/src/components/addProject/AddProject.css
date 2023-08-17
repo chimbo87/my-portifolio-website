@@ -1,10 +1,15 @@
 #projectSection{
-    /* background-color: #ffffff3c; */
+    padding-top: 40px;
+    background-color: white;
     margin-top: 20px;
-    box-shadow: 2px 2px 10px rgba(128, 128, 128, 0.32);
+    box-shadow: 2px 2px 15px #313131b0;
+}
+#formWrapBox h4{
+    text-align: center;
+    font-weight: 700;
 }
 #ProjectInput input{
-    border-bottom: 2px solid #3939396e;
+    border: 1px solid #3939396e;
     border-radius: 0px;
     background-color: transparent;
 }

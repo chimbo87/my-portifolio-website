@@ -1,3 +1,4 @@
+import "./AddBlog.css";
 import React from "react";
 import { useState } from "react";
 import imageIcon from "../assets/imgicon.png";
@@ -28,9 +29,11 @@ function AddBlog() {
     setImageurl("");
   };
   return (
-    <div className="container" id="projectSection">
+    <div className="container" id="addBlogSection">
+     
       <div class="row">
         <div class="col-lg-8 md-4">
+        <h4>Post Blog</h4>
           <form onSubmit={submitRegHandler}>
             <div class="mb-3" id="ProjectInput">
               <label for="exampleFormControlInput1" class="form-label"></label>
@@ -75,7 +78,7 @@ function AddBlog() {
           </form>
         </div>
         <div class="col-lg-4 md-4">
-          <div class="col-lg-4 md-4" id="imageWrap">
+          <div  id="imageWrap">
             <img src={imageIcon} alt="..." />
           </div>
         </div>

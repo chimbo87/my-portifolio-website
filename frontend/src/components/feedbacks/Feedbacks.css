@@ -12,6 +12,10 @@
 #feedbackUpdateBtn:hover{
     background-color: rgba(255, 0, 0, 0.064);
 }
+#menuListInput input{
+    border: 1px solid black;
+    background-color: gainsboro;
+}
 #loader{
     margin-top: 15px;
     display: flex;

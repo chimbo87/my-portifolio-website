@@ -32,7 +32,6 @@ function Feedbacks() {
   };
   useEffect(() => {
     getFeedbacks();
-    
   }, []);
 
   const handleFilter = (event) => {
@@ -51,68 +50,70 @@ function Feedbacks() {
             onChange={handleFilter}
             style={{
               padding: "6px 15px",
-              border: "1px solid gray",
+
               margin: "4px 4px",
             }}
           />
         </div>
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered  align-middle">
+            <thead>
+              <tr class="table table-dark">
+                <th scope="col">ID</th>
+                <th scope="col">NAME</th>
+                <th scope="col">PHONE</th>
+                <th scope="col">EMAIL</th>
+                <th scope="col">MESSAGE</th>
+                <th scope="col">DATE</th>
+                <th scope="col">ACTION</th>
+              </tr>
+            </thead>
 
-        <table class="table table-striped table-bordered">
-          <thead>
-            <tr class="table table-dark">
-              <th scope="col">ID</th>
-              <th scope="col">NAME</th>
-              <th scope="col">PHONE</th>
-              <th scope="col">EMAIL</th>
-              <th scope="col">MESSAGE</th>
-              <th scope="col">DATE</th>
-              <th scope="col">ACTION</th>
-            </tr>
-          </thead>
+            {feedbacks.map((feedback) => {
+              return (
+                <>
+                  {loading ? (
+                    <Spinner />
+                  ) : (
+                    <tbody>
+                      <tr>
+                        <td>
+                          <small>{feedback._id}</small>
+                        </td>
+                        <td>
+                          <small>{feedback.name}</small>
+                        </td>
+                        <td>
+                          <small>{feedback.number}</small>
+                        </td>
+                        <td>
+                          <small>{feedback.email}</small>
+                        </td>
+                        <td>
+                          <small>{feedback.message}</small>
+                        </td>
+                        <td>
+                          <small>{feedback.createdAt}</small>
+                        </td>
+                        <td>
+                          <button
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"
+                            id="feedbackUpdateBtn"
+                          >
+                            Remove
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  )}
+                  {/* <Spinner /> */}
+                </>
+              );
+            })}
+          </table>
+        </div>
 
-          {feedbacks.map((feedback) => {
-            return (
-              <>
-                {loading ? (
-                  <Spinner />
-                ) : (
-                  <tbody>
-                    <tr>
-                      <td>
-                        <small>{feedback._id}</small>
-                      </td>
-                      <td>
-                        <small>{feedback.name}</small>
-                      </td>
-                      <td>
-                        <small>{feedback.number}</small>
-                      </td>
-                      <td>
-                        <small>{feedback.email}</small>
-                      </td>
-                      <td>
-                        <small>{feedback.message}</small>
-                      </td>
-                      <td>
-                        <small>{feedback.createdAt}</small>
-                      </td>
-                      <td>
-                        <button
-                          data-bs-toggle="modal"
-                          data-bs-target="#exampleModal"
-                          id="feedbackUpdateBtn"
-                        >
-                          Remove
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                )}
-                {/* <Spinner /> */}
-              </>
-            );
-          })}
-        </table>
         <div id="projectPagination">
           <nav aria-label="...">
             <ul class="pagination">

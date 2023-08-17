@@ -5,10 +5,13 @@ import feedback from "../models/feedBackModel.js";
 
 const myProjects = asyncHandler(async (req, res) => {
   try {
-    const { name, title, description, image } = req.body;
+    const { name, title,githubLink,
+      siteLink, description, image } = req.body;
     const Project = await project.create({
       name,
       title,
+      githubLink,
+      siteLink,
       description,
       image,
     });
