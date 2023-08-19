@@ -1,24 +1,7 @@
 import "./ViewProjects.css";
 import React from "react";
 import { useState, useEffect } from "react";
-
-const Spinner = () => {
-  return (
-    <div class="text-center" id="loader">
-      <div class="spinner-grow text-center" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </div>
-  );
-};
-
-// const BlogUpdate = () => {
-//   return (
-//     <div>
-//       <h3>hello world</h3>
-//     </div>
-//   );
-// };
+import LoadingSpinner from "../loader/LoadingSpinner";
 
 function ViewProjects() {
   const [projects, setProjects] = useState([]);
@@ -52,77 +35,76 @@ function ViewProjects() {
     <>
       <div id="feedbackSection">
         <div id="menuListInput">
-        <input
-          type="text"
-          placeholder="Search..."
-          onChange={handleFilter}
-          style={{
-            padding: "6px 15px",
-            border: "1px solid gray",
-            margin: "4px 4px",
-          }}
-        />
-      </div>
-      <div class="table-responsive">
-      <table class="table table-striped table-bordered  align-middle">
-          <thead>
-            <tr class="table table-dark">
-              <th scope="col">ID</th>
-              <th scope="col">TITLE</th>
-              <th scope="col">MESSAGE</th>
-              <th scope="col">DATE</th>
-              <th scope="col">UPDATE</th>
-              <th scope="col">REMOVE</th>
-            </tr>
-          </thead>
+          <input
+            type="text"
+            placeholder="Search..."
+            onChange={handleFilter}
+            style={{
+              padding: "6px 15px",
+              border: "1px solid gray",
+              margin: "4px 4px",
+            }}
+          />
+        </div>
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered  align-middle">
+            <thead>
+              <tr class="table table-dark">
+                <th scope="col">ID</th>
+                <th scope="col">TITLE</th>
+                <th scope="col">MESSAGE</th>
+                <th scope="col">DATE</th>
+                <th scope="col">UPDATE</th>
+                <th scope="col">REMOVE</th>
+              </tr>
+            </thead>
 
-          {projects.map((project) => {
-            return (
-              <>
-                {loading ? (
-                  <Spinner />
-                ) : (
-                  <tbody>
-                    <tr>
-                      <td>
-                        <small>{project._id}</small>
-                      </td>
-                      <td>
-                        <small>{project.title}</small>
-                      </td>
-                      <td>
-                        <small>{project.description}</small>
-                      </td>
-                      <td>
-                        <small>{project.createdAt}</small>
-                      </td>
-                      <td>
-                        <button
-                          data-bs-toggle="modal"
-                          data-bs-target="#exampleModal"
-                          id="feedbackUpdateBtn"
-                        >
-                          Edit
-                        </button>
-                      </td>
-                      <td>
-                        <button
-                          // data-bs-toggle="modal"
-                          // data-bs-target="#exampleModal"
-                          id="feedbackUpdateBtn"
-                        >
-                          Remove
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                )}
-              </>
-            );
-          })}
-        </table>
-      </div>
-  
+            {projects.map((project) => {
+              return (
+                <>
+                  {!loading && (
+                    <tbody>
+                      <tr>
+                        <td>
+                          <small>{project._id}</small>
+                        </td>
+                        <td>
+                          <small>{project.title}</small>
+                        </td>
+                        <td>
+                          <small>{project.description}</small>
+                        </td>
+                        <td>
+                          <small>{project.createdAt}</small>
+                        </td>
+                        <td>
+                          <button
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"
+                            id="feedbackUpdateBtn"
+                          >
+                            Edit
+                          </button>
+                        </td>
+                        <td>
+                          <button
+                            // data-bs-toggle="modal"
+                            // data-bs-target="#exampleModal"
+                            id="feedbackUpdateBtn"
+                          >
+                            Remove
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  )}
+                </>
+              );
+            })}
+          </table>
+          {loading && <LoadingSpinner />}
+        </div>
+
         <div id="projectPagination">
           <nav aria-label="...">
             <ul class="pagination">
@@ -174,9 +156,10 @@ function ViewProjects() {
               </div>
               <div class="modal-body">
                 <div class="mb-3" id="modalInputBox">
-                  <label for="exampleFormControlInput1" class="form-label">
-                   
-                  </label>
+                  <label
+                    for="exampleFormControlInput1"
+                    class="form-label"
+                  ></label>
                   <input
                     type="text"
                     class="form-control"
@@ -185,9 +168,10 @@ function ViewProjects() {
                   />
                 </div>
                 <div class="mb-3" id="modalInputBox">
-                  <label for="exampleFormControlInput1" class="form-label">
-                   
-                  </label>
+                  <label
+                    for="exampleFormControlInput1"
+                    class="form-label"
+                  ></label>
                   <input
                     type="text"
                     class="form-control"
@@ -196,41 +180,41 @@ function ViewProjects() {
                   />
                 </div>
                 <div class="row">
-              
-              <div class="col-lg-6 md-4">
-                {" "}
-                <div class="mb-3"  id="ProjectInput">
-                  <label for="exampleFormControlInput1" class="form-label">
-                    {/* Email address */}
-                  </label>
-                  <input
-                    type="link"
-                    class="form-control"
-                    id="exampleFormControlInput1"
-                    placeholder="Github link"
-                  />
+                  <div class="col-lg-6 md-4">
+                    {" "}
+                    <div class="mb-3" id="ProjectInput">
+                      <label for="exampleFormControlInput1" class="form-label">
+                        {/* Email address */}
+                      </label>
+                      <input
+                        type="link"
+                        class="form-control"
+                        id="exampleFormControlInput1"
+                        placeholder="Github link"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-lg-6 md-4">
+                    {" "}
+                    <div class="mb-3" id="ProjectInput">
+                      <label for="exampleFormControlInput1" class="form-label">
+                        {/* Email address */}
+                      </label>
+                      <input
+                        type="link"
+                        class="form-control"
+                        id="exampleFormControlInput1"
+                        placeholder="Web link"
+                      />
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="col-lg-6 md-4">
-                {" "}
-                <div class="mb-3"  id="ProjectInput">
-                  <label for="exampleFormControlInput1" class="form-label">
-                    {/* Email address */}
-                  </label>
-                  <input
-                    type="link"
-                    class="form-control"
-                    id="exampleFormControlInput1"
-                    placeholder="Web link"
-                  />
-                </div>
-              </div>
-            </div>
 
                 <div class="mb-3" id="modalInputBox">
-                  <label for="exampleFormControlInput1" class="form-label">
-                    
-                  </label>
+                  <label
+                    for="exampleFormControlInput1"
+                    class="form-label"
+                  ></label>
                   <input
                     type="file"
                     class="form-control"
@@ -238,10 +222,11 @@ function ViewProjects() {
                     placeholder="name@example.com"
                   />
                 </div>
-                <div class="mb-3"id="modalInputBox">
-                  <label for="exampleFormControlTextarea1" class="form-label">
-                    
-                  </label>
+                <div class="mb-3" id="modalInputBox">
+                  <label
+                    for="exampleFormControlTextarea1"
+                    class="form-label"
+                  ></label>
                   <textarea
                     class="form-control"
                     id="exampleFormControlTextarea1"
@@ -249,7 +234,9 @@ function ViewProjects() {
                     placeholder="Message"
                   ></textarea>
                 </div>
-                <div id="modalButton"><button>Update</button></div>
+                <div id="modalButton">
+                  <button>Update</button>
+                </div>
               </div>
               {/* <div class="modal-footer">
                 <button

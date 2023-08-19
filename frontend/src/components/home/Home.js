@@ -3,7 +3,9 @@ import homeImg from "../assets/home.jpg";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
 
+
 function Home() {
+
   const navigate = useNavigate();
   return (
     <>
@@ -32,7 +34,7 @@ function Home() {
                   navigate("/projects");
                 }}
               >
-                My Work
+                See My Work
               </button>
             </div>
           </div>

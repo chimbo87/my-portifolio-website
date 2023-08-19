@@ -1,6 +1,7 @@
 import "./Feedbacks.css";
 import React from "react";
 import { useState, useEffect } from "react";
+import LoadingSpinner from "../loader/LoadingSpinner";
 
 const Spinner = () => {
   return (
@@ -72,9 +73,7 @@ function Feedbacks() {
             {feedbacks.map((feedback) => {
               return (
                 <>
-                  {loading ? (
-                    <Spinner />
-                  ) : (
+                  {!loading && (
                     <tbody>
                       <tr>
                         <td>
@@ -107,11 +106,12 @@ function Feedbacks() {
                       </tr>
                     </tbody>
                   )}
-                  {/* <Spinner /> */}
+                 
                 </>
               );
             })}
           </table>
+          {loading && <LoadingSpinner />}
         </div>
 
         <div id="projectPagination">

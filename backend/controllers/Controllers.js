@@ -47,6 +47,17 @@ const myBlogs = asyncHandler(async (req, res) => {
   }
 });
 
+const Likes = asyncHandler(async (req, res) => {
+  try {
+    const like = await blogs.findById(req.params.blogsId);
+    like.likes += 1;
+    await like.save();
+    res.json(like);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 const getBlogs = asyncHandler(async (req, res) => {
   try {
     const Blogs = await blogs.find({});
@@ -89,4 +100,5 @@ export {
   getBlogs,
   myFeedbacks,
   getFeedbacks,
+  Likes
 };

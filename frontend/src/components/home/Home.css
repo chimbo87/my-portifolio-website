@@ -35,20 +35,24 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 700;
-  /* color: antiquewhite; */
   margin-top: 10px;
 }
 #textBoxWrap p{
   color: antiquewhite;
   line-height: 1.5rem;
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: center;
 }
 #textBoxWrap button{
-  color: #a48331;
+  color: antiquewhite;
   font-weight: 600;
-  padding: 10px 40px;
-  border: none;
+  font-size: 20px;
+  padding: 10px 35px;
+  border: 2px solid #daa52082;
   margin-top: 20px;
+  background-color: transparent;
+}
+#textBoxWrap button:hover{
+  background-color: #faebd717;
 }
 

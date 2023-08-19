@@ -1,11 +1,39 @@
 import React from "react";
 import "./Projects.css";
-import projectImg from "../assets/project01.jpeg";
-import project01 from "../assets/project01.jpeg";
-import project02 from "../assets/project02.jpeg";
-import project03 from "../assets/project03.jpeg";
 import Footer from "../footer/Footer";
+import { useState, useEffect } from "react";
+import LoadingSpinner from "../loader/LoadingSpinner";
+
 function Projects() {
+  const [loading, setLoading] = useState(false);
+  const [projects, setProjects] = useState([]);
+  const [filterRecords, setFilterRecords] = useState([]);
+
+
+  const getProjects = async () => {
+    setLoading(true);
+    const response = await fetch("http://localhost:8000/projects").then(
+      (response) => response.json()
+    );
+    {
+      setProjects(response);
+      setFilterRecords(response);
+      setLoading(false);
+    }
+
+    console.log("our products list:", response);
+  };
+  useEffect(() => {
+    getProjects();
+  }, []);
+
+  const handleFilter = (event) => {
+    const newData = filterRecords.filter((row) =>
+      row.name.toLowerCase().includes(event.target.value.toLowerCase())
+    );
+    setProjects(newData);
+  };
+
   return (
     <>
       <div className="container-fluid" id="projectSectionBox">
@@ -29,329 +57,99 @@ function Projects() {
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Search ..."
+              onChange={handleFilter}
             />
             <i class="bx bx-search"></i>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-4 md-4">
-            <div id="projectBoxCard">
-              <div
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-                id="projectImg"
-              >
-                <img src={project03} />
-                <div id="overlay">
-                  <p>
-                    View More <i class="bx bx-arrow-back bx-rotate-180"></i>
-                  </p>
-                </div>
-              </div>
-              <div id="projectCardText">
-                <div id="projectsHead">
-                  <div>
-                    <small>Rastaurant Web-App</small>
-                  </div>
-                  <div>
-                    <h5>Mern Stack</h5>
-                  </div>
-                </div>
-
-                <div id="projectIcons">
-                  <div id="projectsLinks">
-                    <div id="projectIconsContent">
-                      <a href="">
-                        <small>Git Hub</small>
-                      </a>
+        {!loading && (
+          <div class="row ">
+            {projects.map((project) => {
+              return (
+                <div class="col-lg-4 md-4">
+                  <div id="projectBoxCard">
+                    <div
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                      id="projectImg"
+                    >
+                      <img src={project.image} />
+                      <div id="overlay">
+                        <p>
+                          View More{" "}
+                          <i class="bx bx-arrow-back bx-rotate-180"></i>
+                        </p>
+                      </div>
                     </div>
-                    <div id="projectIconsContent">
-                      <a href="">
-                        <small>Visit Site</small>
-                      </a>
+                    <div id="projectCardText">
+                      <div id="projectsHead">
+                        <div>
+                          <small>{project.name}</small>
+                        </div>
+                        <div>
+                          <h5>{project.title}</h5>
+                        </div>
+                      </div>
+
+                      <div id="projectIcons">
+                        <div id="projectsLinks">
+                          <div id="projectIconsContent">
+                            <a href={project.githubLink}>
+                              <small>Git Hub</small>
+                            </a>
+                          </div>
+                          <div id="projectIconsContent">
+                            <a href="">
+                              <small>Visit Site</small>
+                            </a>
+                          </div>
+                        </div>
+
+                        <div>
+                          <i>
+                            <small>05 Jan 2023</small>
+                          </i>
+                        </div>
+                      </div>
                     </div>
                   </div>
-
-                  <div>
-                    <i>
-                      <small>05 Jan 2023</small>
-                    </i>
-                  </div>
                 </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
-          <div class="col-lg-4 md-4">
-            <div id="projectBoxCard">
-              <div
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-                id="projectImg"
-              >
-                <img src={project03} />
-                <div id="overlay">
-                  <p>
-                    View More <i class="bx bx-arrow-back bx-rotate-180"></i>
-                  </p>
-                </div>
-              </div>
-              <div id="projectCardText">
-                <div id="projectsHead">
-                  <div>
-                    <small>Social media app</small>
-                  </div>
-                  <div>
-                    <h5>Angular and Firebase</h5>
-                  </div>
-                </div>
+        )}
 
-                <div id="projectIcons">
-                  <div id="projectsLinks">
-                    <div id="projectIconsContent">
-                      <a href="">
-                        <small>Git Hub</small>
-                      </a>
-                    </div>
-                    <div id="projectIconsContent">
-                      <a href="">
-                        <small>Visit Site</small>
-                      </a>
-                    </div>
-                  </div>
+        {loading && <LoadingSpinner />}
 
-                  <div>
-                    <i>
-                      <small>05 Jan 2023</small>
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 md-4">
-            <div id="projectBoxCard">
-              <div
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-                id="projectImg"
-              >
-                <img src={project03} />
-                <div id="overlay">
-                  <p>
-                    View More <i class="bx bx-arrow-back bx-rotate-180"></i>
-                  </p>
-                </div>
-              </div>
-              <div id="projectCardText">
-                <div id="projectsHead">
-                  <div>
-                    <small>Portifolio</small>
-                  </div>
-                  <div>
-                    <h5>Mern stack</h5>
-                  </div>
-                </div>
-
-                <div id="projectIcons">
-                  <div id="projectsLinks">
-                    <div id="projectIconsContent">
-                      <a href="">
-                        <small>Git Hub</small>
-                      </a>
-                    </div>
-                    <div id="projectIconsContent">
-                      <a href="">
-                        <small>Visit Site</small>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div>
-                    <i>
-                      <small>05 Jan 2023</small>
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 md-4">
-            <div id="projectBoxCard">
-              <div
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-                id="projectImg"
-              >
-                <img src={project03} />
-                <div id="overlay">
-                  <p>
-                    View More <i class="bx bx-arrow-back bx-rotate-180"></i>
-                  </p>
-                </div>
-              </div>
-              <div id="projectCardText">
-                <div id="projectsHead">
-                  <div>
-                    <small>Rastaurant Web-App</small>
-                  </div>
-                  <div>
-                    <h5>Mern Stack</h5>
-                  </div>
-                </div>
-
-                <div id="projectIcons">
-                  <div id="projectsLinks">
-                    <div id="projectIconsContent">
-                      <a href="">
-                        <small>Git Hub</small>
-                      </a>
-                    </div>
-                    <div id="projectIconsContent">
-                      <a href="">
-                        <small>Visit Site</small>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div>
-                    <i>
-                      <small>05 Jan 2023</small>
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 md-4">
-            <div id="projectBoxCard">
-              <div
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-                id="projectImg"
-              >
-                <img src={project03} />
-                <div id="overlay">
-                  <p>
-                    View More <i class="bx bx-arrow-back bx-rotate-180"></i>
-                  </p>
-                </div>
-              </div>
-              <div id="projectCardText">
-                <div id="projectsHead">
-                  <div>
-                    <small>Rastaurant Web-App</small>
-                  </div>
-                  <div>
-                    <h5>Mern Stack</h5>
-                  </div>
-                </div>
-
-                <div id="projectIcons">
-                  <div id="projectsLinks">
-                    <div id="projectIconsContent">
-                      <a href="">
-                        <small>Git Hub</small>
-                      </a>
-                    </div>
-                    <div id="projectIconsContent">
-                      <a href="">
-                        <small>Visit Site</small>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div>
-                    <i>
-                      <small>05 Jan 2023</small>
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 md-4">
-            <div id="projectBoxCard">
-              <div
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-                id="projectImg"
-              >
-                <img src={project01} />
-                <div id="overlay">
-                  <p>
-                    View More <i class="bx bx-arrow-back bx-rotate-180"></i>
-                  </p>
-                </div>
-              </div>
-              <div id="projectCardText">
-                <div id="projectsHead">
-                  <div>
-                    <small>Rastaurant Web-App</small>
-                  </div>
-                  <div>
-                    <h5>Mern Stack</h5>
-                  </div>
-                </div>
-
-                <div id="projectIcons">
-                  <div id="projectsLinks">
-                    <div id="projectIconsContent">
-                      <a href="">
-                        <small>Git Hub</small>
-                      </a>
-                    </div>
-                    <div id="projectIconsContent">
-                      <a href="">
-                        <small>Visit Site</small>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div>
-                    <i>
-                      <small>05 Jan 2023</small>
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
         <div id="projectPagination">
-        <nav aria-label="...">
-          <ul class="pagination">
-            <li class="page-item disabled">
-              <a class="page-link">Previous</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">
-                1
-              </a>
-            </li>
-            <li class="page-item active" aria-current="page">
-              <a class="page-link" href="#">
-                2
-              </a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">
-                3
-              </a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">
-                Next
-              </a>
-            </li>
-          </ul>
-        </nav>
+          <nav aria-label="...">
+            <ul class="pagination">
+              <li class="page-item disabled">
+                <a class="page-link">Previous</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  1
+                </a>
+              </li>
+              <li class="page-item active" aria-current="page">
+                <a class="page-link" href="#">
+                  2
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  3
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  Next
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
-        
       </div>
 
       <div
@@ -375,40 +173,7 @@ function Projects() {
               ></button>
             </div>
             <div class="modal-body">
-              <div class="row">
-                <div class="col-lg-6 md-4" id="projectModalImgBox">
-                  <img src={project03} />
-                </div>
-                <div class="col-lg-6 md-4" id="projectModalTextsBox">
-                  <h4>Mern Stack Project</h4>
-                  <h5>Rastaurant Menu Web-app</h5>
-                  <p>
-                    It is a long established fact that a reader will be
-                    distracted by the readable content of a page when looking at
-                    its layout. The point of using Lorem Ipsum is that it has a
-                    more-or-less normal distribution of letters, as opposed to
-                    using 'Content here, content here', making it look like
-                    readable English. Many desktop publishing packages and web
-                    page editors now use Lorem Ipsum as their default model
-                    text,{" "}
-                  </p>
-                  <div id="projectCardIcon">
-                    <div id="projectLinks">
-                      <a href="#">Git hub </a>
-                      <a href="#">Visit Site</a>
-                    </div>
-                    <div id="modalProjectIcons">
-                      <i class="bx bx-like">
-                        <small>31</small>
-                      </i>
-                      <i class="bx bx-share-alt">
-                        <small>7</small>
-                      </i>
-                      {/* <small>06 June 2023</small> */}
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <h4>hello wolrd</h4>
             </div>
             <div class="modal-footer">
               <button

@@ -1,16 +1,37 @@
 import React from "react";
 import { useState } from "react";
 import "./Contact.css";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function Contact() {
   const [name, setName] = useState("");
-
   const [number, setNumber] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
+  const handleSendClick = () => {
+    toast.success('Message sent successfully!', {
+      position: 'top-right',
+      autoClose: 3000, 
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+    
+    });
+  };
+const Loader =()=>{
+  return(
+    <div class="spinner-border text-secondary spinner-border-sm" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  )
+}
   const submitRegHandler = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     const response = await fetch("http://localhost:8000/feedback", {
       method: "POST",
       body: JSON.stringify({
@@ -29,6 +50,8 @@ function Contact() {
     setNumber("");
     setEmail("");
     setMessage("");
+    handleSendClick();
+    setLoading(false);
   };
   return (
     <div className="container" id="contactSection">
@@ -86,7 +109,10 @@ function Contact() {
               ></textarea>
             </div>
             <div id="contactBtn">
-              <button type="submit">Send</button>
+            {!loading && (
+              <span></span>
+            )}
+            <button type="submit"> {loading && <Loader/>}Send</button>
             </div>
           </form>
         </div>

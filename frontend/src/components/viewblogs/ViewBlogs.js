@@ -2,6 +2,8 @@ import "./ViewBlogs.css";
 import React from "react";
 import { useState, useEffect } from "react";
 
+import LoadingSpinner from "../loader/LoadingSpinner";
+
 const Spinner = () => {
   return (
     <div class="text-center" id="loader">
@@ -12,13 +14,7 @@ const Spinner = () => {
   );
 };
 
-// const BlogUpdate = () => {
-//   return (
-//     <div>
-//       <h3>hello world</h3>
-//     </div>
-//   );
-// };
+
 
 function ViewBlogs() {
   const [blogs, setBlogs] = useState([]);
@@ -79,9 +75,7 @@ function ViewBlogs() {
             {blogs.map((blog) => {
               return (
                 <>
-                  {loading ? (
-                    <Spinner />
-                  ) : (
+                    {!loading && (
                     <tbody>
                       <tr>
                         <td>
@@ -121,6 +115,7 @@ function ViewBlogs() {
               );
             })}
           </table>
+          {loading && <LoadingSpinner/>}
         </div>
 
         <div id="projectPagination">

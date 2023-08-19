@@ -6,6 +6,7 @@ import {
   getBlogs,
   myFeedbacks,
   getFeedbacks,
+  Likes
 } from "../controllers/Controllers.js";
 const router = express.Router();
 
@@ -16,6 +17,7 @@ router.get("/projects", getProjects);
 //blogs routes
 router.post("/blogs", myBlogs);
 router.get("/blogs", getBlogs);
+router.put('/blogs/likes',Likes)
 
 //feedbacks routes
 router.post("/feedback", myFeedbacks);

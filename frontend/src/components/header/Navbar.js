@@ -1,9 +1,9 @@
 import React from "react";
 import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
-import io from "socket.io-client";
 
-const socket = io.connect("http://localhost:3001");
+
+
 
 function Navbar() {
   return (
@@ -64,8 +64,8 @@ function Navbar() {
              
                 <button
                   type="button"
-                  data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop"
+                  // data-bs-toggle="modal"
+                  // data-bs-target="#staticBackdrop"
                 >
                   LET'S TALK
                   <i class='bx bxl-whatsapp'><a href="http://wa.me/27817338886"></a></i>
