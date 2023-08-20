@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import "./Contact.css";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Contact() {
   const [name, setName] = useState("");
@@ -12,23 +12,25 @@ function Contact() {
   const [loading, setLoading] = useState(false);
 
   const handleSendClick = () => {
-    toast.success('Message sent successfully!', {
-      position: 'top-right',
-      autoClose: 3000, 
+    toast.success("Message sent successfully!", {
+      position: "top-right",
+      autoClose: 3000,
       hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: false,
-    
     });
   };
-const Loader =()=>{
-  return(
-    <div class="spinner-border text-secondary spinner-border-sm" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
-  )
-}
+  const Loader = () => {
+    return (
+      <div
+        class="spinner-border text-secondary spinner-border-sm"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    );
+  };
   const submitRegHandler = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -109,10 +111,8 @@ const Loader =()=>{
               ></textarea>
             </div>
             <div id="contactBtn">
-            {!loading && (
-              <span></span>
-            )}
-            <button type="submit"> {loading && <Loader/>}Send</button>
+              {!loading && <span></span>}
+              <button type="submit"> {loading && <Loader />}Send</button>
             </div>
           </form>
         </div>

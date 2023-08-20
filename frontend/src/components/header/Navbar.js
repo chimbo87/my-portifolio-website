@@ -2,15 +2,12 @@ import React from "react";
 import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 
-
-
-
 function Navbar() {
   return (
     <>
       <div>
         <nav class="navbar navbar-expand-lg">
-          <div class="container-fluid">
+          <div class="container-fluid" id="container-fluid">
             <a class="navbar-brand" href="#" id="logo">
               ARCHFORD
             </a>
@@ -24,6 +21,8 @@ function Navbar() {
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
+              <span class="navbar-toggler-icon"></span>
+              <span class="navbar-toggler-icon"></span>
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -61,14 +60,13 @@ function Navbar() {
                 </li>
               </ul>
               <div class="d-flex" id="navBtn">
-             
                 <button
                   type="button"
-                  // data-bs-toggle="modal"
-                  // data-bs-target="#staticBackdrop"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
                 >
                   LET'S TALK
-                  <i class='bx bxl-whatsapp'><a href="http://wa.me/27817338886"></a></i>
+                  <i class="bx bxl-whatsapp"></i>
                 </button>
               </div>
             </div>
@@ -100,45 +98,32 @@ function Navbar() {
               ></button>
             </div>
             <div class="modal-body" id="chatModalBody">
-              <small>
-                Please provide your email address and phone number to continue
-              </small>
-              <form id="chatUserDetailsBox">
-                <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label">
-                    Email address
-                  </label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="exampleFormControlInput1"
-                  />
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckIndeterminate"
+                />
+                <label class="form-check-label" for="flexCheckIndeterminate">
+                  <h6>Agree to Terms and Conditions:</h6>
+                </label>
+                <div>
+                  <small>
+                    By clicking "Continue",you agree to terms and conditions.
+                    you will be directed to a private chat on WhatsApp. Messages
+                    sent via WhatsApp are private.
+                  </small>
                 </div>
-                <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label">
-                    Phone number
-                  </label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    id="exampleFormControlInput1"
-                  />
+                <div id="checkTandCbtn">
+                  <a href="http://wa.me/27817338886">
+                    <button>Continue</button>
+                  </a>
                 </div>
-                <div id="chatModalBtn">
-                  <button>Submit</button>
-                </div>
-              </form>
+              </div>
             </div>
-            <div class="modal-body">
-              <p>
-                ontrary to popular belief, Lorem Ipsum is not simply random
-                text. It has roots in a piece of classical Latin literature from
-                45 BC, making it over 2000 years old. Richard McClintock, a
-                Latin professor at Hampden-Sydney College in Virginia, looked up
-                one of the more obscure Latin words, consectetur,
-              </p>
-            </div>
-            <div class="modal-footer">
+
+            {/* <div class="modal-footer">
               <button
                 type="button"
                 class="btn btn-secondary"
@@ -146,7 +131,7 @@ function Navbar() {
               >
                 Close
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

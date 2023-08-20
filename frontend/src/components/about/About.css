@@ -10,6 +10,7 @@
   align-items: center;
   justify-content: center;
   padding-top: 50px;
+ 
 }
 #aboutSectionImg{
   width: 150px;
@@ -54,6 +55,7 @@
   margin-top: -100px;
   background-color: #ffffff;
   padding: 20px 10px;
+  border-radius:5px 5px  0px 0px ;
 }
 
 #aboutMeText h4 {

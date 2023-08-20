@@ -9,6 +9,18 @@ function AddBlog() {
   const [title, setTitle] = useState("");
   const [imageurl, setImageurl] = useState("");
   const [description, setDescription] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const Loader = () => {
+    return (
+      <div
+        class="spinner-border text-warning spinner-border-sm"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    );
+  };
 
   const handleSendClick = () => {
     toast.success('Blog added successfully!', {
@@ -24,7 +36,7 @@ function AddBlog() {
 
   const submitRegHandler = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     const response = await fetch("http://localhost:8000/blogs", {
       method: "POST",
       body: JSON.stringify({
@@ -87,7 +99,8 @@ function AddBlog() {
               ></textarea>
             </div>
             <div id="projectBtn">
-              <button type="submit">Add Blog</button>
+            {!loading && <span></span>}
+              <button type="submit">{loading && <Loader />}Add Blog</button>
             </div>
           </form>
         </div>
