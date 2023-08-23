@@ -24,7 +24,7 @@ router.delete('/projects:id',deleteProjects);
 router.post("/blogs", myBlogs);
 router.get("/blogs", getBlogs);;
 router.delete('/blogs:id',deleteBlogs);
-router.put('/likes/:id',Likes)
+router.post('/blogs/likes:id',Likes)
 
 //feedbacks routes
 router.post("/feedback", myFeedbacks);//send emails

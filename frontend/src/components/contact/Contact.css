@@ -12,13 +12,13 @@
   padding-bottom: 3px;
 }
 #contactInput input {
-  border-bottom: 2px solid goldenrod;
-  background-color: transparent;
+  border: 1px solid #daa52071;
+  background-color: gainsboro;
   border-radius: 0%;
 }
 #contactInput textarea {
-  border-bottom: 2px solid goldenrod;
-  background-color: transparent;
+  border: 1px solid #daa52071;
+  background-color: gainsboro;
   border-radius: 0%;
 }
 #contactInfo {
@@ -53,9 +53,10 @@
 }
 #contactBtn button {
   border: none;
-  padding: 10px 60px;
+  width: 100%;
+  padding: 10px 0px;
   background-color: #caa13a;
-  color: #2d2c2c;
+  color: #565252;
   font-weight: 700;
   margin-bottom: 20px;
   display: flex;

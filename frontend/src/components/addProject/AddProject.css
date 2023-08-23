@@ -1,6 +1,6 @@
 #projectSection{
     padding-top: 40px;
-    background-color: white;
+    background-color: #e6e5e5;
     margin-top: 20px;
     box-shadow: 2px 2px 15px #313131b0;
 }
@@ -11,10 +11,10 @@
 #ProjectInput input{
     border: 1px solid #3939396e;
     border-radius: 0px;
-    background-color: transparent;
+    background-color: rgb(132, 130, 130);
 }
 #ProjectInput textarea{
-    border-bottom: 2px solid #3939396e;
+    border: 1px solid #3939396e;
     border-radius: 0px;
     background-color: transparent;
 }
@@ -25,7 +25,8 @@
     margin-bottom: 20px;
 }
 #projectBtn button{
-    padding: 10px 40px;
+    padding: 10px 0px;
+    width: 100%;
     color: white;
     background-color: #3f3f3f;
     border: none;

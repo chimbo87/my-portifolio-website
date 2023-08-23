@@ -55,6 +55,7 @@ function AddBlog() {
     setDescription("");
     setImageurl("");
     handleSendClick();
+    setLoading(false)
   };
   return (
     <div className="container" id="addBlogSection">

@@ -3,8 +3,10 @@ import Footer from "../footer/Footer";
 import { useState, useEffect } from "react";
 import { format } from "date-fns";
 import LoadingSpinner from "../loader/LoadingSpinner";
-
+import axios from 'axios';
 const Blog = () => {
+
+
   const [loading, setLoading] = useState(false)
   const originalInputStyle = {
     width: "150px",
@@ -37,6 +39,7 @@ const Blog = () => {
 
     console.log("our blogs list:", response);
   };
+
   useEffect(() => {
     getBlogs();
   }, []);
@@ -65,8 +68,9 @@ const Blog = () => {
                    <div id="blogViews">
                      <div id="blogLinks">
                        <div id="blogIcons">
-                         <i class="bx bx-heart"></i>
+                         <i class="bx bx-heart"  ></i>
                          <small>{blog.likes}</small>
+                       
                        </div>
  
                        {/* <div id="blogIcons">
