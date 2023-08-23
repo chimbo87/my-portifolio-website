@@ -2,6 +2,8 @@ import "./ViewProjects.css";
 import React from "react";
 import { useState, useEffect } from "react";
 import LoadingSpinner from "../loader/LoadingSpinner";
+import axios from 'axios';
+import ViewUpdateProject from "./ViewUpdateProject";
 
 function ViewProjects() {
   const [projects, setProjects] = useState([]);
@@ -31,6 +33,15 @@ function ViewProjects() {
     );
     setProjects(newData);
   };
+
+  const deleteProject = async (_id) => {
+    try {
+      await axios.delete(`http://localhost:8000/projects${_id}`); // Adjust the API endpoint
+      getProjects(); // Refresh the list after deleting
+    } catch (error) {
+      console.error('Error deleting email:', error);
+    }
+  };
   return (
     <>
       <div id="feedbackSection">
@@ -58,6 +69,7 @@ function ViewProjects() {
                 <th scope="col">REMOVE</th>
               </tr>
             </thead>
+
 
             {projects.map((project) => {
               return (
@@ -91,6 +103,7 @@ function ViewProjects() {
                             // data-bs-toggle="modal"
                             // data-bs-target="#exampleModal"
                             id="feedbackUpdateBtn"
+                            onClick={() => deleteProject(project._id)}
                           >
                             Remove
                           </button>
@@ -145,7 +158,7 @@ function ViewProjects() {
             <div class="modal-content">
               <div class="modal-header" id="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">
-                  Update Project
+                  Updateoject
                 </h1>
                 <button
                   type="button"
@@ -155,7 +168,8 @@ function ViewProjects() {
                 ></button>
               </div>
               <div class="modal-body">
-                <div class="mb-3" id="modalInputBox">
+                <ViewUpdateProject/>
+                {/* <div class="mb-3" id="modalInputBox">
                   <label
                     for="exampleFormControlInput1"
                     class="form-label"
@@ -184,7 +198,7 @@ function ViewProjects() {
                     {" "}
                     <div class="mb-3" id="ProjectInput">
                       <label for="exampleFormControlInput1" class="form-label">
-                        {/* Email address */}
+                         Email address 
                       </label>
                       <input
                         type="link"
@@ -198,7 +212,7 @@ function ViewProjects() {
                     {" "}
                     <div class="mb-3" id="ProjectInput">
                       <label for="exampleFormControlInput1" class="form-label">
-                        {/* Email address */}
+                         Email address 
                       </label>
                       <input
                         type="link"
@@ -236,9 +250,9 @@ function ViewProjects() {
                 </div>
                 <div id="modalButton">
                   <button>Update</button>
-                </div>
+                </div> *
               </div>
-              {/* <div class="modal-footer">
+               <div class="modal-footer">
                 <button
                   type="button"
                   class="btn btn-secondary"
@@ -252,6 +266,7 @@ function ViewProjects() {
               </div> */}
             </div>
           </div>
+        </div>
         </div>
       </div>
     </>

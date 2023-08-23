@@ -2,16 +2,7 @@ import "./Feedbacks.css";
 import React from "react";
 import { useState, useEffect } from "react";
 import LoadingSpinner from "../loader/LoadingSpinner";
-
-const Spinner = () => {
-  return (
-    <div class="text-center" id="loader">
-      <div class="spinner-grow text-center" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </div>
-  );
-};
+import axios from 'axios';
 
 function Feedbacks() {
   const [feedbacks, setFeedbacks] = useState([]);
@@ -40,6 +31,15 @@ function Feedbacks() {
       row.name.toLowerCase().includes(event.target.value.toLowerCase())
     );
     setFeedbacks(newData);
+  };
+
+  const deleteEmail = async (_id) => {
+    try {
+      await axios.delete(`http://localhost:8000/feedback${_id}`); // Adjust the API endpoint
+      getFeedbacks(); // Refresh the list after deleting
+    } catch (error) {
+      console.error('Error deleting email:', error);
+    }
   };
   return (
     <>
@@ -96,9 +96,10 @@ function Feedbacks() {
                         </td>
                         <td>
                           <button
-                            data-bs-toggle="modal"
-                            data-bs-target="#exampleModal"
+                            // data-bs-toggle="modal"
+                            // data-bs-target="#exampleModal"
                             id="feedbackUpdateBtn"
+                            onClick={() => deleteEmail(feedback._id)}
                           >
                             Remove
                           </button>
@@ -106,7 +107,6 @@ function Feedbacks() {
                       </tr>
                     </tbody>
                   )}
-                 
                 </>
               );
             })}

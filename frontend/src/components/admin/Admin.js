@@ -222,7 +222,6 @@ function Admin() {
               </small>
             </div>
           </ul>
-       
         </div>
       </div>
     </>

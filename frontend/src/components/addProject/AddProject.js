@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import "./AddProject.css";
-import imageIcon from "../assets/imgicon.png";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -61,6 +60,7 @@ function AddProject() {
     setDescription("");
     setImageurl("");
     handleSendClick();
+    setLoading(false)
   };
 
   return (
@@ -71,7 +71,7 @@ function AddProject() {
           <form onSubmit={submitRegHandler}>
             <div class="mb-3" id="ProjectInput">
               <label for="exampleFormControlInput1" class="form-label">
-                {/* Full Name */}
+              
               </label>
               <input
                 type="text"
@@ -84,7 +84,7 @@ function AddProject() {
             </div>
             <div class="mb-3" id="ProjectInput">
               <label for="exampleFormControlInput1" class="form-label">
-                {/* Full Name */}
+           
               </label>
               <input
                 type="text"
@@ -159,6 +159,7 @@ function AddProject() {
             </div>
             <div id="projectBtn">
               {!loading && <span></span>}
+
               <button type="submit">{loading && <Loader />}Add Project</button>
             </div>
           </form>

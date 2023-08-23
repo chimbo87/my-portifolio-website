@@ -32,6 +32,46 @@ const getProjects = asyncHandler(async (req, res) => {
   }
 });
 
+const updateProjects = asyncHandler(async (req, res) => {
+  const { name, title,githubLink,
+    siteLink, description, image } = req.body;
+    try {
+      const updatedProject = await project.findByIdAndUpdate(
+        req.params.id,
+        { name},
+        { title },
+        { githubLink},
+        { siteLink},
+        { description},
+        { image}
+      );
+  
+      if (!updatedProject) {
+        return res.status(404).json({ error: 'project not found' });
+      }
+  
+      res.status(200).json({ message: 'project updated successfully', project: updatedProject });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Server error' });
+    }
+});
+
+const deleteProjects = asyncHandler(async (req, res) => {
+  try{
+    const Project = await project.findByIdAndDelete(req.params.id);
+  
+    if(!Project){
+      return res.status(404).json({error: 'projecte not found'});
+    }
+    res.status(200).json({message: 'project deleted successfully'});
+  
+  }catch(error){
+  console.error(error);
+  res.status(500).json({error:'server'});
+  }
+  });
+
 const myBlogs = asyncHandler(async (req, res) => {
   try {
     const { title, description, image } = req.body;
@@ -49,12 +89,21 @@ const myBlogs = asyncHandler(async (req, res) => {
 
 const Likes = asyncHandler(async (req, res) => {
   try {
-    const like = await blogs.findById(req.params.blogsId);
-    like.likes += 1;
-    await like.save();
-    res.json(like);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
+    const blogId = req.params.likeId;
+
+    const Blog = await blogs.findById(blogId);
+
+    if (!Blog) {
+      return res.status(404).json({ message: 'Blog not found' });
+    }
+
+    Blog.likes += 1;
+    await Blog.save();
+
+    return res.status(200).json({ message: 'Blog liked successfully', likes: Blog.likes });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: 'Internal server error' });
   }
 });
 
@@ -67,6 +116,21 @@ const getBlogs = asyncHandler(async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
+const deleteBlogs = asyncHandler(async (req, res) => {
+  try{
+    const Blog = await blogs.findByIdAndDelete(req.params.id);
+  
+    if(!Blog){
+      return res.status(404).json({error: 'Blog not found'});
+    }
+    res.status(200).json({message: 'Blog deleted successfully'});
+  
+  }catch(error){
+  console.error(error);
+  res.status(500).json({error:'server'});
+  }
+  });
 
 const myFeedbacks = asyncHandler(async (req, res) => {
   try {
@@ -93,6 +157,22 @@ const getFeedbacks = asyncHandler(async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
+const deleteFeedbacks = asyncHandler(async (req, res) => {
+try{
+  const email = await feedback.findByIdAndDelete(req.params.id);
+
+  if(!email){
+    return res.status(404).json({error: 'email not found'});
+  }
+  res.status(200).json({message: 'email deleted successfully'});
+
+}catch(error){
+console.error(error);
+res.status(500).json({error:'server'});
+}
+});
+
 export {
   myProjects,
   getProjects,
@@ -100,5 +180,9 @@ export {
   getBlogs,
   myFeedbacks,
   getFeedbacks,
-  Likes
+  deleteFeedbacks,
+  Likes,
+  updateProjects,
+  deleteProjects,
+  deleteBlogs
 };

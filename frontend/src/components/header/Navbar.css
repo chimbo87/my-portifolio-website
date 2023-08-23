@@ -15,6 +15,22 @@
 
   font-size: 25px;
 }
+#socialMediaLinks{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 15px;
+}
+#socialMediaLinks i{
+  color: antiquewhite;
+  margin-right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+#socialMediaLinks i:hover{
+  color: #f7af57;
+}
 #container-fluid button {
   border: 1px solid goldenrod;
   padding: 5px 2px;
@@ -42,8 +58,8 @@
 #navBtn button {
   color: antiquewhite;
   border: 2px solid rgba(250, 235, 215, 0.253);
-  padding: 10px 20px;
-  background-color: transparent;
+  padding: 12px 30px;
+  background-color: rgb(60, 58, 58);
   display: flex;
   align-items: center;
 }
@@ -51,6 +67,7 @@
   margin-left: 5px;
   font-size: 30px;
   color: rgb(248, 211, 119);
+  
 }
 #navBtn button:hover {
   border: 2px solid #faebd7;
@@ -112,7 +129,7 @@
   border-radius: 50%;
   width: 12px;
   height: 12px;
-  margin-left: 5px;
+  margin-right: 5px;
   margin-top: 5px;
 }
 #chats {

@@ -3,7 +3,7 @@ import "./About.css";
 import aboutImg from "../assets/avat.jpg";
 import avata2 from "../assets/avata2.jpeg";
 import aboutSection from "../assets/avat.jpg";
-import avata3 from "../assets/avata3.jpeg";
+import avata3 from "../assets/myvideo.mp4";
 import Slider from "react-slick";
 import Footer from "../footer/Footer";
 
@@ -52,39 +52,67 @@ function About() {
       </div>
 
       <div className="container" id="aboutMe">
-        <div class="row">
-          <div class="col-lg-6 md-4" id="aboutMeText">
-            <p>
-              There are many variations of passages of Lorem Ipsum available,
-              but the majority have suffered alteration in some form, by
-              injected humour, or randomised words which don't look even
-              slightly believable. If you are going to use a passage of Lorem
-              Ipsum, you need to be sure there isn't anything embarrassing
-              hidden in the middle of text. All the Lorem Ipsum generators on
-              the Internet tend to repeat predefined chunks as necessary, making
-            </p>
+        <div id="profileImgBox">
+          <div class="row" id="profileImg">
+            <div class="col-lg-4 md-4" id="profileTextImg">
+              <img src={aboutSection} />
+            </div>
 
-            <p>
-              the Internet tend to repeat predefined chunks as necessary, making
-              this the first true generator on the Internet. It uses a
-              dictionary of over 200 Latin words, combined with a handful of
-              model sentence structures, to generate Lorem Ipsum which looks
-              reasonable.
-            </p>
-            <h5>
-              There are many variations of passages of Lorem Ipsum available,
-              but the majority have suffered alteration in some form, by
-              injected humour, or randomised words which don't look even
-              slightly believable .
-            </h5>
+            <div class="col-lg-8 md-4" id="profileText">
+              <h5>Frontend Software Developer | Aws Solution Architecture </h5>
+              <small>
+                There are many variations of passages of Lorem Ipsum available,
+                but the majority have suffered alteration in some form, by
+                injected humour, or randomised words which don't look even
+                slightly believable.
+              </small>
+              <div id="aboutIcons">
+                <i class="bx bxl-github"></i>
+                <i class="bx bx-envelope"></i>
+                <i class="bx bxl-linkedin"></i>
+              </div>
+            </div>
           </div>
-          <div class="col-lg-6 md-4" id="aboutMeImg">
-            <img src={aboutSection} />
+
+          <div class="row" id="aboutMeProfile">
+            <div class="col-lg-6 md-4" id="aboutMeText">
+              <p>
+                There are many variations of passages of Lorem Ipsum available,
+                but the majority have suffered alteration in some form, by
+                injected humour, or randomised words which don't look even
+                slightly believable. If you are going to use a passage of Lorem
+                Ipsum, you need to be sure there isn't anything embarrassing
+                hidden in the middle of text. All the Lorem Ipsum generators on
+                the Internet tend to repeat predefined chunks as necessary,
+                making
+              </p>
+
+              <p>
+                the Internet tend to repeat predefined chunks as necessary,
+                making this the first true generator on the Internet. It uses a
+                dictionary of over 200 Latin words, combined with a handful of
+                model sentence structures, to generate Lorem Ipsum which looks
+                reasonable.
+              </p>
+            </div>
+            <div class="col-lg-6 md-4" id="aboutMeImg">
+              <video src={avata3} autoPlay loop muted id="menuVideo" />
+              <div id="videoBtn">
+                {/* <button type="button" class="btn btn-primary" >
+  Launch demo modal
+</button> */}
+                <i
+                  class="bx bx-play-circle"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                ></i>
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="container" id="aboutSkills">
-          <h4>What I Do</h4>
+          <h4>Experience</h4>
           <div class="row">
             <div class="col-lg-4 md-4" id="aboutTxtBox">
               <div id="aboutSkillTexts">
@@ -352,6 +380,47 @@ function About() {
         </div>
       </div>
 
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Modal title
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body" id="modalVideoBox">
+              <div id="modalVideo">
+                {" "}
+                <video src={avata3} autoPlay loop muted id="menuVideo" />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div>
         <Footer />
       </div>

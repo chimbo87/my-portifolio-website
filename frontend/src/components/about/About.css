@@ -23,7 +23,8 @@
   height: inherit;
   border-radius: 50%;
   object-fit: contain;
-  border: 2px solid goldenrod;
+  border: 2px solid #8c6b42;
+  
 }
 #aboutTexts h4 {
   font-weight: 700;
@@ -40,24 +41,71 @@
     color: antiquewhite;
 }
 #aboutIcons i {
-  font-size: 25px;
-  background: -webkit-linear-gradient(#dedddd, #f7af57);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin: 0px 10px;
+  font-size: 22px;
+  margin-right:10px;
+  margin-top: 20px;
   cursor: pointer;
+  color: #8c6b42;
 }
 #aboutIcons i:hover{
-  rotate: 20deg;
+  color: gray;
 }
 #aboutMe {
   position: relative;
-  margin-top: -100px;
+  margin-top: -80px;
   background-color: #ffffff;
   padding: 20px 10px;
   border-radius:5px 5px  0px 0px ;
 }
-
+#profileTextImg{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#profileText{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 20px;
+  
+}
+#profileText h5{
+  color: #8c6b42;
+  text-align: center;
+}
+#profileText small{
+  color: #8c6b42;
+  text-align: center;
+  margin-top: 20px;
+}
+#profileImgBox{
+  position: relative;
+  top: -70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+ 
+}
+#profileImg{
+padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid #8080802d;
+}
+#profileImg img{
+ width: 250px;
+ height: inherit;
+ border-radius: 50%;
+ border: 2px solid goldenrod;
+ 
+}
+#aboutMeProfile{
+  margin-top: 30px;
+}
 #aboutMeText h4 {
   text-align: center;
   color: goldenrod;
@@ -75,17 +123,43 @@
   font-weight: 700;
   margin-top: 20px;
 }
-#aboutMeImg img {
+#aboutMeImg {
+
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ height: 450px;
+}
+#aboutMeImg video{
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ }
+ #videoBtn{
+  position: relative;
+  top: -250px;
+ }
+ #videoBtn i{
+ color: black;
+ font-size: 100px;
+ cursor: pointer;
+ }
+ #modalVideoBox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+ #modalVideo{
   width: 100%;
-  height: inherit;
-  object-fit: cover;
- /* opacity: 0.5; */
-}
-#aboutMeImg img:hover{
-  transform: translate3D(0,-1px,0) scale(1.03);
-  box-shadow: 8px 28px 50px rgba(39,44,49,.07), 1px 6px 12px rgba(39,44,49,.04);
-  transition: all .4s ease; 
-}
+  border: 1px solid red;
+ 
+ }
+ #modalVideo video{
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+ }
 #aboutSkillTexts {
 
   background-color:white;

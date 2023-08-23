@@ -1,7 +1,7 @@
 import "./ViewBlogs.css";
 import React from "react";
 import { useState, useEffect } from "react";
-
+import axios from 'axios';
 import LoadingSpinner from "../loader/LoadingSpinner";
 
 const Spinner = () => {
@@ -43,6 +43,15 @@ function ViewBlogs() {
       row.name.toLowerCase().includes(event.target.value.toLowerCase())
     );
     setBlogs(newData);
+  };
+
+  const deleteBlogs = async (_id) => {
+    try {
+      await axios.delete(`http://localhost:8000/blogs${_id}`); // Adjust the API endpoint
+      getBlogs(); // Refresh the list after deleting
+    } catch (error) {
+      console.error('Error deleting email:', error);
+    }
   };
   return (
     <>
@@ -104,6 +113,7 @@ function ViewBlogs() {
                             // data-bs-toggle="modal"
                             // data-bs-target="#exampleModal"
                             id="feedbackUpdateBtn"
+                            onClick={() => deleteBlogs(blog._id)}
                           >
                             Remove
                           </button>
