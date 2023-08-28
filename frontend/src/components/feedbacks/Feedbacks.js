@@ -2,7 +2,7 @@ import "./Feedbacks.css";
 import React from "react";
 import { useState, useEffect } from "react";
 import LoadingSpinner from "../loader/LoadingSpinner";
-import axios from 'axios';
+import axios from "axios";
 
 function Feedbacks() {
   const [feedbacks, setFeedbacks] = useState([]);
@@ -19,12 +19,10 @@ function Feedbacks() {
       setFilterRecords(response);
       setLoading(false);
     }
-
-    console.log("our products list:", response);
   };
   useEffect(() => {
     getFeedbacks();
-  }, []);
+  });
 
   const handleFilter = (event) => {
     const newData = filterRecords.filter((row) =>
@@ -38,9 +36,10 @@ function Feedbacks() {
       await axios.delete(`http://localhost:8000/feedback${_id}`); // Adjust the API endpoint
       getFeedbacks(); // Refresh the list after deleting
     } catch (error) {
-      console.error('Error deleting email:', error);
+      console.error("Error deleting email:", error);
     }
   };
+
   return (
     <>
       <div id="feedbackSection">
@@ -103,6 +102,51 @@ function Feedbacks() {
                           >
                             Remove
                           </button>
+                          <div
+                            class="modal fade"
+                            id="exampleModal"
+                            tabindex="-1"
+                            aria-labelledby="exampleModalLabel"
+                            aria-hidden="true"
+                          >
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1
+                                    class="modal-title fs-5"
+                                    id="exampleModalLabel"
+                                  >
+                                    Are you sure you want to remove ?
+                                  </h1>
+                                  <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                                  ></button>
+                                </div>
+                                <div class="modal-body">
+                                  <button
+                                    onClick={() => deleteEmail(feedback._id)}
+                                  >
+                                    Remove
+                                  </button>
+                                </div>
+                                <div class="modal-footer">
+                                  <button
+                                    type="button"
+                                    class="btn btn-secondary"
+                                    data-bs-dismiss="modal"
+                                  >
+                                    Close
+                                  </button>
+                                  <button type="button" class="btn btn-primary">
+                                    Update Menu
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </td>
                       </tr>
                     </tbody>
@@ -142,42 +186,6 @@ function Feedbacks() {
               </li>
             </ul>
           </nav>
-        </div>
-        <div
-          class="modal fade"
-          id="exampleModal"
-          tabindex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">
-                  Are you sure you want to remove ?
-                </h1>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">...</div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button type="button" class="btn btn-primary">
-                  Update Menu
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </>

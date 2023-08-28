@@ -1,8 +1,9 @@
 import "./ViewBlogs.css";
 import React from "react";
 import { useState, useEffect } from "react";
-import axios from 'axios';
+import axios from "axios";
 import LoadingSpinner from "../loader/LoadingSpinner";
+import { useNavigate } from "react-router-dom";
 
 const Spinner = () => {
   return (
@@ -14,12 +15,12 @@ const Spinner = () => {
   );
 };
 
-
-
 function ViewBlogs() {
   const [blogs, setBlogs] = useState([]);
+
   const [filterRecords, setFilterRecords] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   const getBlogs = async () => {
     const response = await fetch("http://localhost:8000/blogs").then(
@@ -31,9 +32,8 @@ function ViewBlogs() {
       setFilterRecords(response);
       setLoading(false);
     }
-
-    console.log("our products list:", response);
   };
+
   useEffect(() => {
     getBlogs();
   }, []);
@@ -50,9 +50,10 @@ function ViewBlogs() {
       await axios.delete(`http://localhost:8000/blogs${_id}`); // Adjust the API endpoint
       getBlogs(); // Refresh the list after deleting
     } catch (error) {
-      console.error('Error deleting email:', error);
+      console.error("Error deleting email:", error);
     }
   };
+
   return (
     <>
       <div id="feedbackSection">
@@ -84,7 +85,7 @@ function ViewBlogs() {
             {blogs.map((blog) => {
               return (
                 <>
-                    {!loading && (
+                  {!loading && (
                     <tbody>
                       <tr>
                         <td>
@@ -101,17 +102,16 @@ function ViewBlogs() {
                         </td>
                         <td>
                           <button
-                            data-bs-toggle="modal"
-                            data-bs-target="#exampleModal"
                             id="feedbackUpdateBtn"
+                            onClick={() => {
+                              navigate(`/admni/updateblogs/${blog._id}`);
+                            }}
                           >
                             Edit
                           </button>
                         </td>
                         <td>
                           <button
-                            // data-bs-toggle="modal"
-                            // data-bs-target="#exampleModal"
                             id="feedbackUpdateBtn"
                             onClick={() => deleteBlogs(blog._id)}
                           >
@@ -125,7 +125,7 @@ function ViewBlogs() {
               );
             })}
           </table>
-          {loading && <LoadingSpinner/>}
+          {loading && <LoadingSpinner />}
         </div>
 
         <div id="projectPagination">
@@ -156,83 +156,6 @@ function ViewBlogs() {
               </li>
             </ul>
           </nav>
-        </div>
-        <div
-          class="modal fade"
-          id="exampleModal"
-          tabindex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-              <div class="modal-header" id="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">
-                  Blog Update
-                </h1>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
-                <div class="mb-3" id="modalInputBox">
-                  <label
-                    for="exampleFormControlInput1"
-                    class="form-label"
-                  ></label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="exampleFormControlInput1"
-                    placeholder="Enter title"
-                  />
-                </div>
-
-                <div class="mb-3" id="modalInputBox">
-                  <label
-                    for="exampleFormControlInput1"
-                    class="form-label"
-                  ></label>
-                  <input
-                    type="file"
-                    class="form-control"
-                    id="exampleFormControlInput1"
-                    placeholder="name@example.com"
-                  />
-                </div>
-                <div class="mb-3" id="modalInputBox">
-                  <label
-                    for="exampleFormControlTextarea1"
-                    class="form-label"
-                  ></label>
-                  <textarea
-                    class="form-control"
-                    id="exampleFormControlTextarea1"
-                    rows="3"
-                    placeholder="Message"
-                  ></textarea>
-                </div>
-                <div id="modalButton">
-                  <button>Update</button>
-                </div>
-              </div>
-              {/* <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button type="button" class="btn btn-primary">
-                  Update Menu
-                </button>
-              </div> */}
-            </div>
-          </div>
         </div>
       </div>
     </>

@@ -69,6 +69,7 @@ function Vision() {
         <div class="row">
           <div class="col-lg-4 md-4" id="visionTecWrap">
             <div id="skillsTake">
+              
               <h4>+2</h4>
               <h5> Years of Experience</h5>
             </div>

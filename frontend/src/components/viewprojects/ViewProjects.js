@@ -2,10 +2,12 @@ import "./ViewProjects.css";
 import React from "react";
 import { useState, useEffect } from "react";
 import LoadingSpinner from "../loader/LoadingSpinner";
-import axios from 'axios';
+import axios from "axios";
 import ViewUpdateProject from "./ViewUpdateProject";
+import { useNavigate } from "react-router-dom";
 
 function ViewProjects() {
+  const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
   const [filterRecords, setFilterRecords] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -39,7 +41,7 @@ function ViewProjects() {
       await axios.delete(`http://localhost:8000/projects${_id}`); // Adjust the API endpoint
       getProjects(); // Refresh the list after deleting
     } catch (error) {
-      console.error('Error deleting email:', error);
+      console.error("Error deleting email:", error);
     }
   };
   return (
@@ -70,7 +72,6 @@ function ViewProjects() {
               </tr>
             </thead>
 
-
             {projects.map((project) => {
               return (
                 <>
@@ -91,9 +92,12 @@ function ViewProjects() {
                         </td>
                         <td>
                           <button
-                            data-bs-toggle="modal"
-                            data-bs-target="#exampleModal"
                             id="feedbackUpdateBtn"
+                            onClick={() => {
+                              navigate(
+                                `/admni/viewupdateproject/${project._id}`
+                              );
+                            }}
                           >
                             Edit
                           </button>
@@ -168,7 +172,6 @@ function ViewProjects() {
                 ></button>
               </div>
               <div class="modal-body">
-                <ViewUpdateProject/>
                 {/* <div class="mb-3" id="modalInputBox">
                   <label
                     for="exampleFormControlInput1"
@@ -264,9 +267,9 @@ function ViewProjects() {
                   Update Menu
                 </button>
               </div> */}
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </div>
     </>

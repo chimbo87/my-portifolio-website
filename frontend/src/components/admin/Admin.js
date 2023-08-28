@@ -1,15 +1,52 @@
 import React from "react";
 import "./Admin.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
+import { compareAsc, format } from "date-fns";
 
 function Admin() {
   const [headingText, setHeadingText] = useState("ADD PROJECTS ");
+  const [countEmail, setCountEmail] = useState(0);
+  const [feedbacks, setFeedbacks] = useState([]);
+  const [messages, setMessages] = useState([]);
+  const [messageDate, setMessageDate] = useState("");
+
+  const getFeedbacks = async () => {
+    const response = await fetch("http://localhost:8000/feedback").then(
+      (response) => response.json()
+    );
+    const lastObjectIndex = response.length - 1;
+    const User = response[lastObjectIndex].name;
+    const userMessage = response[lastObjectIndex].message;
+    const UserMessageDate = response[lastObjectIndex].createdAt;
+
+    const truncateMessage = (message, maxWords) => {
+      const words = userMessage.split(" ");
+
+      if (words.length <= maxWords) {
+        return userMessage;
+      }
+
+      const truncatedMessage = words.slice(0, maxWords).join(" ") + " ...";
+      return truncatedMessage;
+    };
+    const truncatedLastMessage = truncateMessage(userMessage.message, 15);
+    setFeedbacks(User);
+    setCountEmail(response.length);
+    setMessages(truncatedLastMessage);
+    setMessageDate(UserMessageDate);
+  };
+
+  useEffect(() => {
+    getFeedbacks();
+  }, []);
 
   const handleButtonClick = (buttonName) => {
     setHeadingText(buttonName);
   };
+
   const navigate = useNavigate();
+
   return (
     <>
       <div className="container-fluid" id="adminSection">
@@ -24,7 +61,7 @@ function Admin() {
             >
               <i class="bx bx-bell"></i>
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                9+
+                7+
                 <span class="visually-hidden">unread messages</span>
               </span>
             </button>
@@ -39,7 +76,7 @@ function Admin() {
             >
               <i class="bx bx-envelope"></i>
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                5+
+                {countEmail}
                 <span class="visually-hidden">unread messages</span>
               </span>
             </button>
@@ -113,6 +150,16 @@ function Admin() {
                   <small>EMAILS</small>
                 </Link>
               </li>
+              {/* <li>
+                <Link
+                  className="nav-link"
+                  to="updateblogs"
+                  as={Link}
+                  onClick={() => handleButtonClick("UPDATE BLOGS")}
+                >
+                  <small>UPDATE BLOGS</small>
+                </Link>
+              </li> */}
             </ul>
           </div>
         </div>
@@ -143,43 +190,34 @@ function Admin() {
           <ul id="noficationList">
             <div id="noficationListItem">
               <div>
-                <small>New email from Chimbo</small>{" "}
-              </div>
-              <div>
-                <small>
-                  <i>~06 Jan 2023</i>
+                <small id="userName">
+                  <b>
+                    New message from {feedbacks} and {countEmail - 1} others
+                  </b>
+                  <i class="bx bx-envelope"></i>
                 </small>
               </div>
             </div>
             <div id="noficationListItemText">
               <small>
-                Contrary to popular belief, Lorem Ipsum is not simply random
-                text. It has roots in a piece of classical Latin{" "}
-                <a href="#">Read more</a>
+                {messages}
+                <a
+                  href="#"
+                  onClick={() => {
+                    navigate("feedbacks");
+                  }}
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                >
+                  Read more
+                </a>
               </small>
             </div>
+            <small id="userMessage">
+              <i>{messageDate}</i>
+            </small>
           </ul>
-          <ul id="noficationList">
-            <div id="noficationListItem">
-              <div>
-                <small>
-                  New email from J.Smith <i class="bx bx-envelope"></i>
-                </small>{" "}
-              </div>
-              <div>
-                <small>
-                  <i>~06 Jan 2023</i>
-                </small>
-              </div>
-            </div>
-            <div id="noficationListItemText">
-              <small>
-                Contrary to popular belief, Lorem Ipsum is not simply random
-                text. It has roots in a piece of classical Latin piece of
-                classical Latin <a href="#">Read more</a>
-              </small>
-            </div>
-          </ul>
+
           <ul id="noficationList">
             <div id="noficationListItem">
               <div>

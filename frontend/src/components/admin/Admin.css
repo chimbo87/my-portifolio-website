@@ -78,6 +78,7 @@
     background-color: #dcdcdc54;
     padding: 5px 10px;
     cursor: pointer;
+    box-shadow: 2px 2px 15px grey;
 }
 #noficationList:hover{
     background-color: #dcdcdca1;
@@ -87,15 +88,32 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    
 }
 #noficationListItem small{
     font-weight: 500;
     color: rgb(13, 13, 71);
     font-size: 14px;
 }
+#userName{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+#userName i{
+    color: #53463a;
+    margin-left: 10px;
+}
+#noficationListItemText{
+    border-top: 1px solid #80808038;
+}
 #noficationListItemText small{
     font-size: 13px;
+}
+#userMessage{
+    text-align: end;
+    color: #53463a;
+    font-size: 12px;
 }
 /* #adminNavTxt{
     margin: 0px 10px;

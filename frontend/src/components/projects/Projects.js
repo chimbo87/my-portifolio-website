@@ -3,8 +3,10 @@ import "./Projects.css";
 import Footer from "../footer/Footer";
 import { useState, useEffect } from "react";
 import LoadingSpinner from "../loader/LoadingSpinner";
+import { useNavigate } from "react-router-dom";
 
 function Projects() {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [projects, setProjects] = useState([]);
   const [filterRecords, setFilterRecords] = useState([]);
@@ -69,9 +71,13 @@ function Projects() {
                 <div class="col-lg-4 md-4">
                   <div id="projectBoxCard">
                     <div
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
+                      // data-bs-toggle="modal"
+                      // data-bs-target="#exampleModal"
                       id="projectImg"
+                      onClick={() => {
+                        navigate(`/projectdescription/${project._id }`);
+                      }}
+                      
                     >
                       <img src={project.image} />
                       <div id="overlay">

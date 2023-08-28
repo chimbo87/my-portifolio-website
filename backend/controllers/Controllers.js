@@ -31,32 +31,35 @@ const getProjects = asyncHandler(async (req, res) => {
   }
 });
 
-const updateProjects = asyncHandler(async (req, res) => {
-  const { name, title, githubLink, siteLink, description, image } = req.body;
+const getProject = asyncHandler(async (req, res) => {
   try {
-    const updatedProject = await project.findByIdAndUpdate(
-      req.params.id,
-      { name },
-      { title },
-      { githubLink },
-      { siteLink },
-      { description },
-      { image }
-    );
-
-    if (!updatedProject) {
-      return res.status(404).json({ error: "project not found" });
-    }
-
-    res
-      .status(200)
-      .json({
-        message: "project updated successfully",
-        project: updatedProject,
-      });
+    const id = req.params.id;
+    const userProject = await project.findById({ _id: id });
+    res.status(200).json(userProject);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Server error" });
+    console.log("error occured !");
+    res.status(500).json({ message: error.message });
+  }
+});
+
+const updateProject = asyncHandler(async (req, res) => {
+  try {
+    const id = req.params.id;
+    const newProject = await project.findByIdAndUpdate(
+      { _id: id },
+      {
+        title: req.body.title,
+        image: req.body.image,
+        description: req.body.description,
+        githubLink: req.body.githubLink,
+        siteLink: req.body.siteLink,
+        name: req.body.name,
+      }
+    );
+    res.status(200).json(newBlog);
+  } catch (error) {
+    console.log("error occured !");
+    res.status(500).json({ message: error.message });
   }
 });
 
@@ -121,6 +124,35 @@ const getBlogs = asyncHandler(async (req, res) => {
   }
 });
 
+const getBlog = asyncHandler(async (req, res) => {
+  try {
+    const id = req.params.id;
+    const userBlog = await blogs.findById({ _id: id });
+    res.status(200).json(userBlog);
+  } catch (error) {
+    console.log("error occured !");
+    res.status(500).json({ message: error.message });
+  }
+});
+
+const updateBlog = asyncHandler(async (req, res) => {
+  try {
+    const id = req.params.id;
+    const newBlog = await blogs.findByIdAndUpdate(
+      { _id: id },
+      {
+        title: req.body.title,
+        image: req.body.image,
+        description: req.body.description,
+      }
+    );
+    res.status(200).json(newBlog);
+  } catch (error) {
+    console.log("error occured !");
+    res.status(500).json({ message: error.message });
+  }
+});
+
 const deleteBlogs = asyncHandler(async (req, res) => {
   try {
     const Blog = await blogs.findByIdAndDelete(req.params.id);
@@ -178,13 +210,16 @@ const deleteFeedbacks = asyncHandler(async (req, res) => {
 export {
   myProjects,
   getProjects,
+  getProject,
   myBlogs,
   getBlogs,
+  getBlog,
+  updateBlog,
   myFeedbacks,
   getFeedbacks,
   deleteFeedbacks,
   Likes,
-  updateProjects,
+  updateProject,
   deleteProjects,
   deleteBlogs,
 };
