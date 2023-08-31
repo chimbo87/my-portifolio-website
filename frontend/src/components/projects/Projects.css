@@ -225,8 +225,9 @@
   align-items: start;
   justify-content: space-between;
 }
-#projectDescriptionTextBox h5 {
-  color: #d29968;
+#projectDescriptionTextBox h4 {
+  color: #8a603b;
+  font-weight: 700;
 }
 #projectDescriptionSites a {
   color: grey;
@@ -236,19 +237,28 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2px 20px;
+  padding: 2px 0px;
+  margin-top: 20px;
 }
 #projectDescriptionLink {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-right: 20px;
+  margin-top: 15px;
+  border-top: 1px solid #80808043;
+  padding-top: 5px;
 }
 #projectDescriptionLinkIcons {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+ 
+}
+#projectNameWrap{
+  color: gray;
 }
 #projectDescriptionLinkIconsLike {
   width: 100%;
@@ -266,7 +276,7 @@
   cursor: pointer;
 }
 #projectDescriptionInputBox {
-  border: 1px solid goldenrod;
+  border: 1px solid #daa5209d;
   display: flex;
   align-items: center;
   background-color: white;
@@ -275,9 +285,15 @@
 #projectDescriptionInputBox input {
   font-size: 14px;
   border: none;
-  height: 40px;
+  height: 30px;
   border-radius: 4px;
   padding-left: 4px;
+  width: 250px;
+}
+#projectDescriptionInputBox i{
+  color: gray;
+  padding: 2px 5px;
+  cursor: pointer;
 }
 #projectDescriptionLinkDate {
   width: 100%;
@@ -285,3 +301,12 @@
   align-items: center;
   justify-content: end;
 }
+#shareBtn{
+  margin-left: 10px;
+ 
+}
+#likesButton{
+
+}
+
+

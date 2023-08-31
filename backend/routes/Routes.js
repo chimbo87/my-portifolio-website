@@ -14,6 +14,7 @@ import {
   getBlog,
   updateBlog,
   getProject,
+  projectLikes
 } from "../controllers/Controllers.js";
 const router = express.Router();
 
@@ -23,6 +24,7 @@ router.get("/projects", getProjects);
 router.get("/projects/:id", getProject);
 router.put(`/projects/:id`, updateProject);
 router.delete("/projects:id", deleteProjects);
+router.post("/projects/projectslikes:id", projectLikes);
 
 //blogs routes
 router.post("/blogs", myBlogs);

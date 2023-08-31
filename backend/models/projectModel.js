@@ -24,6 +24,10 @@ const projectSchema = mongoose.Schema({
         type: String,
         required:true
     },
+    likes:{
+        type: Number,
+        default: 0
+    },
     image:{
         data:Buffer,
         type:String,

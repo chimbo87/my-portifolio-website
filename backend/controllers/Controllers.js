@@ -42,6 +42,28 @@ const getProject = asyncHandler(async (req, res) => {
   }
 });
 
+const projectLikes = asyncHandler(async (req, res) => {
+  try {
+    const projectId = req.params.id;
+
+    const Project = await project.findById(projectId);
+
+    if (!Project) {
+      return res.status(404).json({ message: "peoject not found" });
+    }
+
+    Project.likes += 1;
+    await Project.save();
+
+    return res
+      .status(200)
+      .json({ message: "Project liked successfully", likes: project.likes });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+});
+
 const updateProject = asyncHandler(async (req, res) => {
   try {
     const id = req.params.id;
@@ -56,7 +78,7 @@ const updateProject = asyncHandler(async (req, res) => {
         name: req.body.name,
       }
     );
-    res.status(200).json(newBlog);
+    res.status(200).json(newProject);
   } catch (error) {
     console.log("error occured !");
     res.status(500).json({ message: error.message });
@@ -211,6 +233,7 @@ export {
   myProjects,
   getProjects,
   getProject,
+  projectLikes,
   myBlogs,
   getBlogs,
   getBlog,
