@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function AddBlog() {
   const [title, setTitle] = useState("");
   const [imageurl, setImageurl] = useState("");
+  const [heading, setHeading] = useState("");
   const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -44,6 +45,7 @@ function AddBlog() {
         title: title,
         description: description,
         image: imageurl,
+        heading:heading,
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -55,6 +57,7 @@ function AddBlog() {
     setDescription("");
     setImageurl("");
     handleSendClick();
+    setHeading("");
     setLoading(false)
   };
   return (
@@ -74,6 +77,18 @@ function AddBlog() {
                 onChange={(e) => setTitle(e.target.value)}
               />
             </div>
+            <div class="mb-3" id="ProjectInput">
+              <label for="exampleFormControlInput1" class="form-label"></label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleFormControlInput1"
+                placeholder="Enter heading"
+                value={heading}
+                onChange={(e) => setHeading(e.target.value)}
+              />
+            </div>
+
             <div class="mb-3" id="ProjectInput">
               <label for="exampleFormControlInput1" class="form-label"></label>
               <input

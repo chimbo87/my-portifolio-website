@@ -18,6 +18,7 @@ import ViewProjects from "./components/viewprojects/ViewProjects";
 import ViewUpdateProject from "./components/viewprojects/ViewUpdateProject";
 import UpdateBlogs from "./components/viewblogs/UpdateBlogs";
 import ProjectDescription from "./components/projects/ProjectDescription";
+import BlogDescription from "./components/blog/BlogDescription";
 
 function App() {
   const router = createBrowserRouter(
@@ -27,6 +28,7 @@ function App() {
         <Route path="/about" element={<About />}></Route>
         <Route path="/projects" element={<Projects />}></Route>
         <Route path="/projectdescription/:id" element={<ProjectDescription />}></Route>
+        <Route path="/blogdescription/:id" element={<BlogDescription />}></Route>
         <Route path="/blogs" element={<Blog />}></Route>
 
         <Route path="/admni" element={<Admin />}>

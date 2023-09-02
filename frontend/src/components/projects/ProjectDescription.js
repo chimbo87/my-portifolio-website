@@ -16,6 +16,8 @@ function ProjectDescription() {
   const [image, setImageurl] = useState("");
   const [date, setDate] = useState("");
   const [initialLikes, setinitialLikes] = useState("");
+  const [inputValue, setInputValue] = useState("");
+  const [showSendButton, setShowSendButton] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -52,8 +54,22 @@ function ProjectDescription() {
     const result = await response.json();
     console.log("your likes are", result);
   };
+  
   const updatedLikes = () => {
     return setinitialLikes(initialLikes + 1);
+  };
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setInputValue(value);
+
+    // Show the send button if there is some input
+    setShowSendButton(value.trim() !== "");
+  };
+
+  const handleSendClick = () => {
+    // Handle the send action, e.g., submit the input
+    console.log("Sending:", inputValue);
   };
 
   return (
@@ -97,8 +113,15 @@ function ProjectDescription() {
                 </div>
 
                 <div id="projectDescriptionInputBox">
-                  <input type="text" placeholder="Add a comment" />
-                  <i class="bx bxs-send"></i>
+                  <input
+                    type="text"
+                    placeholder="add a comment..."
+                    value={inputValue}
+                    onChange={handleInputChange}
+                  />
+                  {showSendButton && (
+                    <i class="bx bxs-send" onClick={handleSendClick}></i>
+                  )}
                 </div>
 
                 <div id="projectDescriptionLinkIconsLike">
@@ -113,6 +136,9 @@ function ProjectDescription() {
         )}
         {loading && <LoadingSpinner />}
       </div>
+      {/* <div>
+        <small>back to projects</small>
+      </div> */}
       <Footer />
     </>
   );

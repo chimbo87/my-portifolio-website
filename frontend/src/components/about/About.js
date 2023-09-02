@@ -3,7 +3,7 @@ import "./About.css";
 import aboutImg from "../assets/avat.jpg";
 import avata2 from "../assets/avata2.jpeg";
 import aboutSection from "../assets/avat.jpg";
-import avata3 from "../assets/myvideo.mp4";
+import avata3 from "../assets/fromntend.mp4";
 import Slider from "react-slick";
 import Footer from "../footer/Footer";
 

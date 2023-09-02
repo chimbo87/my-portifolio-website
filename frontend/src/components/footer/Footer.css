@@ -1,6 +1,6 @@
 #footerSection{
     margin-top: 20px;
-    background-color: rgba(133, 112, 91, 0.153);
+    background-color: #292929f6;
 }
 #footerText h5{
    text-align: center;
@@ -9,7 +9,7 @@
    font-weight: 700;
 }
 #footerText small{
-    color: black;
+    color: antiquewhite;
     text-align: justify;
     line-height: 2rem;
 }
@@ -24,7 +24,7 @@
     font-weight: 700;
 }
 #footerLinkIcon i{
-   color: grey;
+   color: antiquewhite;
    font-size: 25px;
    margin: 10px;
    cursor: pointer;
@@ -38,6 +38,6 @@
 }
 #footerRightText small{
     margin-top: 10px;
-    color: rgb(121, 89, 10);
+    color: goldenrod;
  
 }

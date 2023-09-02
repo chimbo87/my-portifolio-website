@@ -101,9 +101,10 @@ const deleteProjects = asyncHandler(async (req, res) => {
 
 const myBlogs = asyncHandler(async (req, res) => {
   try {
-    const { title, description, image } = req.body;
+    const { title,heading, description, image } = req.body;
     const Blogs = await blogs.create({
       title,
+      heading,
       description,
       image,
     });

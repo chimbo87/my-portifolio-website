@@ -1,5 +1,5 @@
-#blogSectionBox{
-    background-image: linear-gradient(#2c2c2be5, rgba(128, 128, 128, 0.977)),
+#blogSectionBox {
+  background-image: linear-gradient(#2c2c2be5, rgba(128, 128, 128, 0.977)),
     url("https://ncube-digest.com/wp-content/uploads/2020/02/Top-8-Software-Development-Models.jpg");
   background-position: center;
   background-size: cover;
@@ -11,76 +11,155 @@
   justify-content: center;
   padding: 50px;
 }
-#blogSectionBox h4{
-    font-weight: 700;
-    font-size: 35px;
-    background: -webkit-linear-gradient(0deg,#ffa200,#77a8ce,#d29968);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 700;
+#blogSectionBox h4 {
+  font-weight: 700;
+  font-size: 35px;
+  background: -webkit-linear-gradient(0deg, #ffa200, #77a8ce, #d29968);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
 }
-#blogContainer{
-    position: relative;
-    top: -100px;
-    
+#blogContainer {
+  position: relative;
+  top: -100px;
 }
-#blogWrap{
-    border: 1px solid #80808036;
-    margin-top: 20px;
-    background-color: white;
-    padding: 10px 0px;
-    border-radius:5px;
+#blogWrap {
+  border: 1px solid #80808036;
+  margin-top: 20px;
+  background-color: white;
+  padding: 10px 0px;
+  border-radius: 5px;
 }
 
-#blogImg img{
-    width: 100%;
-    height: inherit;
-    object-fit: cover;
+#blogImg img {
+  width: 100%;
+  height: inherit;
+  object-fit: cover;
 }
-#blogsText{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+#blogsText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
-#blogsText h5{
-    font-weight: 700;
-    color: grey;
+#blogsText h5 {
+  font-weight: 600;
+  color: #6d4e2f;
+  font-family: "Poppins", sans-serif;
 }
-#blogsText p{
-    line-height: 2rem;
+#blogsText p {
+  line-height: 1.8rem;
+  font-weight: 600;
 }
-#blogViews{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+#blogger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #80808041;
+  padding-bottom: 5px;
 }
-#blogLinks{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+#blogViews {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-#blogIcons{
-    margin-right: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#blogLinks {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-#blogIcons i{
-    margin-right: 4px;
-    font-size: 25px;
-    color: rgb(145, 100, 32);
-    cursor: pointer;
+#blogIcons {
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-#blogIconsinput{
-    width: 100%;
-    margin-right: 5px;
+#blogIcons i {
+  margin-right: 4px;
+  font-size: 25px;
+  color: rgb(145, 100, 32);
+  cursor: pointer;
 }
-#blogIconsinput input{
-   
+#blogIconsinput {
+  width: 100%;
+  margin-right: 5px;
+}
+#blogIconsinput input {
   border: 1px solid #916420;
   border-radius: 15px;
   font-size: 12px;
   padding-left: 5px;
   padding-top: 5px;
   padding-bottom: 5px;
+}
+#blogDesBox {
+  position: relative;
+  top: -200px;
+  box-shadow: 2px 2px 10px gray;
+  padding: 15px;
+}
+
+#blogDesBoxImg {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+#blogDesLikes {
+  border-top: 1px solid #8080802c;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+#blogDesLikesBox {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: space-between; */
+}
+#blogDesLikesBox i {
+  color: #ffa200;
+  font-size: 30px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+#blogDesLikesBox small {
+  font-size: 16px;
+  font-weight: 600;
+}
+#blogDesCommentBox {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid goldenrod;
+  border-radius: 4px;
+  background-color: white;
+}
+#blogDesCommentBox input {
+  width: 100%;
+  height: 40px;
+  border-radius: 4px 0px 0px 4px;
+  border: none;
+  padding-left: 10px;
+}
+#blogDesCommentBox i{
+    color: #d29968;
+    padding: 2px 10px;
+    cursor: pointer;
+}
+#blogDesShareBox {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+}
+#blogDesShareBox i{
+    color: #d29968;
+    font-size: 30px;
+    cursor: pointer;
+    margin-right: 10px;
 }

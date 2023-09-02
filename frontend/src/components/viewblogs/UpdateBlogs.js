@@ -5,6 +5,7 @@ function UpdateBlogs() {
   const { id } = useParams();
   const [title, setTitle] = useState("");
   const [imageurl, setImageurl] = useState("");
+  const [heading, setHeading] = useState("");
   const [description, setDescription] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
@@ -13,6 +14,7 @@ function UpdateBlogs() {
       .then((result) => {
         console.log(result);
         setTitle(result.data.title);
+        setHeading(result.data.heading);
         setImageurl(result.data.image);
         setDescription(result.data.description);
       })
@@ -27,6 +29,7 @@ function UpdateBlogs() {
       body: JSON.stringify({
         title: title,
         description: description,
+        heading:heading,
         image: imageurl,
       }),
       headers: {
@@ -38,6 +41,7 @@ function UpdateBlogs() {
     setTitle("");
     setDescription("");
     setImageurl("");
+    setHeading("")
   };
 
   return (
@@ -55,7 +59,17 @@ function UpdateBlogs() {
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
-
+        <div class="mb-3" id="modalInputBox">
+          <label for="exampleFormControlInput1" class="form-label"></label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="Enter heading"
+            value={heading}
+            onChange={(e) => setHeading(e.target.value)}
+          />
+        </div>
         <div class="mb-3" id="modalInputBox">
           <label for="exampleFormControlInput1" class="form-label"></label>
           <input

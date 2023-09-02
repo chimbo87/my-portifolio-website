@@ -4,7 +4,9 @@ import { useState, useEffect } from "react";
 import { format } from "date-fns";
 import LoadingSpinner from "../loader/LoadingSpinner";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const Blog = () => {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const originalInputStyle = {
     width: "150px",
@@ -59,7 +61,24 @@ const Blog = () => {
 
                   <div class="col-lg-6 md-4" id="blogsText">
                     <h5>{blog.title}</h5>
-                    <p>{blog.description}</p>
+                    <div id="blogger">
+                      {" "}
+                      <small>
+                        Archford N
+                      </small>
+                      <small>
+                        {format(new Date(blog.createdAt), "yyyy-MM-dd ")}
+                      </small>
+                    </div>
+
+                   
+                      <p>{blog.heading}</p>
+                   
+                    <small>
+                    {blog.description}...<a href="#"      onClick={() => {
+                        navigate(`/blogdescription/${blog._id }`);
+                      }}>read more</a>
+                    </small>
                     <div id="blogViews">
                       <div id="blogLinks">
                         <div id="blogIcons">
@@ -86,13 +105,7 @@ const Blog = () => {
                         </div>
                       </div>
 
-                      <div>
-                        <small>
-                          <i>
-                            {format(new Date(blog.createdAt), "yyyy-MM-dd ")}
-                          </i>
-                        </small>
-                      </div>
+                      <div></div>
                     </div>
                   </div>
                 </div>
