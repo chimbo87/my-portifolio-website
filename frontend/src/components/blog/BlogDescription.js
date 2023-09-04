@@ -57,10 +57,11 @@ function BlogDescription() {
       <div className="container-fluid" id="projectSectionBox"></div>
       <div className="container">
         {!loading && (
+            
           <div id="blogDesBox">
             <img src={image} id="blogDesBoxImg"></img>
-
-            <div>
+          <div id="blogSectionText">
+          <div>
               <h4>{title}</h4>
             </div>
             <div>
@@ -90,6 +91,8 @@ function BlogDescription() {
                 <small>share 12</small>
               </div>
             </div>
+          </div>
+          
           </div>
         )}
         {loading && <LoadingSpinner />}

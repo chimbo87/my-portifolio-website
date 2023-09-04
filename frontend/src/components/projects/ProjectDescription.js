@@ -54,7 +54,7 @@ function ProjectDescription() {
     const result = await response.json();
     console.log("your likes are", result);
   };
-  
+
   const updatedLikes = () => {
     return setinitialLikes(initialLikes + 1);
   };

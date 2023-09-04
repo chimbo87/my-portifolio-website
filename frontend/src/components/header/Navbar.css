@@ -11,23 +11,23 @@
   background: -webkit-linear-gradient(#eee, #f7af57);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 22px;
 }
-#socialMediaLinks{
+#socialMediaLinks {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   margin-right: 15px;
 }
-#socialMediaLinks i{
+#socialMediaLinks i {
   color: antiquewhite;
   margin-right: 15px;
   font-size: 20px;
   cursor: pointer;
 }
-#socialMediaLinks i:hover{
+#socialMediaLinks i:hover {
   color: #f7af57;
 }
 #container-fluid button {
@@ -35,10 +35,11 @@
   padding: 5px 2px;
 }
 .navbar-toggler-icon {
-  background-color: #f7af57;
-  height: 1px;
-  width: 25px;
+  background-color: #f49520;
+  height: 2px;
+  width: 50px;
   display: block;
+  margin: 8px 0px;
 }
 #navBtn {
   display: flex;
@@ -60,7 +61,7 @@
     border-color: transparent;
   }
   50% {
-    border-color: rgb(148, 116, 37); 
+    border-color: rgb(148, 116, 37);
   }
   100% {
     border-color: transparent;
@@ -78,7 +79,6 @@
   margin-left: 5px;
   font-size: 30px;
   color: rgb(248, 211, 119);
-  
 }
 #navBtn button:hover {
   border: 2px solid #faebd7;

@@ -10,44 +10,40 @@
   align-items: center;
   justify-content: center;
   padding-top: 50px;
- 
 }
-#aboutSectionImg{
+#aboutSectionImg {
   width: 150px;
   height: 150px;
   border-radius: 50%;
- 
 }
-#aboutSectionImg img{
+#aboutSectionImg img {
   width: 100%;
   height: inherit;
   border-radius: 50%;
   object-fit: contain;
   border: 2px solid #8c6b42;
-  
 }
 #aboutTexts h4 {
   font-weight: 700;
   font-size: 35px;
-  background: -webkit-linear-gradient(0deg,#ffa200,#77a8ce,#d29968);
+  background: -webkit-linear-gradient(0deg, #ffa200, #77a8ce, #d29968);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 700;
-  
 }
-#aboutPara p{
-    text-align: center;
-    max-width: 700px;
-    color: antiquewhite;
+#aboutPara p {
+  text-align: center;
+  max-width: 700px;
+  color: antiquewhite;
 }
 #aboutIcons i {
   font-size: 22px;
-  margin-right:10px;
+  margin-right: 10px;
   margin-top: 20px;
   cursor: pointer;
   color: #8c6b42;
 }
-#aboutIcons i:hover{
+#aboutIcons i:hover {
   color: gray;
 }
 #aboutMe {
@@ -55,55 +51,52 @@
   margin-top: -80px;
   background-color: #ffffff;
   padding: 20px 10px;
-  border-radius:5px 5px  0px 0px ;
+  border-radius: 5px 5px 0px 0px;
 }
-#profileTextImg{
+#profileTextImg {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-#profileText{
+#profileText {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding-top: 100px;
   padding-bottom: 20px;
-  
 }
-#profileText h5{
+#profileText h5 {
   color: #8c6b42;
   text-align: center;
 }
-#profileText small{
+#profileText small {
   color: #8c6b42;
   text-align: center;
   margin-top: 20px;
 }
-#profileImgBox{
+#profileImgBox {
   position: relative;
   top: -70px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
- 
 }
-#profileImg{
-padding-bottom: 15px;
+#profileImg {
+  padding-bottom: 15px;
   display: flex;
   align-items: center;
   width: 100%;
   border-bottom: 1px solid #8080802d;
 }
-#profileImg img{
- width: 250px;
- height: inherit;
- border-radius: 50%;
- border: 2px solid goldenrod;
- 
+#profileImg img {
+  width: 250px;
+  height: inherit;
+  border-radius: 50%;
+  border: 2px solid #80808049;
 }
-#aboutMeProfile{
+#aboutMeProfile {
   margin-top: 30px;
 }
 #aboutMeText h4 {
@@ -111,10 +104,10 @@ padding-bottom: 15px;
   color: goldenrod;
   font-weight: 700;
 }
-#aboutMeText p{
+#aboutMeText p {
   line-height: 2rem;
 }
-#aboutMeText h5{
+#aboutMeText h5 {
   line-height: 2rem;
 }
 #aboutSkills h4 {
@@ -124,45 +117,42 @@ padding-bottom: 15px;
   margin-top: 20px;
 }
 #aboutMeImg {
-
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
- height: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 450px;
 }
-#aboutMeImg video{
- width: 100%;
- height: 100%;
- object-fit: cover;
- }
- #videoBtn{
+#aboutMeImg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#videoBtn {
   position: relative;
   top: -250px;
- }
- #videoBtn i{
- color: black;
- font-size: 100px;
- cursor: pointer;
- }
- #modalVideoBox{
+}
+#videoBtn i {
+  color: black;
+  font-size: 100px;
+  cursor: pointer;
+}
+#modalVideoBox {
   display: flex;
   align-items: center;
   justify-content: center;
- }
- #modalVideo{
+}
+#modalVideo {
   width: 100%;
   border: 1px solid red;
- 
- }
- #modalVideo video{
+}
+#modalVideo video {
   width: 100%;
   height: 300px;
   object-fit: contain;
- }
+}
 #aboutSkillTexts {
-
-  background-color:white;
+  background-color: white;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -173,9 +163,9 @@ padding-bottom: 15px;
   border-radius: 4px;
   box-shadow: 2px 2px 10px grey;
 }
-#aboutTxtBox:hover{
-  transform: translate3D(0,-1px,0) scale(1.03);
-  transition: all .4s ease; 
+#aboutTxtBox:hover {
+  transform: translate3D(0, -1px, 0) scale(1.03);
+  transition: all 0.4s ease;
 }
 #aboutSkillTexts i {
   font-size: 60px;
@@ -183,44 +173,42 @@ padding-bottom: 15px;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-#aboutSkillTexts i:hover{
+#aboutSkillTexts i:hover {
   rotate: 35deg;
 }
-#aboutSkillTexts h5{
+#aboutSkillTexts h5 {
   font-size: 15px;
   font-weight: 600;
   margin-top: 10px;
 }
-#aboutSkillTexts p{
+#aboutSkillTexts p {
   line-height: 2rem;
 }
 
-#moreExperience{
+#moreExperience {
   margin-top: 40px;
   background-color: transparent;
   padding: 10px 10px;
 }
 .accordion {
   background-color: transparent;
- 
 }
-#moreExperience{
-  background-color:white ;
+#moreExperience {
+  background-color: white;
   border-radius: 4px;
   padding: 20px;
   /* box-shadow: 2px 2px 5px grey; */
-
 }
-#moreExperience h4{
+#moreExperience h4 {
   color: goldenrod;
   text-align: center;
 }
-#moreExperience p{
+#moreExperience p {
   text-align: start;
   line-height: 2rem;
   margin-bottom: 10px;
 }
-.accordion-header button{
+.accordion-header button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -237,7 +225,6 @@ padding-bottom: 15px;
   margin-top: 40px;
   margin-bottom: 40px;
   padding: 0px 10px;
-
 }
 #reviewSection h4 {
   text-align: center;
@@ -249,7 +236,7 @@ padding-bottom: 15px;
   margin: 10px;
   padding: 5px;
   border: 1px solid rgba(218, 165, 32, 0.301);
-  border-radius: 20px  ;
+  border-radius: 20px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -258,10 +245,9 @@ padding-bottom: 15px;
   box-shadow: 2px 2px 10px rgba(218, 165, 32, 0.402);
 }
 #reviewCardBox:hover {
-  
   background-color: white;
 }
-#reviewImageBox{
+#reviewImageBox {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -289,7 +275,7 @@ padding-bottom: 15px;
   text-align: center;
   color: rgb(196, 145, 15);
 }
-#reviewCardName{
+#reviewCardName {
   text-align: end;
   display: flex;
   justify-content: end;

@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 const Blog = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [des, setDes] = useState("");
   const originalInputStyle = {
     width: "150px",
     height: "30px",
@@ -37,7 +38,7 @@ const Blog = () => {
       setLoading(false);
     }
 
-    console.log("our blogs list:", response);
+    setDes(response[1].description);
   };
 
   useEffect(() => {
@@ -63,38 +64,38 @@ const Blog = () => {
                     <h5>{blog.title}</h5>
                     <div id="blogger">
                       {" "}
-                      <small>
-                        Archford N
-                      </small>
+                      <small>Archford N</small>
                       <small>
                         {format(new Date(blog.createdAt), "yyyy-MM-dd ")}
                       </small>
                     </div>
 
-                   
-                      <p>{blog.heading}</p>
-                   
+                    <p>{blog.heading}</p>
+
                     <small>
-                    {blog.description}...<a href="#"      onClick={() => {
-                        navigate(`/blogdescription/${blog._id }`);
-                      }}>read more</a>
+                      ...
+                      <a
+                        href="#"
+                        onClick={() => {
+                          navigate(`/blogdescription/${blog._id}`);
+                        }}
+                      >
+                        read more
+                      </a>
                     </small>
                     <div id="blogViews">
                       <div id="blogLinks">
-                        <div id="blogIcons">
+                        {/* <div id="blogIcons">
                           <i class="bx bx-heart"></i>
                           <small>{blog.likes}</small>
                         </div>
 
-                        {/* <div id="blogIcons">
-                         <i class="bx bx-comment"></i>
-                         <small>25</small>
-                       </div> */}
+                   
                         <div id="blogIcons">
-                          {/* <small>share</small> */}
+                         
                           <i class="bx bx-share bx-flip-horizontal"></i>
-                        </div>
-                        <div id="blogIconsinput">
+                        </div> */}
+                        {/* <div id="blogIconsinput">
                           <input
                             type="text"
                             placeholder="Add a comment"
@@ -102,7 +103,7 @@ const Blog = () => {
                             onClick={handleInputClick}
                             onBlur={handleInputBlur}
                           />
-                        </div>
+                        </div> */}
                       </div>
 
                       <div></div>

@@ -61,10 +61,10 @@ function Navbar() {
               </ul>
               <div class="d-flex" id="navBtn">
                 <div id="socialMediaLinks">
-                <i class='bx bxs-phone'></i>
-                <i class='bx bxl-linkedin-square'></i>
-                <i class='bx bxl-github'></i>
-                <i class='bx bxs-envelope'></i>
+                  <i class="bx bxs-phone"></i>
+                  <i class="bx bxl-linkedin-square"></i>
+                  <i class="bx bxl-github"></i>
+                  <i class="bx bxs-envelope"></i>
                 </div>
                 <button
                   type="button"
@@ -92,10 +92,9 @@ function Navbar() {
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header" id="chatBoxHead">
-              
               <span></span>
               <h1 class="modal-title fs-5" id="staticBackdropLabel">
-                Live chat  <i class="bx bxl-whatsapp"></i>
+                Live chat <i class="bx bxl-whatsapp"></i>
               </h1>
               <button
                 type="button"
