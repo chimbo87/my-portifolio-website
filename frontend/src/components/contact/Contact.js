@@ -21,6 +21,16 @@ function Contact() {
       draggable: false,
     });
   };
+  const handleSendError = () => {
+    toast.error("Please fill all fields !", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+    });
+  };
   const Loader = () => {
     return (
       <div
@@ -33,27 +43,38 @@ function Contact() {
   };
   const submitRegHandler = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    const response = await fetch("http://localhost:8000/feedback", {
-      method: "POST",
-      body: JSON.stringify({
-        name: name,
-        number: number,
-        email: email,
-        message: message,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    });
-    const result = await response.json();
-    console.log(result);
-    setName("");
-    setNumber("");
-    setEmail("");
-    setMessage("");
-    handleSendClick();
-    setLoading(false);
+
+    if (
+      name.trim() === "" ||
+      email.trim() === "" ||
+      number.trim() === "" ||
+      message.trim() === ""
+    ) {
+      
+      handleSendError();// Display an error toast message
+    } else {
+      setLoading(true);
+      const response = await fetch("http://localhost:8000/feedback", {
+        method: "POST",
+        body: JSON.stringify({
+          name: name,
+          number: number,
+          email: email,
+          message: message,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      });
+      const result = await response.json();
+      console.log(result);
+      setName("");
+      setNumber("");
+      setEmail("");
+      setMessage("");
+      handleSendClick();
+      setLoading(false);
+    }
   };
   return (
     <div className="container" id="contactSection">

@@ -167,3 +167,15 @@
   background-color: rgb(42, 108, 42);
   color: white;
 }
+@media(max-width:500px){
+  #navBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #navBtn button{
+    margin-top: 10px;
+    width: 100%;
+  }
+}

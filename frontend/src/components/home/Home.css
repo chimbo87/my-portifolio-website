@@ -44,16 +44,47 @@
   margin-top: 10px;
   text-align: center;
 }
-#textBoxWrap button{
+#homePortifolio{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#homePortifolio button{
   color: antiquewhite;
-  font-weight: 600;
-  font-size: 20px;
-  padding: 10px 35px;
+  font-weight: 400;
+  font-size: 18px;
+  padding: 10px 30px;
   border: 2px solid #daa52082;
   margin-top: 20px;
   background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #textBoxWrap button:hover{
   background-color: #faebd717;
 }
 
+@media(max-width:500px){
+  #textBoxWrap{
+   
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+  }
+
+  #textBoxWrap p{
+    text-align: start;
+   
+  }
+  #textBoxWrap h2{
+    text-align: start;
+   
+  }
+  #textBoxWrap h3{
+    text-align: start;
+   
+  }
+ 
+}

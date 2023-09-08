@@ -72,7 +72,6 @@ function Navbar() {
                   data-bs-target="#staticBackdrop"
                 >
                   LET'S TALK
-                  {/* <i class="bx bxl-whatsapp"></i> */}
                 </button>
               </div>
             </div>

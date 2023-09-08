@@ -2,6 +2,7 @@ import asyncHandler from "express-async-handler";
 import project from "../models/projectModel.js";
 import blogs from "../models/blogsModel.js";
 import feedback from "../models/feedBackModel.js";
+import comment from "../models/commentModel.js";
 
 const myProjects = asyncHandler(async (req, res) => {
   try {
@@ -137,6 +138,63 @@ const Likes = asyncHandler(async (req, res) => {
   }
 });
 
+
+  const blogComments = asyncHandler( async (req, res) => {
+    try {
+      const text = req.body;
+      const blogId = req.params.id;
+     
+      // Find the blog post by ID
+      const Blog = await blogs.findById(blogId);
+  
+      if (!Blog) {
+        return res.status(404).json({ error: 'Blog not found' });
+      }
+   
+      // Add the comment to the blog's comments array
+      Blog.comments.push({
+        text,
+      }
+      
+      );
+  
+      // Save the updated blog post
+      await Blog.save();
+    
+    
+      res.status(201).json(Blog.comments);
+    } catch (error) {
+      res.status(500).json({ error: 'Server error' });
+     
+    }
+  });
+// Get comments for a specific blog post
+const getCommentsForBlog = asyncHandler(  async (req, res) => {
+  try {
+    const  blogId  = req.params.id;
+
+    // Find the blog post by ID
+    const Blog = await blogs.findById(blogId);
+
+    if (!Blog) {
+      return res.status(404).json({ error: 'Blog not found' });
+      
+    }
+  
+
+    // Fetch comments associated with the blog post
+    const Messages = await blogs.find({ blogs: blogId[1]}).populate("comments");
+
+    res.json(Messages);
+   
+  } catch (error) {
+    console.error('Error fetching comments:', error);
+    res.status(500).json({ error: 'Server error' });
+    console.log(error)
+  }
+});
+
+
 const getBlogs = asyncHandler(async (req, res) => {
   try {
     const Blogs = await blogs.find({});
@@ -230,6 +288,19 @@ const deleteFeedbacks = asyncHandler(async (req, res) => {
   }
 });
 
+const myComments = asyncHandler(async (req, res) => {
+  try {
+    const { message } = req.body;
+    const Comment = await comment.create({
+      message,
+    });
+    res.status(200).json(Comment);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({ message: error.message });
+  }
+});
+
 export {
   myProjects,
   getProjects,
@@ -246,4 +317,7 @@ export {
   updateProject,
   deleteProjects,
   deleteBlogs,
+  myComments,
+  blogComments,
+  getCommentsForBlog
 };

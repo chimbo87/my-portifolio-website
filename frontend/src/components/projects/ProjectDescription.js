@@ -4,6 +4,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Footer from "../footer/Footer";
+import { toast } from "react-toastify";
+import { format } from "date-fns";
 
 function ProjectDescription() {
   const { id } = useParams();
@@ -16,8 +18,19 @@ function ProjectDescription() {
   const [image, setImageurl] = useState("");
   const [date, setDate] = useState("");
   const [initialLikes, setinitialLikes] = useState("");
-  const [inputValue, setInputValue] = useState("");
   const [showSendButton, setShowSendButton] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const Loader = () => {
+    return (
+      <div
+        class="spinner-border text-secondary spinner-border-sm"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    );
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -31,7 +44,7 @@ function ProjectDescription() {
         setSite(result.data.siteLink);
         setDescription(result.data.description);
         setImageurl(result.data.image);
-        setDate(result.data.createdAt);
+        setDate(format(new Date(result.data.createdAt), "yyyy-MM-dd  "));
         setinitialLikes(result.data.likes);
         setLoading(false);
       })
@@ -59,19 +72,40 @@ function ProjectDescription() {
     return setinitialLikes(initialLikes + 1);
   };
 
-  const handleInputChange = (e) => {
-    const value = e.target.value;
-    setInputValue(value);
-
-    // Show the send button if there is some input
-    setShowSendButton(value.trim() !== "");
+  const handleCommentChange = (e) => {
+    const message = e.target.value;
+    setMessage(message);
+    setShowSendButton(message.trim() !== "");
   };
-
   const handleSendClick = () => {
-    // Handle the send action, e.g., submit the input
-    console.log("Sending:", inputValue);
+    toast.success("Thank you for your comment !", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+    });
   };
 
+  const submitComment = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch("http://localhost:8000/comments", {
+      method: "POST",
+      body: JSON.stringify({
+        message: message,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
+    const result = await response.json();
+    console.log(result);
+    setMessage("");
+    setShowSendButton(false);
+    handleSendClick();
+  };
   return (
     <>
       <div className="container-fluid" id="projectSectionBox">
@@ -90,12 +124,17 @@ function ProjectDescription() {
                 <small>{description}</small>
               </div>
               <div id="projectDescriptionSites">
-                <small>
-                  <a href={siteLink}>Visit Site</a>
-                </small>
-                <small>
-                  <a href={githubLink}>Source Code</a>
-                </small>
+                <div id="projectDescriptionSitesLinks">
+                  <small>
+                    <a href={siteLink}>Visit Site</a>
+                  </small>
+                  <small>
+                    <a href={githubLink}>Source Code</a>
+                  </small>
+                </div>
+                <div id="projectDescriptionSitesLinksDate">
+                  <small>{date}</small>
+                </div>
               </div>
               <div id="projectDescriptionLink">
                 <div id="projectDescriptionLinkIconsLike">
@@ -113,15 +152,21 @@ function ProjectDescription() {
                 </div>
 
                 <div id="projectDescriptionInputBox">
-                  <input
-                    type="text"
-                    placeholder="add a comment..."
-                    value={inputValue}
-                    onChange={handleInputChange}
-                  />
-                  {showSendButton && (
-                    <i class="bx bxs-send" onClick={handleSendClick}></i>
-                  )}
+                  <form onSubmit={submitComment}>
+                    <input
+                      id="inputCommen"
+                      type="text"
+                      placeholder="add a comment..."
+                      value={message}
+                      onChange={handleCommentChange}
+                    />
+
+                    {showSendButton && (
+                      <button onChange={handleCommentChange}>
+                        <i class="bx bxs-send"></i>
+                      </button>
+                    )}
+                  </form>
                 </div>
 
                 <div id="projectDescriptionLinkIconsLike">

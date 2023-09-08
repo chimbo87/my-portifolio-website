@@ -3,12 +3,10 @@ import Footer from "../footer/Footer";
 import { useState, useEffect } from "react";
 import { format } from "date-fns";
 import LoadingSpinner from "../loader/LoadingSpinner";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 const Blog = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [des, setDes] = useState("");
   const originalInputStyle = {
     width: "150px",
     height: "30px",
@@ -38,7 +36,7 @@ const Blog = () => {
       setLoading(false);
     }
 
-    setDes(response[1].description);
+   
   };
 
   useEffect(() => {
@@ -83,6 +81,7 @@ const Blog = () => {
                         read more
                       </a>
                     </small>
+                   
                     <div id="blogViews">
                       <div id="blogLinks">
                         {/* <div id="blogIcons">
@@ -106,7 +105,7 @@ const Blog = () => {
                         </div> */}
                       </div>
 
-                      <div></div>
+                      
                     </div>
                   </div>
                 </div>

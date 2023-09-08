@@ -4,6 +4,7 @@ import Footer from "../footer/Footer";
 import { useState, useEffect } from "react";
 import LoadingSpinner from "../loader/LoadingSpinner";
 import { useNavigate } from "react-router-dom";
+import { format } from "date-fns";
 
 function Projects() {
   const navigate = useNavigate();
@@ -11,6 +12,14 @@ function Projects() {
   const [projects, setProjects] = useState([]);
   const [filterRecords, setFilterRecords] = useState([]);
 
+  const [selectedName, setSelectedName] = useState(""); // State for selected name
+
+  //   <select value={selectedName} onChange={(e) => setSelectedName(e.target.value)}>
+  //   <option value="">All</option> {/* Option to display all cards */}
+  //   <option value="CardName1">Card Name 1</option>
+  //   <option value="CardName2">Card Name 2</option>
+  //   {/* Add more options for each card name */}
+  // </select>
 
   const getProjects = async () => {
     setLoading(true);
@@ -31,9 +40,10 @@ function Projects() {
 
   const handleFilter = (event) => {
     const newData = filterRecords.filter((row) =>
-      row.name.toLowerCase().includes(event.target.value.toLowerCase())
+      row.title.toLowerCase().includes(event.target.value.toLowerCase())
     );
     setProjects(newData);
+    setSelectedName(newData);
   };
 
   return (
@@ -44,11 +54,18 @@ function Projects() {
       <div className="container" id="projectWrapBox">
         <div id="projectsNav">
           <div id="projectNavSelect">
-            <select class="form-select" aria-label="Default select example">
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              value={selectedName}
+              onChange={(e) => setSelectedName(e.target.value)}
+            >
               <option selected>All</option>
-              <option value="1">Mern Stack</option>
-              <option value="2">Html, Css & JavaScript</option>
-              <option value="3">Angular</option>
+              <option value="Mern Stack">Mern Stack</option>
+              <option value="Html, Css & JavaScript">
+                Html, Css & JavaScript
+              </option>
+              <option value="Angular">Angular</option>
             </select>
           </div>
 
@@ -75,9 +92,8 @@ function Projects() {
                       // data-bs-target="#exampleModal"
                       id="projectImg"
                       onClick={() => {
-                        navigate(`/projectdescription/${project._id }`);
+                        navigate(`/projectdescription/${project._id}`);
                       }}
-                      
                     >
                       <img src={project.image} />
                       <div id="overlay">
@@ -113,7 +129,13 @@ function Projects() {
 
                         <div>
                           <i>
-                            <small>05 Jan 2023</small>
+                            <small>
+                              {" "}
+                              {format(
+                                new Date(project.createdAt),
+                                "yyyy-MM-dd "
+                              )}
+                            </small>
                           </i>
                         </div>
                       </div>

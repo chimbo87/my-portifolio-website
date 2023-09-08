@@ -162,6 +162,7 @@
   cursor: pointer;
   border-radius: 4px;
   box-shadow: 2px 2px 10px grey;
+  height: 300px;
 }
 #aboutTxtBox:hover {
   transform: translate3D(0, -1px, 0) scale(1.03);
@@ -182,7 +183,7 @@
   margin-top: 10px;
 }
 #aboutSkillTexts p {
-  line-height: 2rem;
+  /* line-height: 2rem; */
 }
 
 #moreExperience {

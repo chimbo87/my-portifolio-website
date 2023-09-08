@@ -9,11 +9,11 @@ function Footer() {
           <div class="col-lg-8 md-4" id="footerText">
             <h5>More Info</h5>
             <small>
-              Contrary to popular belief, Lorem Ipsum is not simply random text.
-              It has roots in a piece of classical Latin literature from 45 BC,
-              making it over 2000 years old. Richard McClintock, a Latin
-              professor at Hampden-Sydney College in Virginia, looked up one of
-              the more obscure Latin words, consectetur,
+              I believe in the power of technology to make the world a better
+              place, and I'm dedicated to using my skills to bring innovative
+              ideas to life. Whether it's building responsive websites,
+              optimizing user interfaces, or creating seamless user experiences,
+              I'm here to turn your vision into reality.
             </small>
           </div>
           <div class="col-lg-4 md-4" id="footerSocialLinks">
@@ -30,7 +30,9 @@ function Footer() {
         </div>
       </div>
       <div className="container" id="footerRightText">
-        <small><span>&copy;</span> Designed and Build by Chimbo 2023</small>
+        <small>
+          <span>&copy;</span> Designed and Build by Chimbo 2023
+        </small>
       </div>
     </div>
   );

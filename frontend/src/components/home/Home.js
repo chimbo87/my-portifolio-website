@@ -3,9 +3,7 @@ import homeImg from "../assets/home.jpg";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
 
-
 function Home() {
-
   const navigate = useNavigate();
   return (
     <>
@@ -16,20 +14,20 @@ function Home() {
             <h2>ARCHFORD NHANGA </h2>
             <h3>Frontend Software Engineer | Aws Solution Architecture</h3>
             <p>
-              Contrary to popular belief, Lorem Ipsum is not simply random text.
-              It has roots in a piece of classical Latin literature from 45 BC,
-              making it over 2000 years old. Richard McClintock, a Latin
-              professor at Hampden-Sydney College in Virginia, looked up one of
-              the more obscure Latin words, consectetur,
+              I believe in the power of technology to make the world a better
+              place, and I'm dedicated to using my skills to bring innovative
+              ideas to life. Whether it's building responsive websites,
+              optimizing user interfaces, or creating seamless user experiences,
+              I'm here to turn your vision into reality.
             </p>
-          
-            <div>
+
+            <div id="homePortifolio">
               <button
                 onClick={() => {
                   navigate("/projects");
                 }}
               >
-                See My Work
+                See portfolio
               </button>
             </div>
           </div>

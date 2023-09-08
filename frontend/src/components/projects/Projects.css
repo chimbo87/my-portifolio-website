@@ -240,6 +240,18 @@
   padding: 2px 0px;
   margin-top: 20px;
 }
+#projectDescriptionSitesLinks {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#projectDescriptionSitesLinksDate {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
 #projectDescriptionLink {
   width: 100%;
   display: flex;
@@ -255,9 +267,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
- 
 }
-#projectNameWrap{
+#projectNameWrap {
   color: gray;
 }
 #projectDescriptionLinkIconsLike {
@@ -286,11 +297,20 @@
   font-size: 14px;
   border: none;
   height: 30px;
-  border-radius: 4px;
+  border-radius: 4px 0px 0px 4px;
   padding-left: 4px;
   width: 250px;
+  background-color: #c2c2c24a;
 }
-#projectDescriptionInputBox i{
+#inputCommen:focus {
+  border: none;
+  background-color: white;
+}
+#projectDescriptionInputBox button {
+  border: none;
+  background-color: transparent;
+}
+#projectDescriptionInputBox i {
   color: gray;
   padding: 2px 5px;
   cursor: pointer;
@@ -301,12 +321,20 @@
   align-items: center;
   justify-content: end;
 }
-#shareBtn{
+#shareBtn {
   margin-left: 10px;
- 
 }
-#likesButton{
+#likesButton {
+}
+@media(max-width:500px){
+  #projectNavSelect{
+    display: none;
+  }
+  #projectSearchInput{
+    width: 100%;
+  }
+  #projectSectionBox {
+    height: 40vh;
+  }
 
 }
-
-
