@@ -169,30 +169,31 @@ const Likes = asyncHandler(async (req, res) => {
     }
   });
 // Get comments for a specific blog post
-const getCommentsForBlog = asyncHandler(  async (req, res) => {
+const getCommentsForBlog = asyncHandler(async (req, res) => {
   try {
-    const  blogId  = req.params.id;
+    const blogId = req.params.id;
 
     // Find the blog post by ID
-    const Blog = await blogs.findById(blogId);
+    const blog = await blogs.findById(blogId);
 
-    if (!Blog) {
+    if (!blog) {
       return res.status(404).json({ error: 'Blog not found' });
-      
     }
-  
 
-    // Fetch comments associated with the blog post
-    const Messages = await blogs.find({ blogs: blogId[1]}).populate("comments");
+    // Check if the blog has comments
+    if (!blog.comments || blog.comments.length === 0) {
+      return res.status(404).json({ message: 'No comments found for this blog' });
+    }
 
-    res.json(Messages);
-   
+    // Return the comments for the blog
+    res.status(200).json(blog.comments);
   } catch (error) {
-    console.error('Error fetching comments:', error);
     res.status(500).json({ error: 'Server error' });
-    console.log(error)
   }
 });
+
+
+
 
 
 const getBlogs = asyncHandler(async (req, res) => {

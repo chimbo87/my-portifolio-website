@@ -19,6 +19,7 @@ function BlogDescription() {
   const [comments, setComments] = useState("");
   const [text, setText] = useState("");
   const [messages, setMessages] = useState([]);
+  const [numberOfComments, setnumberOfComments] = useState();
 
   useEffect(() => {
     setLoading(true);
@@ -33,6 +34,25 @@ function BlogDescription() {
         setDate(format(new Date(result.data.createdAt), "yyyy-MM-dd "));
         setLoves(result.data.likes);
         setLoading(false);
+      })
+
+      .catch((err) => console.log(err));
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8000/blogs/comments/${id}`)
+      .then((result) => {
+        const numberComments = result.data.length;
+        const lastIndex = result.data.length - 1;
+        const userMessage = result.data[lastIndex].text[0].text;
+
+        setMessages(userMessage);
+        setnumberOfComments(numberComments);
+
+        console.log("Hello archie, here are your..", result.data);
+
+        // console.log("Hello archie, here are your..",result.data.text[0])
       })
 
       .catch((err) => console.log(err));
@@ -80,6 +100,12 @@ function BlogDescription() {
       setComments(result.length);
       setText("");
       handleSendClick();
+      const lastIndex = result.length;
+      const tsambe = result[lastIndex - 1].text[0];
+
+      const theComment = tsambe.text;
+      setnumberOfComments(lastIndex);
+      setMessages(theComment);
     }
   };
 
@@ -131,12 +157,11 @@ function BlogDescription() {
                       <small>comment</small>
                     </button>
                   </div>
-                  <div  id="blogDesCommentBox">
+                  <div id="blogDesCommentBox">
                     <button>
-                    <i class="bx bx-share-alt"></i>
-                    <small>share 12</small>
+                      <i class="bx bx-share-alt"></i>
+                      <small>share 12</small>
                     </button>
-                   
                   </div>
                 </div>
               </div>
@@ -153,12 +178,11 @@ function BlogDescription() {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
           <div class="modal-content">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="exampleModalLabel">
-                {comments}
-                <small>comments</small>
+                <small>{title}</small>
               </h1>
               <button
                 type="button"
@@ -168,6 +192,42 @@ function BlogDescription() {
               ></button>
             </div>
             <div class="modal-body" id="sendBtnModal">
+              <img src={image} id="blogDesBoxImg"></img>
+              <div id="sendBtnModalLikes">
+                <small>
+                  <i class="bx bxs-heart" id="theLikes"></i> You and{" "}
+                  <span id="theLikes">{loves - 1}</span>
+                  others
+                </small>
+                <small>
+                  <span id="theLikes">{numberOfComments}</span> Comments
+                </small>
+              </div>
+              <div id="modalLinksLikes">
+                <small
+                  onClick={() => {
+                    submitRegHandler();
+                    updatedLikes();
+                  }}
+                >
+                  {" "}
+                  <i class="bx bx-heart"></i>Like
+                </small>
+
+                <small>
+                  <i class="bx bxs-comment-detail"></i>comment
+                </small>
+
+                <small>
+                  <i class="bx bx-share-alt"></i>share
+                </small>
+              </div>
+              <div id="theUserMessage">
+                <i class="bx bxs-user-circle"></i>
+                <small>{messages}</small>
+              </div>
+            </div>
+            <div class="modal-footer">
               <form id="sendBtnModalForm">
                 <input
                   type="text"
@@ -181,7 +241,6 @@ function BlogDescription() {
                 </button>
               </form>
             </div>
-            <div class="modal-footer"></div>
           </div>
         </div>
       </div>

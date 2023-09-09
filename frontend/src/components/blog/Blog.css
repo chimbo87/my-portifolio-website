@@ -208,8 +208,9 @@
 }
 #sendBtnModal{
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
  
 }
 #sendBtnModalForm{
@@ -232,5 +233,60 @@
   width: 50px;
   height: 40px;
   color: #d29968;
+  font-size: 20px;
+}
+#sendBtnModalLikes{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-between;
+   width: 100%;
+   margin-top: 20px;
+}
+#theLikes{
+  color: #d29968;
+  font-size: 18px;
+  font-weight: 600;
+}
+#modalLinksLikes{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+  border-top: 1px solid #80808036;
+  padding-top: 5px;
+  margin-bottom: 10px;
+}
+#modalLinksLikes small{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: gray;
+  cursor: pointer;
+   border-radius: 15px;
+  background-color:hsla(0, 6%, 73%, 0.164) ;
+  padding: 2px 5px;
+}
+#modalLinksLikes small:hover{
+  color: #be966e;
+}
+#modalLinksLikes small i{
+  color: grey;
+  margin-right: 5px;
+}
+#theUserMessage{
+  margin: 10px 30px;
+  border-radius: 10px;
+  background-color: rgba(174, 174, 174, 0.187);
+  padding: 5px;
+  display: flex;
+  flex-direction:column ;
+  align-items: start;
+  justify-content: start;
+
+}
+#theUserMessage i{
+  color: #916420;
   font-size: 20px;
 }
