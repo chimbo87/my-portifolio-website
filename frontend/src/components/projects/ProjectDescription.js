@@ -22,6 +22,7 @@ function ProjectDescription() {
   const [numberOfComments, setnumberOfComments] = useState();
   const [comments, setComments] = useState("");
   const [text, setText] = useState("");
+  const [carrying, setCarrying] = useState(false);
 
   const Loader = () => {
     return (
@@ -113,6 +114,7 @@ function ProjectDescription() {
     if (text.trim() === "") {
       return comments;
     } else {
+      setCarrying(true);
       const response = await fetch(
         `http://localhost:8000/projects/comments${id}`,
         {
@@ -135,9 +137,10 @@ function ProjectDescription() {
       const theComment = tsambe.text;
       setnumberOfComments(lastIndex);
       setMessages(theComment);
+      setCarrying(false);
     }
   };
- 
+
   return (
     <>
       <div className="container-fluid" id="projectSectionBox">
@@ -215,7 +218,7 @@ function ProjectDescription() {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered ">
           <div class="modal-content">
             <div class="modal-header" id="projectModalHeader">
               <b>
@@ -247,9 +250,8 @@ function ProjectDescription() {
               </div>
               <div id="modalUserMessages">
                 <small>
-                <i class='bx bx-user-circle'></i>
-                {messages}
-                 
+                  <i class="bx bx-user-circle"></i>
+                  {messages}
                 </small>
               </div>
             </div>
@@ -258,20 +260,17 @@ function ProjectDescription() {
               <div id="modalUserInput">
                 <form>
                   <input
-                 
                     type="text"
                     placeholder="add a comment..."
                     value={text}
                     onChange={(e) => setText(e.target.value)}
-                    
-                   
                   />
 
-                
-                    <button  onClick={submitRegComment}>
-                      <i class="bx bxs-send"></i>
-                    </button>
-              
+                  {!carrying && <span></span>}
+                  <button onClick={submitRegComment}>
+                    {carrying && <Loader />}
+                    <i class="bx bxs-send"></i>
+                  </button>
                 </form>
               </div>
             </div>
