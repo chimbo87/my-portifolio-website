@@ -28,6 +28,18 @@ const projectSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
+    comments: [
+        {
+          text: {
+            type: [],
+            required: true,
+          },
+          createdAt: {
+            type: Date,
+            default: Date.now,
+          },
+        },
+      ],
     image:{
         data:Buffer,
         type:String,

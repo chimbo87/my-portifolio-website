@@ -257,8 +257,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* padding-right: 20px; */
-  /* padding-top: 5px; */
+  padding-top: 10px;
 }
 #projectDescriptionLinkIcons {
   width: 100%;
@@ -276,31 +275,35 @@
   justify-content: center;
   background-color: #8080802f;
   padding: 4px 0px;
-  /* border: 1px solid #80808052; */
   border-radius: 4px;
   cursor: pointer;
+}
+#projectDescriptionLinkIconsLike button{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  background-color: transparent;
+  padding: 0px 5px;
+}
+#projectDescriptionLinkIconsLike button i{
+  margin-right: 5px;
 }
 #projectDescriptionLinkIconsLike i {
   color: #d29968;
   font-size: 20px;
   cursor: pointer;
 }
-#projectDescriptionInputBox {
-  border: 1px solid #daa5209d;
+#projectDescriptionInputBox{
   display: flex;
   align-items: center;
-  background-color: white;
-  border-radius: 4px;
+  justify-content: center;
 }
-#projectDescriptionInputBox input {
-  font-size: 14px;
-  border: none;
-  height: 30px;
-  border-radius: 4px 0px 0px 4px;
-  padding-left: 4px;
-  /* width: 250px; */
-  background-color: #c2c2c24a;
+#projectCardBtn{
+  border: 1px solid red;
+  background-color: #ffa200;
 }
+
 #inputCommen:focus {
   border: none;
   background-color: white;
@@ -331,6 +334,118 @@
   border-top: 1px solid #80808033;
   margin-top: 10px;
 }
+#projectModalHeader{
+  background-color: gainsboro;
+}
+#projectModalHeader button{
+  border: 1px solid grey;
+}
+#modalBodyImg img{
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+/* #modalBodyImg{
+  font-weight: 600;
+  color: grey;
+  font-size: 18px;
+} */
+#modalBodyImgLink{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid #80808053;
+  padding-bottom: 8px;
+  margin-top: 10px;
+}
+#modalBodyImgLink small{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  color: grey;
+  font-size: 16px;
+}
+#modalBodyImgLink small i{
+  color: #d29968;
+  margin-right: 5px;
+}
+#modalUserMessages{
+  width: auto;
+  background-color: gainsboro;
+  border-radius: 20px;
+  margin: 20px;
+  padding: 10px;
+}
+#modalUserMessages small{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+#modalUserMessages small i{
+  color: #8a603b;
+  font-size: 18px;
+}
+#modalFooter{
+ border: none;
+ border-top: 1px solid transparent;
+}
+#modalUserInput{
+  width: 100%;
+
+  background-color: transparent;
+}
+#modalUserInput form{
+  background-color: #80808019;
+  border: 1px solid #8080803a;
+  border-radius: 10px;
+  
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#modalUserInput form button{
+  border: none;
+  background-color: transparent;
+  height: 100%;
+  padding: 0px 20px;
+  border-radius: 0px 10px 10px 0px;
+}
+#modalUserInput form input{
+  height: 100%;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+ background-color: transparent;
+ padding-left: 10px;
+  
+}
+#modalUserInput form input:focus{
+  outline: none; /* Remove the outline when the input is focused */
+  border: none; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media(max-width:500px){
   #projectNavSelect{
     display: none;

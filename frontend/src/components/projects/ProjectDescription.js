@@ -18,8 +18,10 @@ function ProjectDescription() {
   const [image, setImageurl] = useState("");
   const [date, setDate] = useState("");
   const [initialLikes, setinitialLikes] = useState("");
-  const [showSendButton, setShowSendButton] = useState(false);
-  const [message, setMessage] = useState("");
+  const [messages, setMessages] = useState([]);
+  const [numberOfComments, setnumberOfComments] = useState();
+  const [comments, setComments] = useState("");
+  const [text, setText] = useState("");
 
   const Loader = () => {
     return (
@@ -72,11 +74,11 @@ function ProjectDescription() {
     return setinitialLikes(initialLikes + 1);
   };
 
-  const handleCommentChange = (e) => {
-    const message = e.target.value;
-    setMessage(message);
-    setShowSendButton(message.trim() !== "");
-  };
+  // const handleCommentChange = (e) => {
+  //   const message = e.target.value;
+  //   setMessage(message);
+  //   setShowSendButton(message.trim() !== "");
+  // };
   const handleSendClick = () => {
     toast.success("Thank you for your comment !", {
       position: "top-right",
@@ -88,24 +90,54 @@ function ProjectDescription() {
     });
   };
 
-  const submitComment = async (e) => {
-    e.preventDefault();
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8000/projects/comments/${id}`)
+      .then((result) => {
+        const numberComments = result.data.length;
+        const lastIndex = result.data.length - 1;
+        const userMessage = result.data[lastIndex].text[0].text;
 
-    const response = await fetch("http://localhost:8000/comments", {
-      method: "POST",
-      body: JSON.stringify({
-        message: message,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    });
-    const result = await response.json();
-    console.log(result);
-    setMessage("");
-    setShowSendButton(false);
-    handleSendClick();
+        setMessages(userMessage);
+        setnumberOfComments(numberComments);
+
+        console.log("Hello archie, here are your..", result.data);
+
+        // console.log("Hello archie, here are your..",result.data.text[0])
+      })
+
+      .catch((err) => console.log(err));
+  }, []);
+  const submitRegComment = async (e) => {
+    e.preventDefault();
+    if (text.trim() === "") {
+      return comments;
+    } else {
+      const response = await fetch(
+        `http://localhost:8000/projects/comments${id}`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            text: text,
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }
+      );
+      const result = await response.json();
+      setComments(result.length);
+      setText("");
+      handleSendClick();
+      const lastIndex = result.length;
+      const tsambe = result[lastIndex - 1].text[0];
+
+      const theComment = tsambe.text;
+      setnumberOfComments(lastIndex);
+      setMessages(theComment);
+    }
   };
+ 
   return (
     <>
       <div className="container-fluid" id="projectSectionBox">
@@ -140,37 +172,27 @@ function ProjectDescription() {
                 <small>
                   <i class="bx bxs-like"></i>You and {initialLikes - 1} others
                 </small>
-                <small>12 Comments</small>
+                <small>{numberOfComments} Comments</small>
               </div>
               <div id="projectDescriptionLink">
-                <div id="projectDescriptionLinkIconsLike"    onClick={() => {
-                      submitRegHandler();
-                      updatedLikes(initialLikes);
-                    }}>
-                  <small
-                 
-                  >
-                    Like post
-                  </small>
+                <div
+                  id="projectDescriptionLinkIconsLike"
+                  onClick={() => {
+                    submitRegHandler();
+                    updatedLikes(initialLikes);
+                  }}
+                >
+                  <i class="bx bx-heart"></i>
+                  <b>
+                    <small>Like post</small>
+                  </b>
                 </div>
 
-                <div id="projectDescriptionInputBox">
-                  <form onSubmit={submitComment}>
-                    <input
-                      id="inputCommen"
-                      type="text"
-                      placeholder="add a comment..."
-                      value={message}
-                      onChange={handleCommentChange}
-                      data-bs-toggle="modal" data-bs-target="#exampleModal"
-                    />
-
-                    {showSendButton && (
-                      <button onChange={handleCommentChange}>
-                        <i class="bx bxs-send"></i>
-                      </button>
-                    )}
-                  </form>
+                <div id="projectDescriptionLinkIconsLike">
+                  <button data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class="bx bx-message-dots"></i>
+                    <b>comment</b>
+                  </button>
                 </div>
 
                 <div id="projectDescriptionLinkIconsLike">
@@ -185,26 +207,77 @@ function ProjectDescription() {
         )}
         {loading && <LoadingSpinner />}
       </div>
-      
 
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header" id="projectModalHeader">
+              <b>
+                <p>{title}</p>
+              </b>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body" id="modalBodyImg">
+              <img src={image} class="d-block w-100" alt="..." />
+              <small>{name}</small>
+              <div id="modalBodyImgLink">
+                <small>
+                  <i class="bx bx-like"></i>
+                  likes {initialLikes}
+                </small>
+                <small>
+                  <i class="bx bx-message-dots"></i>
+                  comments {numberOfComments}
+                </small>
+                <small>
+                  <i class="bx bxs-share bx-flip-horizontal"></i>
+                  share 2
+                </small>
+              </div>
+              <div id="modalUserMessages">
+                <small>
+                <i class='bx bx-user-circle'></i>
+                {messages}
+                 
+                </small>
+              </div>
+            </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-footer" id="modalFooter">
+              <div id="modalUserInput">
+                <form>
+                  <input
+                 
+                    type="text"
+                    placeholder="add a comment..."
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                    
+                   
+                  />
+
+                
+                    <button  onClick={submitRegComment}>
+                      <i class="bx bxs-send"></i>
+                    </button>
+              
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-      There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
       <Footer />
     </>
   );

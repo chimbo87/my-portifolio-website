@@ -17,7 +17,9 @@ import {
   projectLikes,
   myComments,
   blogComments,
-  getCommentsForBlog
+  getCommentsForBlog,
+  projectComments,
+  getCommentsForProject
 } from "../controllers/Controllers.js";
 const router = express.Router();
 
@@ -28,6 +30,8 @@ router.get("/projects/:id", getProject);
 router.put(`/projects/:id`, updateProject);
 router.delete("/projects:id", deleteProjects);
 router.post("/projects/projectslikes:id", projectLikes);
+router.post("/projects/comments:id", projectComments);
+router.get("/projects/comments/:id",getCommentsForProject);
 
 //blogs routes
 router.post("/blogs", myBlogs);

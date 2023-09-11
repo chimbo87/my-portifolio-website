@@ -100,6 +100,59 @@ const deleteProjects = asyncHandler(async (req, res) => {
   }
 });
 
+const projectComments = asyncHandler( async (req, res) => {
+  try {
+    const text = req.body;
+    const projectId = req.params.id;
+   
+    // Find the blog post by ID
+    const Project = await project.findById(projectId);
+
+    if (!Project) {
+      return res.status(404).json({ error: 'Blog not found' });
+    }
+ 
+    // Add the comment to the blog's comments array
+    Project.comments.push({
+      text,
+    }
+    
+    );
+
+    // Save the updated blog post
+    await Project.save();
+  
+  
+    res.status(201).json(Project.comments);
+  } catch (error) {
+    res.status(500).json({ error: 'Server error' });
+   
+  }
+});
+
+const getCommentsForProject = asyncHandler(async (req, res) => {
+  try {
+    const projectId = req.params.id;
+
+    // Find the blog post by ID
+    const Project = await project.findById(projectId);
+
+    if (!Project) {
+      return res.status(404).json({ error: 'Blog not found' });
+    }
+
+    // Check if the blog has comments
+    if (!Project.comments || Project.comments.length === 0) {
+      return res.status(404).json({ message: 'No comments found for this blog' });
+    }
+
+    // Return the comments for the blog
+    res.status(200).json(Project.comments);
+  } catch (error) {
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
 const myBlogs = asyncHandler(async (req, res) => {
   try {
     const { title,heading, description, image } = req.body;
@@ -320,5 +373,7 @@ export {
   deleteBlogs,
   myComments,
   blogComments,
-  getCommentsForBlog
+  getCommentsForBlog,
+  projectComments,
+  getCommentsForProject
 };
