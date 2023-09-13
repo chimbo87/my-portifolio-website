@@ -1,90 +1,103 @@
-#homeSection{
+#homeSection {
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-image: linear-gradient(#2c2c2be5, rgba(128, 128, 128, 0.977)),
-  url("https://ncube-digest.com/wp-content/uploads/2020/02/Top-8-Software-Development-Models.jpg");
+    url("https://ncube-digest.com/wp-content/uploads/2020/02/Top-8-Software-Development-Models.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
 }
 
-#homeContainerTextBox{
+#homeContainerTextBox {
   margin-top: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 100px;
-
 }
-#textBoxWrap{
+#textBoxWrap {
   max-width: 1000px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
 }
-#textBoxWrap h3{
+#textBoxWrap h3 {
   color: goldenrod;
   margin-top: 10px;
 }
-#textBoxWrap h2{
-  background: -webkit-linear-gradient(0deg,#ffa200,#77a8ce,#d29968);
+#textBoxWrap h2 {
+  background: -webkit-linear-gradient(0deg, #ffa200, #77a8ce, #d29968);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 700;
   margin-top: 10px;
 }
-#textBoxWrap p{
+#textBoxWrap p {
   color: antiquewhite;
   line-height: 1.5rem;
   margin-top: 10px;
   text-align: center;
 }
-#homePortifolio{
+#homePortifolio {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-#homePortifolio button{
-  color: antiquewhite;
-  font-weight: 400;
-  font-size: 18px;
+
+#homePortifolio button {
+  border: 2px solid #daa52048;
   padding: 10px 30px;
-  border: 2px solid #daa52082;
-  margin-top: 20px;
+  font-weight: 600;
+  font-size: 20px;
+  color: goldenrod;
+  cursor: pointer;
   background-color: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
-#textBoxWrap button:hover{
+#textBoxWrap button:hover {
   background-color: #faebd717;
 }
 
-@media(max-width:500px){
-  #textBoxWrap{
-   
+@media (max-width: 500px) {
+  #textBoxWrap {
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: space-between;
   }
 
-  #textBoxWrap p{
+  #textBoxWrap p {
     text-align: start;
-   
   }
-  #textBoxWrap h2{
+  #textBoxWrap h2 {
     text-align: start;
-   
   }
-  #textBoxWrap h3{
+  #textBoxWrap h3 {
     text-align: start;
-   
   }
- 
+
+  @keyframes changeBackgroundColor {
+    0% {
+      background-color: transparent;
+    }
+    50% {
+      background-color: #faebd746;
+    }
+    100% {
+      background-color: transparent;
+    }
+  }
+
+  #homePortifolio button {
+    border: 2px solid #daa52048;
+    padding: 10px 30px;
+    font-weight: 600;
+    font-size: 20px;
+    color: goldenrod;
+    cursor: pointer;
+    animation: changeBackgroundColor 2s infinite;
+  }
 }

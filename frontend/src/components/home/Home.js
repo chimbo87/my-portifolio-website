@@ -1,5 +1,4 @@
 import React from "react";
-import homeImg from "../assets/home.jpg";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
 
@@ -27,7 +26,7 @@ function Home() {
                   navigate("/projects");
                 }}
               >
-                See portfolio
+                View portfolio
               </button>
             </div>
           </div>

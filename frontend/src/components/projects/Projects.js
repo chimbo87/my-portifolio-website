@@ -8,43 +8,49 @@ import { format } from "date-fns";
 
 function Projects() {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
+  const [filterName, setFilterName] = useState(""); // State for selected name filter
+  const [searchText, setSearchText] = useState(""); // State for search input
   const [projects, setProjects] = useState([]);
-  const [filterRecords, setFilterRecords] = useState([]);
-
-  const [selectedName, setSelectedName] = useState(""); // State for selected name
-
-  //   <select value={selectedName} onChange={(e) => setSelectedName(e.target.value)}>
-  //   <option value="">All</option> {/* Option to display all cards */}
-  //   <option value="CardName1">Card Name 1</option>
-  //   <option value="CardName2">Card Name 2</option>
-  //   {/* Add more options for each card name */}
-  // </select>
+  const [loading, setLoading] = useState(false);
 
   const getProjects = async () => {
     setLoading(true);
-    const response = await fetch("http://localhost:8000/projects").then(
-      (response) => response.json()
-    );
-    {
-      setProjects(response);
-      setFilterRecords(response);
+    try {
+      const response = await fetch("http://localhost:8000/projects");
+      const data = await response.json();
+      setProjects(data);
       setLoading(false);
+    } catch (error) {
+      console.error("Error fetching data:", error);
     }
-
-    console.log("our products list:", response);
   };
   useEffect(() => {
     getProjects();
   }, []);
 
-  const handleFilter = (event) => {
-    const newData = filterRecords.filter((row) =>
-      row.title.toLowerCase().includes(event.target.value.toLowerCase())
-    );
-    setProjects(newData);
-    setSelectedName(newData);
+  const handleFilterByName = (event) => {
+    setFilterName(event.target.value);
   };
+
+  const handleSearch = (event) => {
+    setSearchText(event.target.value);
+  };
+
+  const filteredDataByName = filterName
+    ? projects.filter(
+        (project) => project.title.toLowerCase() === filterName.toLowerCase()
+      )
+    : projects;
+
+  const filteredDataBySearch = searchText
+    ? projects.filter((project) =>
+        project.title.toLowerCase().includes(searchText.toLowerCase())
+      )
+    : projects;
+
+  const filteredData = filteredDataByName.filter((project) =>
+    filteredDataBySearch.includes(project)
+  );
 
   return (
     <>
@@ -57,15 +63,17 @@ function Projects() {
             <select
               class="form-select"
               aria-label="Default select example"
-              value={selectedName}
-              onChange={(e) => setSelectedName(e.target.value)}
+              value={filterName}
+              onChange={handleFilterByName}
             >
-              <option selected>All</option>
-              <option value="Mern Stack">Mern Stack</option>
-              <option value="Html, Css & JavaScript">
-                Html, Css & JavaScript
+              <option value="">Filter all</option>
+              <option value="Mern Stack App">Mern Stack</option>
+              <option value="Html, Css and JavaScript">
+                {" "}
+                Html Css and JavaScript{" "}
               </option>
-              <option value="Angular">Angular</option>
+              <option value="Firebase and Angular"> Angular</option>
+              <option value="Firebase and Angular"> React.js</option>
             </select>
           </div>
 
@@ -76,20 +84,19 @@ function Projects() {
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Search ..."
-              onChange={handleFilter}
+              value={searchText}
+              onChange={handleSearch}
             />
             <i class="bx bx-search"></i>
           </div>
         </div>
         {!loading && (
           <div class="row ">
-            {projects.map((project) => {
+            {filteredData.map((project) => {
               return (
                 <div class="col-lg-4 md-4">
                   <div id="projectBoxCard">
                     <div
-                      // data-bs-toggle="modal"
-                      // data-bs-target="#exampleModal"
                       id="projectImg"
                       onClick={() => {
                         navigate(`/projectdescription/${project._id}`);
@@ -180,44 +187,6 @@ function Projects() {
         </div>
       </div>
 
-      <div
-        class="modal fade"
-        id="exampleModal"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">
-                Project Description
-              </h1>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <h4>hello wolrd</h4>
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              {/* <button type="button" class="btn btn-primary">
-                Save changes
-              </button> */}
-            </div>
-          </div>
-        </div>
-      </div>
       <div>
         <Footer />
       </div>

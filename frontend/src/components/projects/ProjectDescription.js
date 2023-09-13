@@ -75,11 +75,6 @@ function ProjectDescription() {
     return setinitialLikes(initialLikes + 1);
   };
 
-  // const handleCommentChange = (e) => {
-  //   const message = e.target.value;
-  //   setMessage(message);
-  //   setShowSendButton(message.trim() !== "");
-  // };
   const handleSendClick = () => {
     toast.success("Thank you for your comment !", {
       position: "top-right",
@@ -237,11 +232,17 @@ function ProjectDescription() {
               <div id="modalBodyImgLink">
                 <small>
                   <i class="bx bx-like"></i>
-                  likes {initialLikes}
+                  likes{" "}
+                  <span>
+                    <b>{initialLikes}</b>
+                  </span>
                 </small>
                 <small>
                   <i class="bx bx-message-dots"></i>
-                  comments {numberOfComments}
+                  comments{" "}
+                  <span>
+                    <b>{numberOfComments}</b>
+                  </span>
                 </small>
                 <small>
                   <i class="bx bxs-share bx-flip-horizontal"></i>

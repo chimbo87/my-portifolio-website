@@ -49,10 +49,6 @@ function BlogDescription() {
 
         setMessages(userMessage);
         setnumberOfComments(numberComments);
-
-        console.log("Hello archie, here are your..", result.data);
-
-        // console.log("Hello archie, here are your..",result.data.text[0])
       })
 
       .catch((err) => console.log(err));

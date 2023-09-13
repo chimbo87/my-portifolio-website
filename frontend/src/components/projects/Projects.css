@@ -367,6 +367,9 @@
   color: #d29968;
   margin-right: 5px;
 }
+#modalBodyImgLink small span{
+  margin-left: 5px;
+}
 #modalUserMessages{
   width: auto;
   background-color: gainsboro;
