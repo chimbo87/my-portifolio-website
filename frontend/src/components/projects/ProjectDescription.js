@@ -76,7 +76,7 @@ function ProjectDescription() {
   };
 
   const handleSendClick = () => {
-    toast.success("Thank you for your comment !", {
+    toast.success("Comment received, thank you !", {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: true,
@@ -168,9 +168,9 @@ function ProjectDescription() {
               </div>
               <div id="projectTheComments">
                 <small>
-                  <i class="bx bxs-like"></i>You and {initialLikes - 1} others
+                 <b>{initialLikes}</b> Likes
                 </small>
-                <small>{numberOfComments} Comments</small>
+                <small><b>{numberOfComments}</b> Comments</small>
               </div>
               <div id="projectDescriptionLink">
                 <div

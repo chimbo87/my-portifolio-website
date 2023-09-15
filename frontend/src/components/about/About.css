@@ -1,6 +1,6 @@
 #aboutSection {
-  background-image: linear-gradient(#2c2c2be5, rgba(128, 128, 128, 0.977)),
-    url("https://ncube-digest.com/wp-content/uploads/2020/02/Top-8-Software-Development-Models.jpg");
+  background-image: linear-gradient(#2c2c2be5, #808080a4),
+  url("../assets/portifolio.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

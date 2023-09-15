@@ -2,70 +2,103 @@ import "./AddBlog.css";
 import React from "react";
 import { useState } from "react";
 import imageIcon from "../assets/imgicon.png";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Dropzone from "react-dropzone";
+import axios from "axios";
 
 function AddBlog() {
   const [title, setTitle] = useState("");
-  const [imageurl, setImageurl] = useState("");
+ 
   const [heading, setHeading] = useState("");
   const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
+  const [file, setFile] = useState(null);
+
+  const handleFileUpload = (acceptedFiles) => {
+    // Assuming you want to upload a single file
+    const selectedFile = acceptedFiles[0];
+    setFile(selectedFile);
+  };
 
   const Loader = () => {
     return (
-      <div
-        class="spinner-border text-warning spinner-border-sm"
-        role="status"
-      >
+      <div class="spinner-border text-warning spinner-border-sm" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
     );
   };
 
   const handleSendClick = () => {
-    toast.success('Blog added successfully!', {
-      position: 'top-right',
-      autoClose: 3000, 
+    toast.success("Blog added successfully!", {
+      position: "top-right",
+      autoClose: 3000,
       hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: false,
-    
     });
   };
 
-  const submitRegHandler = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    const response = await fetch("http://localhost:8000/blogs", {
-      method: "POST",
-      body: JSON.stringify({
-        title: title,
-        description: description,
-        image: imageurl,
-        heading:heading,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    });
-    const result = await response.json();
-    console.log(result);
-    setTitle("");
-    setDescription("");
-    setImageurl("");
+   setLoading(true)
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("heading", heading);
+    formData.append("description", description);
+    formData.append("image", file); // Append the file to the FormData
+
+    try {
+      // Send a POST request to your server for uploading
+      await axios.post("http://localhost:8000/blogs", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data", // Important for file upload
+        },
+        
+      });
+     
+      // Reset form state or redirect to a success page
+    } catch (error) {
+      console.error("Error uploading blog post:", error);
+    }
     handleSendClick();
-    setHeading("");
-    setLoading(false)
+    setTitle("");
+      setDescription("");
+      handleSendClick();
+      setHeading("");
+      setLoading(false)
   };
+  // const submitRegHandler = async (e) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+  //   const response = await fetch("http://localhost:8000/blogs", {
+  //     method: "POST",
+  //     body: JSON.stringify({
+  //       title: title,
+  //       description: description,
+  //       image: imageurl,
+  //       heading:heading,
+  //     }),
+  //     headers: {
+  //       "Content-type": "application/json; charset=UTF-8",
+  //     },
+  //   });
+  //   const result = await response.json();
+  //   console.log(result);
+  //   setTitle("");
+  //   setDescription("");
+  //   setImageurl("");
+  //   handleSendClick();
+  //   setHeading("");
+  //   setLoading(false)
+  // };
   return (
     <div className="container" id="addBlogSection">
       <div class="row">
         <div class="col-lg-8 md-4">
           <h4>Post Blog</h4>
-          <form onSubmit={submitRegHandler}>
+          <form onSubmit={handleSubmit}>
             <div class="mb-3" id="ProjectInput">
               <label for="exampleFormControlInput1" class="form-label"></label>
               <input
@@ -90,15 +123,17 @@ function AddBlog() {
             </div>
 
             <div class="mb-3" id="ProjectInput">
-              <label for="exampleFormControlInput1" class="form-label"></label>
-              <input
-                type="text"
-                class="form-control"
-                id="exampleFormControlInput1"
-                placeholder="Upload image"
-                value={imageurl}
-                onChange={(e) => setImageurl(e.target.value)}
-              />
+             
+                <label>Image</label>
+                <Dropzone onDrop={handleFileUpload}>
+                  {({ getRootProps, getInputProps }) => (
+                    <div {...getRootProps()} className="dropzone">
+                      <input {...getInputProps()} />
+                      <small>upload file or drag n dron</small>
+                    </div>
+                  )}
+                </Dropzone>
+             
             </div>
 
             <div class="mb-3" id="ProjectInput">
@@ -116,7 +151,7 @@ function AddBlog() {
               ></textarea>
             </div>
             <div id="projectBtn">
-            {!loading && <span></span>}
+              {!loading && <span></span>}
               <button type="submit">{loading && <Loader />}Add Blog</button>
             </div>
           </form>

@@ -33,11 +33,10 @@ const blogsSchema = mongoose.Schema({
           },
         },
       ],
-    image:{
-        data:Buffer,
-        type:String,
-        required:false
-    }
+      image: {
+        type: String, // Store the filename of the uploaded image
+        required: true,
+      },
 },{
     timestamps: true
 });

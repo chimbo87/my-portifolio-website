@@ -153,19 +153,35 @@ const getCommentsForProject = asyncHandler(async (req, res) => {
   }
 });
 
-const myBlogs = asyncHandler(async (req, res) => {
+// const myBlogs = asyncHandler(async (req, res) => {
+//   try {
+//     const { title,heading, description, image } = req.body;
+//     const Blogs = await blogs.create({
+//       title,
+//       heading,
+//       description,
+//       image,
+//     });
+//     res.status(200).json(Blogs);
+//   } catch (error) {
+//     console.log(error.message);
+//     res.status(500).json({ message: error.message });
+//   }
+// });
+
+const  myBlogs = asyncHandler(async (req, res) => {
   try {
-    const { title,heading, description, image } = req.body;
-    const Blogs = await blogs.create({
-      title,
-      heading,
-      description,
-      image,
-    });
-    res.status(200).json(Blogs);
+    const { title, heading, description } = req.body;
+    const image = req.file.filename; // Get the uploaded image filename
+
+    // Create a new blog post in MongoDB
+    const Blog = new blogs({ title, heading, description, image });
+    await Blog.save();
+
+    res.status(201).json({ Blog: 'Blog post created successfully' });
   } catch (error) {
-    console.log(error.message);
-    res.status(500).json({ message: error.message });
+    console.error('Error creating blog post:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 

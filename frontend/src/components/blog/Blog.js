@@ -42,7 +42,7 @@ const Blog = () => {
   useEffect(() => {
     getBlogs();
   }, []);
-
+  const serverURL ="http://localhost:8000/blogs"; 
   return (
     <>
       <div className="container-fluid" id="blogSectionBox">
@@ -51,6 +51,7 @@ const Blog = () => {
       {!loading && (
         <div className="container" id="blogContainer">
           {blogs.map((blog) => {
+             const imageUrl = `${serverURL}/${blog.image}`;
             return (
               <>
                 <div class="row" id="blogWrap">
@@ -84,25 +85,6 @@ const Blog = () => {
                    
                     <div id="blogViews">
                       <div id="blogLinks">
-                        {/* <div id="blogIcons">
-                          <i class="bx bx-heart"></i>
-                          <small>{blog.likes}</small>
-                        </div>
-
-                   
-                        <div id="blogIcons">
-                         
-                          <i class="bx bx-share bx-flip-horizontal"></i>
-                        </div> */}
-                        {/* <div id="blogIconsinput">
-                          <input
-                            type="text"
-                            placeholder="Add a comment"
-                            style={inputStyle}
-                            onClick={handleInputClick}
-                            onBlur={handleInputBlur}
-                          />
-                        </div> */}
                       </div>
 
                       
