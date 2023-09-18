@@ -42,7 +42,7 @@ const Blog = () => {
   useEffect(() => {
     getBlogs();
   }, []);
-  const serverURL ="http://localhost:8000/blogs"; 
+  // const serverURL ="http://localhost:8000/blogs/uploads"; 
   return (
     <>
       <div className="container-fluid" id="blogSectionBox">
@@ -51,12 +51,12 @@ const Blog = () => {
       {!loading && (
         <div className="container" id="blogContainer">
           {blogs.map((blog) => {
-             const imageUrl = `${serverURL}/${blog.image}`;
+            //  const imageUrl = `/${blog.image}`;
             return (
               <>
                 <div class="row" id="blogWrap">
                   <div class="col-lg-6 md-4" id="blogImg">
-                    <img src={blog.image} />
+                    <img src= {blog.image}/>
                   </div>
 
                   <div class="col-lg-6 md-4" id="blogsText">
