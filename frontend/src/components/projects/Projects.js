@@ -143,7 +143,6 @@ function Projects() {
                         <div>
                           <i>
                             <small>
-                              {" "}
                               {format(
                                 new Date(project.createdAt),
                                 "yyyy-MM-dd "
@@ -168,7 +167,7 @@ function Projects() {
             disabled={currentPage === 1}
           >
             <i class="bx bx-arrow-back"></i>
-            Previous
+            Prev
           </button>
           <span>
             Page {currentPage} of{" "}

@@ -38,6 +38,7 @@ function AddProject() {
   const submitRegHandler = async (e) => {
     e.preventDefault();
     setLoading(true);
+  
     const response = await fetch("http://localhost:8000/projects", {
       method: "POST",
       body: JSON.stringify({
@@ -50,6 +51,7 @@ function AddProject() {
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
+       
       },
     });
     const result = await response.json();

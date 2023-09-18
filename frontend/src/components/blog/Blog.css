@@ -290,3 +290,21 @@
   color: #916420;
   font-size: 20px;
 }
+#blogPagination{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: -50px;
+}
+#blogPagination button{
+  padding: 5px 30px ;
+  border-radius: 4px;
+  color: goldenrod;
+  border: 1px solid grey;
+  margin: 0px 5px;
+  font-family: 600;
+}
+#blogPagination span{
+  color: goldenrod;
+}
