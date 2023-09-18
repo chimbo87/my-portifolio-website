@@ -7,21 +7,6 @@ import { useNavigate } from "react-router-dom";
 const Blog = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const originalInputStyle = {
-    width: "150px",
-    height: "30px",
-  };
-  const [inputStyle, setInputStyle] = useState(originalInputStyle);
-  const handleInputClick = () => {
-    setInputStyle({
-      width: "200px",
-      height: "35px",
-    });
-  };
-  const handleInputBlur = () => {
-    setInputStyle(originalInputStyle); // Reset to original size
-  };
-
   const [blogs, setBlogs] = useState([]);
   const [filterRecords, setFilterRecords] = useState([]);
 

@@ -13,6 +13,9 @@ function Projects() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6; // 2 rows x 3 columns = 6 items per page
+
   const getProjects = async () => {
     setLoading(true);
     try {
@@ -52,6 +55,9 @@ function Projects() {
     filteredDataBySearch.includes(project)
   );
 
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
   return (
     <>
       <div className="container-fluid" id="projectSectionBox">
@@ -92,7 +98,7 @@ function Projects() {
         </div>
         {!loading && (
           <div class="row ">
-            {filteredData.map((project) => {
+            {currentItems.map((project) => {
               return (
                 <div class="col-lg-4 md-4">
                   <div id="projectBoxCard">
@@ -156,34 +162,25 @@ function Projects() {
 
         {loading && <LoadingSpinner />}
 
-        <div id="projectPagination">
-          <nav aria-label="...">
-            <ul class="pagination">
-              <li class="page-item disabled">
-                <a class="page-link">Previous</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  1
-                </a>
-              </li>
-              <li class="page-item active" aria-current="page">
-                <a class="page-link" href="#">
-                  2
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  3
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  Next
-                </a>
-              </li>
-            </ul>
-          </nav>
+        <div className="pagination" id="projectPagination">
+          <button
+            onClick={() => setCurrentPage(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            <i class="bx bx-arrow-back"></i>
+            Previous
+          </button>
+          <span>
+            Page {currentPage} of{" "}
+            {Math.ceil(filteredData.length / itemsPerPage)}
+          </span>
+          <button
+            onClick={() => setCurrentPage(currentPage + 1)}
+            disabled={indexOfLastItem >= filteredData.length}
+          >
+            Next
+            <i class="bx bx-arrow-back bx-flip-horizontal"></i>
+          </button>
         </div>
       </div>
 

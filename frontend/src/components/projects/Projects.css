@@ -436,6 +436,26 @@
   outline: none; /* Remove the outline when the input is focused */
   border: none; 
 }
+#projectPagination{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+#projectPagination button{
+  padding: 6px 30px;
+  border-radius: 4px;
+  margin: 0px 5px;
+ border: 1px solid #23232279;
+ color: goldenrod;
+font-weight: 600;
+}
+#projectPagination button:hover{
+  background-color: #80808041;
+}
+#projectPagination span{
+  color: #d29968;
+}
 
 
 
