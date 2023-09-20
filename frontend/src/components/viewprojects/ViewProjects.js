@@ -3,7 +3,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import LoadingSpinner from "../loader/LoadingSpinner";
 import axios from "axios";
-import ViewUpdateProject from "./ViewUpdateProject";
 import { useNavigate } from "react-router-dom";
 
 function ViewProjects() {
@@ -11,6 +10,9 @@ function ViewProjects() {
   const [projects, setProjects] = useState([]);
   const [filterRecords, setFilterRecords] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
 
   const getProjects = async () => {
     const response = await fetch("http://localhost:8000/projects").then(
@@ -38,12 +40,17 @@ function ViewProjects() {
 
   const deleteProject = async (_id) => {
     try {
-      await axios.delete(`http://localhost:8000/projects${_id}`); // Adjust the API endpoint
-      getProjects(); // Refresh the list after deleting
+      await axios.delete(`http://localhost:8000/projects${_id}`);
+      getProjects();
     } catch (error) {
       console.error("Error deleting email:", error);
     }
   };
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentProjects = projects.slice(indexOfFirstItem, indexOfLastItem);
+
   return (
     <>
       <div id="feedbackSection">
@@ -72,85 +79,95 @@ function ViewProjects() {
               </tr>
             </thead>
 
-            {projects.map((project) => {
-              return (
-                <>
-                  {!loading && (
-                    <tbody>
-                      <tr>
-                        <td>
-                          <small>{project._id}</small>
-                        </td>
-                        <td>
-                          <small>{project.title}</small>
-                        </td>
-                        <td>
-                          <small>{project.description}</small>
-                        </td>
-                        <td>
-                          <small>{project.createdAt}</small>
-                        </td>
-                        <td>
-                          <button
-                            id="feedbackUpdateBtn"
-                            onClick={() => {
-                              navigate(
-                                `/admni/viewupdateproject/${project._id}`
-                              );
-                            }}
-                          >
-                            Edit
-                          </button>
-                        </td>
-                        <td>
-                          <button
-                            // data-bs-toggle="modal"
-                            // data-bs-target="#exampleModal"
-                            id="feedbackUpdateBtn"
-                            onClick={() => deleteProject(project._id)}
-                          >
-                            Remove
-                          </button>
-                        </td>
-                      </tr>
-                    </tbody>
-                  )}
-                </>
-              );
-            })}
+            <tbody>
+              {currentProjects.map((project) => (
+                <tr key={project._id}>
+                  <td>
+                    <small>{project._id}</small>
+                  </td>
+                  <td>
+                    <small>{project.title}</small>
+                  </td>
+                  <td>
+                    <small>{project.description}</small>
+                  </td>
+                  <td>
+                    <small>{project.createdAt}</small>
+                  </td>
+                  <td>
+                    <button
+                      id="feedbackUpdateBtn"
+                      onClick={() => {
+                        navigate(`/admni/viewupdateproject/${project._id}`);
+                      }}
+                    >
+                      Edit
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      id="feedbackUpdateBtn"
+                      onClick={() => deleteProject(project._id)}
+                    >
+                      Remove
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
           </table>
           {loading && <LoadingSpinner />}
         </div>
 
         <div id="projectPagination">
           <nav aria-label="...">
-            <ul class="pagination">
-              <li class="page-item disabled">
-                <a class="page-link">Previous</a>
+            <ul className="pagination">
+              <li
+                className={`page-item ${currentPage === 1 ? "disabled" : ""}`}
+              >
+                <button
+                  className="page-link"
+                  onClick={() => setCurrentPage(currentPage - 1)}
+                >
+                  Prev
+                </button>
               </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  1
-                </a>
-              </li>
-              <li class="page-item active" aria-current="page">
-                <a class="page-link" href="#">
-                  2
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  3
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
+              {Array.from(
+                { length: Math.ceil(projects.length / itemsPerPage) },
+                (_, index) => (
+                  <li
+                    key={index}
+                    className={`page-item ${
+                      currentPage === index + 1 ? "active" : ""
+                    }`}
+                  >
+                    <button
+                      className="page-link"
+                      onClick={() => setCurrentPage(index + 1)}
+                    >
+                      {index + 1}
+                    </button>
+                  </li>
+                )
+              )}
+              <li
+                className={`page-item ${
+                  currentPage === Math.ceil(projects.length / itemsPerPage)
+                    ? "disabled"
+                    : ""
+                }`}
+              >
+                <button
+                  className="page-link"
+                  onClick={() => setCurrentPage(currentPage + 1)}
+                >
                   Next
-                </a>
+                </button>
               </li>
             </ul>
           </nav>
         </div>
+
         <div
           class="modal fade"
           id="exampleModal"
@@ -170,103 +187,6 @@ function ViewProjects() {
                   data-bs-dismiss="modal"
                   aria-label="Close"
                 ></button>
-              </div>
-              <div class="modal-body">
-                {/* <div class="mb-3" id="modalInputBox">
-                  <label
-                    for="exampleFormControlInput1"
-                    class="form-label"
-                  ></label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="exampleFormControlInput1"
-                    placeholder="Project Name"
-                  />
-                </div>
-                <div class="mb-3" id="modalInputBox">
-                  <label
-                    for="exampleFormControlInput1"
-                    class="form-label"
-                  ></label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="exampleFormControlInput1"
-                    placeholder="Project Title"
-                  />
-                </div>
-                <div class="row">
-                  <div class="col-lg-6 md-4">
-                    {" "}
-                    <div class="mb-3" id="ProjectInput">
-                      <label for="exampleFormControlInput1" class="form-label">
-                         Email address 
-                      </label>
-                      <input
-                        type="link"
-                        class="form-control"
-                        id="exampleFormControlInput1"
-                        placeholder="Github link"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-lg-6 md-4">
-                    {" "}
-                    <div class="mb-3" id="ProjectInput">
-                      <label for="exampleFormControlInput1" class="form-label">
-                         Email address 
-                      </label>
-                      <input
-                        type="link"
-                        class="form-control"
-                        id="exampleFormControlInput1"
-                        placeholder="Web link"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div class="mb-3" id="modalInputBox">
-                  <label
-                    for="exampleFormControlInput1"
-                    class="form-label"
-                  ></label>
-                  <input
-                    type="file"
-                    class="form-control"
-                    id="exampleFormControlInput1"
-                    placeholder="name@example.com"
-                  />
-                </div>
-                <div class="mb-3" id="modalInputBox">
-                  <label
-                    for="exampleFormControlTextarea1"
-                    class="form-label"
-                  ></label>
-                  <textarea
-                    class="form-control"
-                    id="exampleFormControlTextarea1"
-                    rows="3"
-                    placeholder="Message"
-                  ></textarea>
-                </div>
-                <div id="modalButton">
-                  <button>Update</button>
-                </div> *
-              </div>
-               <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button type="button" class="btn btn-primary">
-                  Update Menu
-                </button>
-              </div> */}
               </div>
             </div>
           </div>

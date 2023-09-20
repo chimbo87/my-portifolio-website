@@ -5,22 +5,25 @@ import axios from "axios";
 import LoadingSpinner from "../loader/LoadingSpinner";
 import { useNavigate } from "react-router-dom";
 
-const Spinner = () => {
-  return (
-    <div class="text-center" id="loader">
-      <div class="spinner-grow text-center" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </div>
-  );
-};
-
 function ViewBlogs() {
   const [blogs, setBlogs] = useState([]);
 
   const [filterRecords, setFilterRecords] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
+
+  const Spinner = () => {
+    return (
+      <div class="text-center" id="loader">
+        <div class="spinner-grow text-center" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
+  };
 
   const getBlogs = async () => {
     const response = await fetch("http://localhost:8000/blogs").then(
@@ -54,6 +57,10 @@ function ViewBlogs() {
     }
   };
 
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentBlogs = blogs.slice(indexOfFirstItem, indexOfLastItem);
+
   return (
     <>
       <div id="feedbackSection">
@@ -81,78 +88,91 @@ function ViewBlogs() {
                 <th scope="col">REMOVE</th>
               </tr>
             </thead>
-
-            {blogs.map((blog) => {
-              return (
-                <>
-                  {!loading && (
-                    <tbody>
-                      <tr>
-                        <td>
-                          <small>{blog._id}</small>
-                        </td>
-                        <td>
-                          <small>{blog.title}</small>
-                        </td>
-                        <td>
-                          <small>{blog.description}</small>
-                        </td>
-                        <td>
-                          <small>{blog.createdAt}</small>
-                        </td>
-                        <td>
-                          <button
-                            id="feedbackUpdateBtn"
-                            onClick={() => {
-                              navigate(`/admni/updateblogs/${blog._id}`);
-                            }}
-                          >
-                            Edit
-                          </button>
-                        </td>
-                        <td>
-                          <button
-                            id="feedbackUpdateBtn"
-                            onClick={() => deleteBlogs(blog._id)}
-                          >
-                            Remove
-                          </button>
-                        </td>
-                      </tr>
-                    </tbody>
-                  )}
-                </>
-              );
-            })}
+            
+            <tbody>
+              {currentBlogs.map((blog) => (
+                <tr key={blog._id}>
+                  <td>
+                    <small>{blog._id}</small>
+                  </td>
+                  <td>
+                    <small>{blog.title}</small>
+                  </td>
+                  <td>
+                    <small>{blog.description}</small>
+                  </td>
+                  <td>
+                    <small>{blog.createdAt}</small>
+                  </td>
+                  <td>
+                    <button
+                      id="feedbackUpdateBtn"
+                      onClick={() => {
+                        navigate(`/admni/updateblogs/${blog._id}`);
+                      }}
+                    >
+                      Edit
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      id="feedbackUpdateBtn"
+                      onClick={() => deleteBlogs(blog._id)}
+                    >
+                      Remove
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
           </table>
           {loading && <LoadingSpinner />}
         </div>
 
         <div id="projectPagination">
           <nav aria-label="...">
-            <ul class="pagination">
-              <li class="page-item disabled">
-                <a class="page-link">Previous</a>
+            <ul className="pagination">
+              <li
+                className={`page-item ${currentPage === 1 ? "disabled" : ""}`}
+              >
+                <button
+                  className="page-link"
+                  onClick={() => setCurrentPage(currentPage - 1)}
+                >
+                  Prev
+                </button>
               </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  1
-                </a>
-              </li>
-              <li class="page-item active" aria-current="page">
-                <a class="page-link" href="#">
-                  2
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  3
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
+              {Array.from(
+                { length: Math.ceil(blogs.length / itemsPerPage) },
+                (_, index) => (
+                  <li
+                    key={index}
+                    className={`page-item ${
+                      currentPage === index + 1 ? "active" : ""
+                    }`}
+                  >
+                    <button
+                      className="page-link"
+                      onClick={() => setCurrentPage(index + 1)}
+                    >
+                      {index + 1}
+                    </button>
+                  </li>
+                )
+              )}
+              <li
+                className={`page-item ${
+                  currentPage === Math.ceil(blogs.length / itemsPerPage)
+                    ? "disabled"
+                    : ""
+                }`}
+              >
+                <button
+                  className="page-link"
+                  onClick={() => setCurrentPage(currentPage + 1)}
+                >
                   Next
-                </a>
+                </button>
               </li>
             </ul>
           </nav>

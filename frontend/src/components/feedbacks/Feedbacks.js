@@ -9,6 +9,9 @@ function Feedbacks() {
   const [filterRecords, setFilterRecords] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
+
   const getFeedbacks = async () => {
     const response = await fetch("http://localhost:8000/feedback").then(
       (response) => response.json()
@@ -33,13 +36,16 @@ function Feedbacks() {
 
   const deleteEmail = async (_id) => {
     try {
-      await axios.delete(`http://localhost:8000/feedback${_id}`); // Adjust the API endpoint
-      getFeedbacks(); // Refresh the list after deleting
+      await axios.delete(`http://localhost:8000/feedback${_id}`);
+      getFeedbacks();
     } catch (error) {
       console.error("Error deleting email:", error);
     }
   };
 
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentFeedbacks = feedbacks.slice(indexOfFirstItem, indexOfLastItem);
   return (
     <>
       <div id="feedbackSection">
@@ -59,7 +65,6 @@ function Feedbacks() {
           <table class="table table-striped table-bordered  align-middle">
             <thead>
               <tr class="table table-dark">
-                <th scope="col">ID</th>
                 <th scope="col">NAME</th>
                 <th scope="col">PHONE</th>
                 <th scope="col">EMAIL</th>
@@ -69,120 +74,85 @@ function Feedbacks() {
               </tr>
             </thead>
 
-            {feedbacks.map((feedback) => {
-              return (
-                <>
-                  {!loading && (
-                    <tbody>
-                      <tr>
-                        <td>
-                          <small>{feedback._id}</small>
-                        </td>
-                        <td>
-                          <small>{feedback.name}</small>
-                        </td>
-                        <td>
-                          <small>{feedback.number}</small>
-                        </td>
-                        <td>
-                          <small>{feedback.email}</small>
-                        </td>
-                        <td>
-                          <small>{feedback.message}</small>
-                        </td>
-                        <td>
-                          <small>{feedback.createdAt}</small>
-                        </td>
-                        <td>
-                          <button
-                            // data-bs-toggle="modal"
-                            // data-bs-target="#exampleModal"
-                            id="feedbackUpdateBtn"
-                            onClick={() => deleteEmail(feedback._id)}
-                          >
-                            Remove
-                          </button>
-                          <div
-                            class="modal fade"
-                            id="exampleModal"
-                            tabindex="-1"
-                            aria-labelledby="exampleModalLabel"
-                            aria-hidden="true"
-                          >
-                            <div class="modal-dialog modal-dialog-centered modal-lg">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h1
-                                    class="modal-title fs-5"
-                                    id="exampleModalLabel"
-                                  >
-                                    Are you sure you want to remove ?
-                                  </h1>
-                                  <button
-                                    type="button"
-                                    class="btn-close"
-                                    data-bs-dismiss="modal"
-                                    aria-label="Close"
-                                  ></button>
-                                </div>
-                                <div class="modal-body">
-                                  <button
-                                    onClick={() => deleteEmail(feedback._id)}
-                                  >
-                                    Remove
-                                  </button>
-                                </div>
-                                <div class="modal-footer">
-                                  <button
-                                    type="button"
-                                    class="btn btn-secondary"
-                                    data-bs-dismiss="modal"
-                                  >
-                                    Close
-                                  </button>
-                                  <button type="button" class="btn btn-primary">
-                                    Update Menu
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  )}
-                </>
-              );
-            })}
+            <tbody>
+              {currentFeedbacks.map((feedback) => (
+                <tr key={feedback._id}>
+                  <td>
+                    <small>{feedback.name}</small>
+                  </td>
+                  <td>
+                    <small>{feedback.number}</small>
+                  </td>
+                  <td>
+                    <small>{feedback.email}</small>
+                  </td>
+
+                  <td>
+                    <small>{feedback.message}</small>
+                  </td>
+                  <td>
+                    <small>{feedback.createdAt}</small>
+                  </td>
+
+                  <td>
+                    <button
+                      id="feedbackUpdateBtn"
+                      onClick={() => deleteEmail(feedback._id)}
+                    >
+                      Remove
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
           </table>
           {loading && <LoadingSpinner />}
         </div>
 
         <div id="projectPagination">
           <nav aria-label="...">
-            <ul class="pagination">
-              <li class="page-item disabled">
-                <a class="page-link">Previous</a>
+            <ul className="pagination">
+              <li
+                className={`page-item ${currentPage === 1 ? "disabled" : ""}`}
+              >
+                <button
+                  className="page-link"
+                  onClick={() => setCurrentPage(currentPage - 1)}
+                >
+                  Prev
+                </button>
               </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  1
-                </a>
-              </li>
-              <li class="page-item active" aria-current="page">
-                <a class="page-link" href="#">
-                  2
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  3
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
+              {Array.from(
+                { length: Math.ceil(feedbacks.length / itemsPerPage) },
+                (_, index) => (
+                  <li
+                    key={index}
+                    className={`page-item ${
+                      currentPage === index + 1 ? "active" : ""
+                    }`}
+                  >
+                    <button
+                      className="page-link"
+                      onClick={() => setCurrentPage(index + 1)}
+                    >
+                      {index + 1}
+                    </button>
+                  </li>
+                )
+              )}
+              <li
+                className={`page-item ${
+                  currentPage === Math.ceil(feedbacks.length / itemsPerPage)
+                    ? "disabled"
+                    : ""
+                }`}
+              >
+                <button
+                  className="page-link"
+                  onClick={() => setCurrentPage(currentPage + 1)}
+                >
                   Next
-                </a>
+                </button>
               </li>
             </ul>
           </nav>
