@@ -1,6 +1,6 @@
 #blogSectionBox {
   background-image: linear-gradient(#2c2c2be5, #808080a4),
-  url("../assets/portifolio.jpg");
+    url("../assets/portifolio.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -30,7 +30,17 @@
   padding: 10px 0px;
   border-radius: 5px;
 }
-
+#blogAuther {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+#blogDescpritionHead {
+  font-weight: 700;
+  margin-left: 10px;
+}
 #blogImg img {
   width: 100%;
   height: inherit;
@@ -46,7 +56,7 @@
   color: #6d4e2f;
   font-family: "Poppins", sans-serif;
 }
-#headTexts{
+#headTexts {
   color: #916420;
   font-size: 18px;
   line-height: 1.8rem;
@@ -100,15 +110,17 @@
   position: relative;
   top: -200px;
   box-shadow: 2px 2px 10px gray;
-
+  background-color: white;
+  padding-top: 40px;
 }
-#blogSectionText{
-    padding: 15px 20px;
+#blogSectionText {
+  padding: 15px 0px;
 }
 #blogDesBoxImg {
   width: 100%;
   height: 250px;
   object-fit: cover;
+  border-radius: 4px;
 }
 #blogDesLikes {
   width: 100%;
@@ -119,8 +131,7 @@
   justify-content: center;
   padding-top: 20px;
 }
-#blogDesLikeswrap{
-
+#blogDesLikeswrap {
   width: 700px;
   display: flex;
   align-items: center;
@@ -134,7 +145,7 @@
   justify-content: center;
   border-radius: 4px;
 }
-#blogDesLikesBox button{
+#blogDesLikesBox button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -143,7 +154,7 @@
   border: 1px solid #8080802f;
   background-color: transparent;
 }
-#blogDesLikesBox button:hover{
+#blogDesLikesBox button:hover {
   background-color: #bdbcbc62;
 }
 #blogDesLikesBox i {
@@ -164,20 +175,19 @@
   justify-content: center;
 
   border-radius: 4px;
- 
 }
 
-#blogDesCommentBox i{
+#blogDesCommentBox i {
   color: #d29968;
-    cursor: pointer;
-    font-size: 25px;
-    margin-right: 8px;
+  cursor: pointer;
+  font-size: 25px;
+  margin-right: 8px;
 }
 #blogDesCommentBox small {
   font-size: 16px;
   font-weight: 600;
 }
-#blogDesCommentBox button{
+#blogDesCommentBox button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -186,7 +196,7 @@
   border: 1px solid #8080802f;
   background-color: transparent;
 }
-#blogDesCommentBox button:hover{
+#blogDesCommentBox button:hover {
   background-color: #bdbcbc62;
 }
 #blogDesShareBox {
@@ -196,59 +206,56 @@
   align-items: center;
   justify-content: end;
 }
-#blogDesShareBox i{
-    color: #d29968;
-    font-size: 30px;
-    cursor: pointer;
-    margin-right: 10px;
+#blogDesShareBox i {
+  color: #d29968;
+  font-size: 30px;
+  cursor: pointer;
+  margin-right: 10px;
 }
-#blogDesShareBox small{
+#blogDesShareBox small {
   font-size: 16px;
   font-weight: 600;
 }
-#sendBtnModal{
+#sendBtnModal {
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: start;
- 
 }
-#sendBtnModalForm{
+#sendBtnModalForm {
   width: 100%;
   border: 1px solid #80808053;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  
 }
-#sendBtnModalForm input{
+#sendBtnModalForm input {
   width: 100%;
   border: none;
   height: 40px;
   padding-left: 5px;
 }
-#sendBtnModalForm button{
+#sendBtnModalForm button {
   border: none;
   width: 50px;
   height: 40px;
   color: #d29968;
   font-size: 20px;
 }
-#sendBtnModalLikes{
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   justify-content: space-between;
-   width: 100%;
-   margin-top: 20px;
+#sendBtnModalLikes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
 }
-#theLikes{
+#theLikes {
   color: #d29968;
   font-size: 18px;
   font-weight: 600;
 }
-#modalLinksLikes{
+#modalLinksLikes {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -258,53 +265,145 @@
   padding-top: 5px;
   margin-bottom: 10px;
 }
-#modalLinksLikes small{
+#modalLinksLikes small {
   display: flex;
   align-items: center;
   justify-content: center;
   color: gray;
   cursor: pointer;
-   border-radius: 15px;
-  background-color:hsla(0, 6%, 73%, 0.164) ;
+  border-radius: 15px;
+  background-color: hsla(0, 6%, 73%, 0.164);
   padding: 2px 5px;
 }
-#modalLinksLikes small:hover{
+#modalLinksLikes small:hover {
   color: #be966e;
 }
-#modalLinksLikes small i{
+#modalLinksLikes small i {
   color: grey;
   margin-right: 5px;
 }
-#theUserMessage{
+#theUserMessage {
   margin: 10px 30px;
   border-radius: 10px;
   background-color: rgba(174, 174, 174, 0.187);
   padding: 5px;
   display: flex;
-  flex-direction:column ;
+  flex-direction: column;
   align-items: start;
   justify-content: start;
-
 }
-#theUserMessage i{
+#theUserMessage i {
   color: #916420;
   font-size: 20px;
 }
-#blogPagination{
+
+#blogInforText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid #80808037;
+  margin-bottom: 20px;
+}
+#blogInforTextLinks {
+  width: 100%;
+}
+#blogInforTextLinks h5 {
+  color: grey;
+  font-weight: 700;
+  border-bottom: 1px solid #916420;
+  padding-bottom: 5px;
+  text-align: start;
+  max-width: 150px;
+}
+#blogInforTextLinks i {
+  font-size: 25px;
+  color: rgb(135, 94, 83);
+  cursor: pointer;
+  margin-top: 5px;
+  margin-right: 8px;
+  text-align: start;
+}
+#blogInforTextLike {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+#blogInforTextLikeIcons {
+  border: 1px solid #80808024;
+  padding: 3px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #80808022;
+}
+#blogItermsNumbers {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+  border-top: 1px solid #8080802f;
+  padding-top: 10px;
+}
+#blogCommentButton {
+  border: 1px solid grey;
+  border-radius: 4px;
+}
+#blogCommentButton input {
+  border-radius: 4px;
+  border: none;
+}
+#blogCommentButton input:focus {
+  outline: none;
+}
+#blogCommentButton button {
+  border: none;
+  background-color: transparent;
+  padding: 4px 2px;
+}
+#blogCommentButton button:hover {
+  background-color: hsla(30, 40%, 31%, 0.132);
+}
+#shareMenu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 2px 2px 2px rgb(78, 78, 78);
+  background-color: #9f9e9e31;
+  padding: 2px 20px;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+#shareMenu button {
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4px;
+  background-color: transparent;
+}
+#shareMenu button i{
+  font-size: 18px;
+  color: #6d4e2f;
+}
+#blogPagination {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   top: -50px;
 }
-#blogPagination button{
-  padding: 5px 30px ;
+#blogPagination button {
+  padding: 5px 30px;
   border-radius: 4px;
   color: goldenrod;
   border: 1px solid grey;
   margin: 0px 5px;
   font-family: 600;
 }
-#blogPagination span{
+#blogPagination span {
   color: goldenrod;
 }

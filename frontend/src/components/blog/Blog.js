@@ -42,7 +42,7 @@ const Blog = () => {
           {currentItems.map((blog) => (
             <div className="row" id="blogWrap" key={blog._id}>
               <div className="col-lg-6" id="blogImg">
-                <img src={blog.image} alt={blog.title} />
+                <img src={`http://localhost:8000/uploads/${blog.image}`}  />
               </div>
               <div className="col-lg-6" id="blogsText">
                 <h5>{blog.title}</h5>

@@ -20,6 +20,7 @@ function BlogDescription() {
   const [text, setText] = useState("");
   const [messages, setMessages] = useState([]);
   const [numberOfComments, setnumberOfComments] = useState();
+  const [showShareMenu, setShowShareMenu] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -109,56 +110,156 @@ function BlogDescription() {
     return setLoves(loves + 1);
   };
 
+  const toggleShareMenu = () => {
+    setShowShareMenu(!showShareMenu);
+  };
+
+  // Function to handle sharing
+  const shareOnPlatform = (platform) => {
+    const text = encodeURIComponent(title + "\n" + description);
+    const url = encodeURIComponent(window.location.href);
+
+    if (platform === "whatsapp") {
+      window.open(
+        `https://api.whatsapp.com/send?text=${title}%0A${"http://localhost:3000/blogdescription/65140673b729c649ce1573af#"}`
+      );
+    } else if (platform === "facebook") {
+      window.open(
+        `https://www.facebook.com/sharer/sharer.php?u=${"http://localhost:3000/blogdescription/65140673b729c649ce1573af#"}`
+      );
+    } else if (platform === "twitter") {
+      window.open(
+        `https://twitter.com/intent/tweet?text=${title}&url=${"http://localhost:3000/blogdescription/65140673b729c649ce1573af#"}`
+      );
+    }
+  };
   return (
     <>
       <div className="container-fluid" id="projectSectionBox"></div>
       <div className="container">
         {!loading && (
-          <div id="blogDesBox">
-            <img src={image} id="blogDesBoxImg"></img>
-            <div id="blogSectionText">
+          <div class="row" id="blogDesBox">
+            <div class="col-lg-8 col-md-4">
               <div>
-                <h4>{title}</h4>
+                <h5 id="blogDescpritionHead">{title}</h5>
               </div>
-              <div>
-                <small>Archford N</small>
-                <small>{date}</small>
-              </div>
-              <div>
-                <h5 id="headTexts">{heading}</h5>
-              </div>
-              <div>
-                <p>{description}</p>
-              </div>
-              <div id="blogDesLikes">
-                <div id="blogDesLikeswrap">
-                  <div id="blogDesLikesBox">
-                    <button
-                      onClick={() => {
-                        submitRegHandler();
-                        updatedLikes();
-                      }}
-                    >
-                      <i class="bx bx-heart"></i>
-                      <small>{loves} likes</small>
-                    </button>
+              <img
+                src={`http://localhost:8000/uploads/${image}`}
+                id="blogDesBoxImg"
+              />
+
+              <div id="blogSectionText">
+                <div id="blogAuther">
+                  <small>Archford N</small>
+                  <small>{date}</small>
+                </div>
+                <div>
+                  <h5 id="headTexts">{heading}</h5>
+                </div>
+                <div>
+                  <p>{description}</p>
+                </div>
+                {/* <div id="blogDesLikes">
+                  <div id="blogDesLikeswrap">
+                    <div id="blogDesLikesBox">
+                      <button
+                        onClick={() => {
+                          submitRegHandler();
+                          updatedLikes();
+                        }}
+                      >
+                        <i class="bx bx-heart"></i>
+                        <small>{loves} likes</small>
+                      </button>
+                    </div>
+                    <div id="blogDesCommentBox">
+                      <button
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                        onClick={submitRegComment}
+                      >
+                        <i class="bx bxs-comment-detail"></i>
+                        <small>comment</small>
+                      </button>
+                    </div>
+                    <div id="blogDesCommentBox">
+                      <button>
+                        <i class="bx bx-share-alt"></i>
+                        <small>share 12</small>
+                      </button>
+                    </div>
                   </div>
-                  <div id="blogDesCommentBox">
-                    <button
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                      onClick={submitRegComment}
-                    >
-                      <i class="bx bxs-comment-detail"></i>
-                      <small>comment</small>
-                    </button>
-                  </div>
-                  <div id="blogDesCommentBox">
-                    <button>
-                      <i class="bx bx-share-alt"></i>
-                      <small>share 12</small>
-                    </button>
-                  </div>
+                </div> */}
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4" id="blogInforText">
+              <div id="blogInforTextLinks">
+                <h5>Follow me:</h5>
+                <i class="bx bxl-facebook"></i>
+                <i class="bx bxl-github"></i>
+                <i class="bx bxl-linkedin"></i>
+                <i class="bx bxl-instagram"></i>
+              </div>
+              <div id="blogInforTextLike">
+                <div id="blogInforTextLikeIcons">
+                  <i
+                    class="bx bx-heart"
+                    onClick={() => {
+                      submitRegHandler();
+                      updatedLikes();
+                    }}
+                  ></i>{" "}
+                  <small>Like</small>
+                </div>
+                <div id="blogCommentButton">
+                  <input
+                    type="text"
+                    placeholder="comment..."
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                  />{" "}
+                  <button onClick={submitRegComment}>
+                    {" "}
+                    <i class="bx bxs-send"></i>
+                  </button>
+                </div>
+                <div id="blogInforTextLikeIcons" onClick={toggleShareMenu}>
+                  <i class="bx bx-share-alt"></i> <small>share</small>
+                </div>
+              </div>
+
+              {showShareMenu && (
+                <div className="share-menu" id="shareMenu">
+                  <button onClick={() => shareOnPlatform("whatsapp")}>
+                  <i class='bx bxl-whatsapp'></i>
+                  </button>
+                  <button onClick={() => shareOnPlatform("facebook")}>
+                  <i class='bx bxl-facebook'></i>
+                  </button>
+                  <button onClick={() => shareOnPlatform("twitter")}>
+                  <i class='bx bxl-twitter'></i>
+                  </button>
+               
+                </div>
+              )}
+
+              <div id="blogItermsNumbers">
+                <div id="">
+                  <small>
+                    {" "}
+                    <b>{loves} </b>Likes
+                  </small>
+                </div>
+                <div>
+                  <small>
+                    {" "}
+                    <b>{numberOfComments}</b> comments
+                  </small>
+                </div>
+                <div id="">
+                  <small>
+                    <b>23</b> share
+                  </small>
                 </div>
               </div>
             </div>
@@ -167,7 +268,7 @@ function BlogDescription() {
         {loading && <LoadingSpinner />}
       </div>
 
-      <div
+      {/* <div
         class="modal fade"
         id="exampleModal"
         tabindex="-1"
@@ -188,7 +289,10 @@ function BlogDescription() {
               ></button>
             </div>
             <div class="modal-body" id="sendBtnModal">
-              <img src={image} id="blogDesBoxImg"></img>
+              <img
+                src={`http://localhost:8000/uploads/${image}`}
+                id="blogDesBoxImg"
+              />
               <div id="sendBtnModalLikes">
                 <small>
                   <i class="bx bxs-heart" id="theLikes"></i> You and{" "}
@@ -239,7 +343,7 @@ function BlogDescription() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <Footer />
     </>
   );
