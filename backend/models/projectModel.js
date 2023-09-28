@@ -40,11 +40,10 @@ const projectSchema = mongoose.Schema({
           },
         },
       ],
-    image:{
-        data:Buffer,
-        type:String,
-        required:false
-    }
+      image: {
+        type: String, 
+        required: true,
+      },
 },{
     timestamps: true
 });

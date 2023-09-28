@@ -108,7 +108,9 @@ function Projects() {
                         navigate(`/projectdescription/${project._id}`);
                       }}
                     >
-                      <img src={project.image} />
+                      <img
+                        src={`http://localhost:8000/uploads/${project.image}`}
+                      />
                       <div id="overlay">
                         <p>
                           View More{" "}

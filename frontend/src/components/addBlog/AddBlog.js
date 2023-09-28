@@ -1,7 +1,6 @@
 import "./AddBlog.css";
 import React from "react";
 import { useState } from "react";
-import imageIcon from "../assets/imgicon.png";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Dropzone from "react-dropzone";
@@ -9,7 +8,6 @@ import axios from "axios";
 
 function AddBlog() {
   const [title, setTitle] = useState("");
- 
   const [heading, setHeading] = useState("");
   const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
@@ -42,7 +40,7 @@ function AddBlog() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-   setLoading(true)
+    setLoading(true);
     const formData = new FormData();
     formData.append("title", title);
     formData.append("heading", heading);
@@ -55,44 +53,18 @@ function AddBlog() {
         headers: {
           "Content-Type": "multipart/form-data", // Important for file upload
         },
-        
       });
-     
+
       // Reset form state or redirect to a success page
     } catch (error) {
       console.error("Error uploading blog post:", error);
     }
     handleSendClick();
     setTitle("");
-      setDescription("");
-      handleSendClick();
-      setHeading("");
-      setLoading(false)
+    setDescription("");
+    setHeading("");
+    setLoading(false);
   };
-  // const submitRegHandler = async (e) => {
-  //   e.preventDefault();
-  //   setLoading(true);
-  //   const response = await fetch("http://localhost:8000/blogs", {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       title: title,
-  //       description: description,
-  //       image: imageurl,
-  //       heading:heading,
-  //     }),
-  //     headers: {
-  //       "Content-type": "application/json; charset=UTF-8",
-  //     },
-  //   });
-  //   const result = await response.json();
-  //   console.log(result);
-  //   setTitle("");
-  //   setDescription("");
-  //   setImageurl("");
-  //   handleSendClick();
-  //   setHeading("");
-  //   setLoading(false)
-  // };
   return (
     <div className="container" id="addBlogSection">
       <div class="row">
@@ -123,17 +95,16 @@ function AddBlog() {
             </div>
 
             <div class="mb-3" id="ProjectInput">
-             
-                <label>Image</label>
-                <Dropzone onDrop={handleFileUpload}>
-                  {({ getRootProps, getInputProps }) => (
-                    <div {...getRootProps()} className="dropzone">
-                      <input {...getInputProps()} />
-                      <small>upload file or drag n dron</small>
-                    </div>
-                  )}
-                </Dropzone>
-             
+             <div id="fileUploadInput">
+             <Dropzone onDrop={handleFileUpload}>
+                {({ getRootProps, getInputProps }) => (
+                  <div {...getRootProps()} className="dropzone" id="dropZone">
+                    <input {...getInputProps()} />
+                    <p>Upload image or drag n drop <i class='bx bx-cloud-upload'></i></p>
+                  </div>
+                )}
+              </Dropzone>
+             </div>
             </div>
 
             <div class="mb-3" id="ProjectInput">

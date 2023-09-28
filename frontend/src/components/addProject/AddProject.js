@@ -3,6 +3,8 @@ import { useState } from "react";
 import "./AddProject.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Dropzone from "react-dropzone";
+import axios from "axios";
 
 function AddProject() {
   const [title, setTitle] = useState("");
@@ -12,14 +14,17 @@ function AddProject() {
   const [description, setDescription] = useState("");
   const [image, setImageurl] = useState("");
   const [loading, setLoading] = useState(false);
+  const [file, setFile] = useState(null);
 
-  
+  const handleFileUpload = (acceptedFiles) => {
+    // Assuming you want to upload a single file
+    const selectedFile = acceptedFiles[0];
+    setFile(selectedFile);
+  };
+
   const Loader = () => {
     return (
-      <div
-        class="spinner-border text-warning spinner-border-sm"
-        role="status"
-      >
+      <div class="spinner-border text-warning spinner-border-sm" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
     );
@@ -38,24 +43,28 @@ function AddProject() {
   const submitRegHandler = async (e) => {
     e.preventDefault();
     setLoading(true);
-  
-    const response = await fetch("http://localhost:8000/projects", {
-      method: "POST",
-      body: JSON.stringify({
-        title: title,
-        name: name,
-        githubLink: githubLink,
-        siteLink: siteLink,
-        description: description,
-        image: image,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-       
-      },
-    });
-    const result = await response.json();
-    console.log(result);
+
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("name", name);
+    formData.append("githubLink", githubLink);
+    formData.append("siteLink", siteLink);
+    formData.append("description", description);
+    formData.append("image", file); // Append the file to the FormData
+
+    try {
+      // Send a POST request to your server for uploading
+      await axios.post("http://localhost:8000/projects", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data", // Important for file upload
+        },
+      });
+
+      // Reset form state or redirect to a success page
+    } catch (error) {
+      console.error("Error uploading project post:", error);
+    }
+
     setTitle("");
     setName("");
     setGithub("");
@@ -63,7 +72,7 @@ function AddProject() {
     setDescription("");
     setImageurl("");
     handleSendClick();
-    setLoading(false)
+    setLoading(false);
   };
 
   return (
@@ -73,9 +82,7 @@ function AddProject() {
           <h4>Add Project</h4>
           <form onSubmit={submitRegHandler}>
             <div class="mb-3" id="ProjectInput">
-              <label for="exampleFormControlInput1" class="form-label">
-              
-              </label>
+              <label for="exampleFormControlInput1" class="form-label"></label>
               <input
                 type="text"
                 class="form-control"
@@ -86,9 +93,7 @@ function AddProject() {
               />
             </div>
             <div class="mb-3" id="ProjectInput">
-              <label for="exampleFormControlInput1" class="form-label">
-           
-              </label>
+              <label for="exampleFormControlInput1" class="form-label"></label>
               <input
                 type="text"
                 class="form-control"
@@ -136,15 +141,19 @@ function AddProject() {
               </div>
             </div>
             <div class="mb-3" id="ProjectInput">
-              <label for="exampleFormControlInput1" class="form-label"></label>
-              <input
-                type="text"
-                class="form-control"
-                id="exampleFormControlInput1"
-                placeholder="Upload image"
-                value={image}
-                onChange={(e) => setImageurl(e.target.value)}
-              />
+              <div id="fileUploadInput">
+                <Dropzone onDrop={handleFileUpload}>
+                  {({ getRootProps, getInputProps }) => (
+                    <div {...getRootProps()} className="dropzone" id="dropZone">
+                      <input {...getInputProps()} />
+                      <p>
+                        Upload image or drag n drop{" "}
+                        <i class="bx bx-cloud-upload"></i>
+                      </p>
+                    </div>
+                  )}
+                </Dropzone>
+              </div>
             </div>
             <div class="mb-3" id="ProjectInput">
               <label

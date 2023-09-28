@@ -145,7 +145,7 @@ function ProjectDescription() {
         {!loading && (
           <div class="row">
             <div class="col-lg-6 col-md-4" id="projectDescriptionImg">
-              <img src={image} class="d-block w-100" alt="..." />
+              <img src={`http://localhost:8000/uploads/${image}`} />
             </div>
             <div class="col-lg-6 col-md-4" id="projectDescriptionText">
               <div id="projectDescriptionTextBox">
@@ -168,9 +168,11 @@ function ProjectDescription() {
               </div>
               <div id="projectTheComments">
                 <small>
-                 <b>{initialLikes}</b> Likes
+                  <b>{initialLikes}</b> Likes
                 </small>
-                <small><b>{numberOfComments}</b> Comments</small>
+                <small>
+                  <b>{numberOfComments}</b> Comments
+                </small>
               </div>
               <div id="projectDescriptionLink">
                 <div
@@ -227,7 +229,7 @@ function ProjectDescription() {
               ></button>
             </div>
             <div class="modal-body" id="modalBodyImg">
-              <img src={image} class="d-block w-100" alt="..." />
+              <img src={`http://localhost:8000/uploads/${image}`} />
               <small>{name}</small>
               <div id="modalBodyImgLink">
                 <small>

@@ -121,15 +121,15 @@ function BlogDescription() {
 
     if (platform === "whatsapp") {
       window.open(
-        `https://api.whatsapp.com/send?text=${title}%0A${"http://localhost:3000/blogdescription/65140673b729c649ce1573af#"}`
+        `https://api.whatsapp.com/send?text=${text}%0A${url}`
       );
     } else if (platform === "facebook") {
       window.open(
-        `https://www.facebook.com/sharer/sharer.php?u=${"http://localhost:3000/blogdescription/65140673b729c649ce1573af#"}`
+        `https://www.facebook.com/sharer/sharer.php?u=${url}`
       );
     } else if (platform === "twitter") {
       window.open(
-        `https://twitter.com/intent/tweet?text=${title}&url=${"http://localhost:3000/blogdescription/65140673b729c649ce1573af#"}`
+        `https://twitter.com/intent/tweet?text=${text}&url=${url}`
       );
     }
   };

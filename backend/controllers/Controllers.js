@@ -4,24 +4,38 @@ import blogs from "../models/blogsModel.js";
 import feedback from "../models/feedBackModel.js";
 import comment from "../models/commentModel.js";
 
-const myProjects = asyncHandler(async (req, res) => {
+// const myProjects = asyncHandler(async (req, res) => {
+//   try {
+//     const { name, title, githubLink, siteLink, description, image } = req.body;
+//     const Project = await project.create({
+//       name,
+//       title,
+//       githubLink,
+//       siteLink,
+//       description,
+//       image,
+//     });
+//     res.status(200).json(Project);
+//   } catch (error) {
+//     console.log(error.message);
+//     res.status(500).json({ message: error.message });
+//   }
+// });
+const  myProjects = asyncHandler(async (req, res) => {
   try {
-    const { name, title, githubLink, siteLink, description, image } = req.body;
-    const Project = await project.create({
-      name,
-      title,
-      githubLink,
-      siteLink,
-      description,
-      image,
-    });
-    res.status(200).json(Project);
+    const { name, title, githubLink, siteLink, description} = req.body;
+    const image = req.file.filename; // Get the uploaded image filename
+
+    // Create a new blog post in MongoDB
+    const Project = new project({  name, title, githubLink, siteLink, description, image });
+    await Project.save();
+
+    res.status(201).json({ Project: 'Project  created successfully' });
   } catch (error) {
-    console.log(error.message);
-    res.status(500).json({ message: error.message });
+    console.error('Error creating blog post:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
-
 const getProjects = asyncHandler(async (req, res) => {
   try {
     const Projects = await project.find({});
@@ -153,21 +167,7 @@ const getCommentsForProject = asyncHandler(async (req, res) => {
   }
 });
 
-// const myBlogs = asyncHandler(async (req, res) => {
-//   try {
-//     const { title,heading, description, image } = req.body;
-//     const Blogs = await blogs.create({
-//       title,
-//       heading,
-//       description,
-//       image,
-//     });
-//     res.status(200).json(Blogs);
-//   } catch (error) {
-//     console.log(error.message);
-//     res.status(500).json({ message: error.message });
-//   }
-// });
+
 
 const  myBlogs = asyncHandler(async (req, res) => {
   try {

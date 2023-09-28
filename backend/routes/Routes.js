@@ -38,7 +38,7 @@ const upload = multer({ storage });
 const router = express.Router();
 
 //projects routes
-router.post("/projects", myProjects);
+router.post("/projects", upload.single("image"), myProjects);
 router.get("/projects", getProjects);
 router.get("/projects/:id", getProject);
 router.put(`/projects/:id`, updateProject);
@@ -49,7 +49,6 @@ router.get("/projects/comments/:id", getCommentsForProject);
 
 //blogs routes
 router.post("/blogs", upload.single("image"), myBlogs);
-// router.post("/blogs", myBlogs);
 router.get("/blogs", getBlogs);
 router.get("/blogs/:id", getBlog);
 router.put("/blogs/:id", updateBlog);
