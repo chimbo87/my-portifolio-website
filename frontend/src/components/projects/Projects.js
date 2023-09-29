@@ -97,68 +97,67 @@ function Projects() {
           </div>
         </div>
         {!loading && (
-          <div class="row ">
-            {currentItems.map((project) => {
-              return (
-                <div class="col-lg-4 md-4">
-                  <div id="projectBoxCard">
-                    <div
-                      id="projectImg"
-                      onClick={() => {
-                        navigate(`/projectdescription/${project._id}`);
-                      }}
-                    >
-                      <img
-                        src={`http://localhost:8000/uploads/${project.image}`}
-                      />
-                      <div id="overlay">
-                        <p>
-                          View More{" "}
-                          <i class="bx bx-arrow-back bx-rotate-180"></i>
-                        </p>
-                      </div>
-                    </div>
-                    <div id="projectCardText">
-                      <div id="projectsHead">
-                        <div>
-                          <small>{project.name}</small>
-                        </div>
-                        <div>
-                          <h5>{project.title}</h5>
-                        </div>
-                      </div>
-
-                      <div id="projectIcons">
-                        <div id="projectsLinks">
-                          <div id="projectIconsContent">
-                            <a href={project.githubLink}>
-                              <small>Git Hub</small>
-                            </a>
-                          </div>
-                          <div id="projectIconsContent">
-                            <a href="">
-                              <small>Visit Site</small>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div>
-                          <i>
-                            <small>
-                              {format(
-                                new Date(project.createdAt),
-                                "yyyy-MM-dd "
-                              )}
-                            </small>
-                          </i>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+       <div className="row">
+  {currentItems.map((project) => (
+    <div className="col-lg-4 col-md-4">
+      <div id="projectBoxCard">
+        <div
+          id="projectImg"
+          onClick={() => {
+            navigate(`/projectdescription/${project._id}`);
+          }}
+        >
+          <img
+            src={`http://localhost:8000/uploads/${project.image}`}
+          />
+          <div id="overlay">
+            <p>
+              View More{" "}
+              <i className="bx bx-arrow-back bx-rotate-180"></i>
+            </p>
           </div>
+        </div>
+        <div id="projectCardText">
+          <div id="projectsHead">
+            <div>
+              <small>{project.name}</small>
+            </div>
+            <div>
+              <h5>{project.title}</h5>
+            </div>
+          </div>
+
+          <div id="projectIcons">
+            <div id="projectsLinks">
+              <div id="projectIconsContent">
+                <a href={project.githubLink}>
+                  <small>Git Hub</small>
+                </a>
+              </div>
+              <div id="projectIconsContent">
+                <a href="">
+                  <small>Visit Site</small>
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <i>
+                <small>
+                  {format(
+                    new Date(project.createdAt),
+                    "yyyy-MM-dd "
+                  )}
+                </small>
+              </i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
         )}
 
         {loading && <LoadingSpinner />}

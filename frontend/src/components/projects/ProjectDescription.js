@@ -23,6 +23,7 @@ function ProjectDescription() {
   const [comments, setComments] = useState("");
   const [text, setText] = useState("");
   const [carrying, setCarrying] = useState(false);
+  const [liked, setLiked] = useState(false);
 
   const Loader = () => {
     return (
@@ -135,6 +136,9 @@ function ProjectDescription() {
       setCarrying(false);
     }
   };
+  const toggleLike = () => {
+    setLiked(!liked);
+  };
 
   return (
     <>
@@ -180,9 +184,14 @@ function ProjectDescription() {
                   onClick={() => {
                     submitRegHandler();
                     updatedLikes(initialLikes);
+                    toggleLike();
                   }}
                 >
-                  <i class="bx bx-heart"></i>
+                  {liked ? (
+                    <i className="bx bxs-heart"></i>
+                  ) : (
+                    <i className="bx bx-heart"></i>
+                  )}
                   <b>
                     <small>Like post</small>
                   </b>

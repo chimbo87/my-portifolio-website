@@ -8,7 +8,7 @@ function Feedbacks() {
   const [feedbacks, setFeedbacks] = useState([]);
   const [filterRecords, setFilterRecords] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const [deleteItemId, setDeleteItemId] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
@@ -34,18 +34,29 @@ function Feedbacks() {
     setFeedbacks(newData);
   };
 
-  const deleteEmail = async (_id) => {
-    try {
-      await axios.delete(`http://localhost:8000/feedback${_id}`);
-      getFeedbacks();
-    } catch (error) {
-      console.error("Error deleting email:", error);
-    }
-  };
-
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentFeedbacks = feedbacks.slice(indexOfFirstItem, indexOfLastItem);
+
+  const showDeleteModal = (id) => {
+    setDeleteItemId(id);
+  };
+
+  const closeDeleteModal = () => {
+    setDeleteItemId(null);
+  };
+
+  const deleteEmail = async () => {
+    if (deleteItemId) {
+      try {
+        await axios.delete(`http://localhost:8000/feedback${deleteItemId}`);
+        getFeedbacks();
+        closeDeleteModal();
+      } catch (error) {
+        console.error("Error deleting email:", error);
+      }
+    }
+  };
   return (
     <>
       <div id="feedbackSection">
@@ -96,8 +107,10 @@ function Feedbacks() {
 
                   <td>
                     <button
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
                       id="feedbackUpdateBtn"
-                      onClick={() => deleteEmail(feedback._id)}
+                      onClick={() => showDeleteModal(feedback._id)}
                     >
                       Remove
                     </button>
@@ -156,6 +169,55 @@ function Feedbacks() {
               </li>
             </ul>
           </nav>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+        show={!!deleteItemId}
+        onHide={closeDeleteModal}
+      >
+        <div class="modal-dialog  modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body" id="theDeleteConfirmBtnbody">
+              <div id="theDeleteConfirmBtnBox">
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <p>
+                Are you sure you want to delete this feedback?, the message will
+                be removed permanently
+              </p>
+              <div id="theDeleteConfirmBtn">
+                <button
+                  variant="secondary"
+                  onClick={closeDeleteModal}
+                  id="theDeleteConfirmBtnA"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                >
+                  Cancel
+                </button>
+                <button
+                  variant="danger"
+                  onClick={deleteEmail}
+                  id="theDeleteConfirmBtnB"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>

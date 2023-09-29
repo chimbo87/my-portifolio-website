@@ -194,6 +194,11 @@
 .accordion {
   background-color: transparent;
 }
+.accordion-header button{
+  border: none;
+  margin-top: 10px;
+  background-color: #bdbdbd3a;
+}
 #moreExperience {
   background-color: white;
   border-radius: 4px;

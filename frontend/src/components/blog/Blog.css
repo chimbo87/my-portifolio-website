@@ -337,6 +337,14 @@
   border-radius: 4px;
   cursor: pointer;
   background-color: #80808022;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#blogInforTextLikeIcons i{
+  color: rgb(170, 116, 15);
+  margin-right: 5px;
+  font-size: 20px;
 }
 #blogItermsNumbers {
   width: 100%;
