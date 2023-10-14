@@ -1,8 +1,13 @@
 import React from "react";
 import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function Navbar() {
+  const [agreeToTerms, setAgreeToTerms] = useState(false);
+  const handleCheckboxChange = (event) => {
+    setAgreeToTerms(event.target.checked);
+  };
   return (
     <>
       <div>
@@ -53,11 +58,7 @@ function Navbar() {
                     Blog
                   </Link>
                 </li>
-                {/* <li class="nav-item" id="navItem">
-                  <Link className="nav-link" to="/admni" as={Link} id="navTxt">
-                    Admin
-                  </Link>
-                </li> */}
+             
               </ul>
               <div class="d-flex" id="navBtn">
                 <div id="socialMediaLinks">
@@ -80,63 +81,56 @@ function Navbar() {
       </div>
 
       <div
-        class="modal fade"
+        className="modal fade"
         id="staticBackdrop"
         data-bs-backdrop="static"
         data-bs-keyboard="false"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="staticBackdropLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header" id="chatBoxHead">
+        <div className="modal-dialog ">
+          <div className="modal-content">
+            <div className="modal-header" id="chatBoxHead">
               <span></span>
-              <h1 class="modal-title fs-5" id="staticBackdropLabel">
-                Live chat <i class="bx bxl-whatsapp"></i>
+              <h1 className="modal-title fs-5" id="staticBackdropLabel">
+                Live chat <i className="bx bxl-whatsapp"></i>
               </h1>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body" id="chatModalBody">
-              <div class="form-check">
+            <div className="modal-body" id="chatModalBody">
+              <div className="form-check">
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="checkbox"
-                  value=""
-                  id="flexCheckIndeterminate"
+                  checked={agreeToTerms}
+                  onChange={handleCheckboxChange}
+                  id="termsCheckbox"
                 />
-                <label class="form-check-label" for="flexCheckIndeterminate">
+                <label className="form-check-label" htmlFor="termsCheckbox">
                   <h6>Agree to Terms and Conditions:</h6>
                 </label>
                 <div>
                   <small>
-                    By clicking "Continue",you agree to terms and conditions.
-                    you will be directed to a private chat on WhatsApp. Messages
-                    sent via WhatsApp are private.
+                    By clicking "Continue," you agree to the terms and
+                    conditions. You will be directed to a private chat on
+                    WhatsApp. Messages sent via WhatsApp are private.
                   </small>
                 </div>
                 <div id="checkTandCbtn">
-                  <a href="http://wa.me/27817338886">
-                    <button>Continue</button>
-                  </a>
+                  {agreeToTerms && (
+                    <a href="http://wa.me/27817338886">
+                      <button>Continue</button>
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
-
-            {/* <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-            </div> */}
           </div>
         </div>
       </div>

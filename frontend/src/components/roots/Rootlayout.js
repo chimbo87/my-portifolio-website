@@ -1,5 +1,5 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, ScrollRestoration } from 'react-router-dom'
 import Navbar from '../header/Navbar'
 
 function Rootlayout() {
@@ -8,6 +8,7 @@ function Rootlayout() {
          <div>
                 
                 <Navbar/>
+                <ScrollRestoration/>
             </div>
          <main>
                 <Outlet/>

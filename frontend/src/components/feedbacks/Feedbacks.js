@@ -3,6 +3,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import LoadingSpinner from "../loader/LoadingSpinner";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Feedbacks() {
   const [feedbacks, setFeedbacks] = useState([]);
@@ -10,8 +12,29 @@ function Feedbacks() {
   const [loading, setLoading] = useState(true);
   const [deleteItemId, setDeleteItemId] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [loadingBtn, setLoadingBtn] = useState(false);
   const itemsPerPage = 5;
 
+  const handleSendClick = () => {
+    toast.success("message removed successfully!", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+    });
+  };
+  const Loader = () => {
+    return (
+      <div
+        class="spinner-border text-secondary spinner-border-sm"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    );
+  };
   const getFeedbacks = async () => {
     const response = await fetch("http://localhost:8000/feedback").then(
       (response) => response.json()
@@ -45,6 +68,9 @@ function Feedbacks() {
   const closeDeleteModal = () => {
     setDeleteItemId(null);
   };
+  const showSpinner = () => {
+    setLoadingBtn(true);
+  };
 
   const deleteEmail = async () => {
     if (deleteItemId) {
@@ -52,9 +78,11 @@ function Feedbacks() {
         await axios.delete(`http://localhost:8000/feedback${deleteItemId}`);
         getFeedbacks();
         closeDeleteModal();
+        handleSendClick();
       } catch (error) {
         console.error("Error deleting email:", error);
       }
+      setLoadingBtn(false);
     }
   };
   return (
@@ -206,14 +234,19 @@ function Feedbacks() {
                 >
                   Cancel
                 </button>
+                {!loadingBtn && <span></span>}
                 <button
-                  variant="danger"
-                  onClick={deleteEmail}
                   id="theDeleteConfirmBtnB"
                   data-bs-dismiss="modal"
                   aria-label="Close"
+                  onClick={() => {
+                    deleteEmail();
+                    showSpinner();
+                    closeDeleteModal();
+                  }}
                 >
-                  Delete
+                  {loadingBtn && <Loader />}
+                  Continue
                 </button>
               </div>
             </div>
