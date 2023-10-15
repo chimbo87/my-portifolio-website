@@ -12,6 +12,7 @@ function Projects() {
   const [searchText, setSearchText] = useState(""); // State for search input
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [cards, setCards] = useState([]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6; // 2 rows x 3 columns = 6 items per page
@@ -21,7 +22,7 @@ function Projects() {
     try {
       const response = await fetch("http://localhost:8000/projects");
       const data = await response.json();
-      setProjects(data);
+      setProjects(data.reverse());
       setLoading(false);
     } catch (error) {
       console.error("Error fetching data:", error);
