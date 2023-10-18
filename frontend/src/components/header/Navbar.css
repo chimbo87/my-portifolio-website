@@ -50,10 +50,19 @@
 #navItem a {
   color: antiquewhite;
 }
+.active{
+  border-bottom: 2px solid #daa5206c;
+
+}
 #contentBox {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+#contentBox li{
+  margin: 0px 8px;
+  padding: 0px 10px;
+ 
 }
 
 @keyframes changeBorderColor {

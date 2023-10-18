@@ -4,9 +4,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 function Navbar() {
+  const [activeItem, setActiveItem] = useState(null);
   const [agreeToTerms, setAgreeToTerms] = useState(false);
   const handleCheckboxChange = (event) => {
     setAgreeToTerms(event.target.checked);
+  };
+  const handleItemClick = (item) => {
+    setActiveItem(item);
   };
   return (
     <>
@@ -33,17 +37,32 @@ function Navbar() {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul></ul>
               <ul class="navbar-nav me-auto" id="contentBox">
-                <li class="nav-item" id="navItem">
+                <li
+                  class="nav-item"
+                  id="navItem"
+                  className={activeItem === "Home" ? "active" : ""}
+                  onClick={() => handleItemClick("Home")}
+                >
                   <Link className="nav-link" to="/" as={Link} id="navTxt">
                     Home
                   </Link>
                 </li>
-                <li class="nav-item" id="navItem">
+                <li
+                  class="nav-item"
+                  id="navItem"
+                  className={activeItem === "About" ? "active" : ""}
+                  onClick={() => handleItemClick("About")}
+                >
                   <Link className="nav-link" to="/about" as={Link} id="navTxt">
                     About
                   </Link>
                 </li>
-                <li class="nav-item" id="navItem">
+                <li
+                  class="nav-item"
+                  id="navItem"
+                  className={activeItem === "Projects" ? "active" : ""}
+                  onClick={() => handleItemClick("Projects")}
+                >
                   <Link
                     className="nav-link"
                     to="/projects"
@@ -53,12 +72,16 @@ function Navbar() {
                     Projects
                   </Link>
                 </li>
-                <li class="nav-item" id="navItem">
+                <li
+                  class="nav-item"
+                  id="navItem"
+                  className={activeItem === "Blogs" ? "active" : ""}
+                  onClick={() => handleItemClick("Blogs")}
+                >
                   <Link className="nav-link" to="/blogs" as={Link} id="navTxt">
-                    Blog
+                    Blogs
                   </Link>
                 </li>
-             
               </ul>
               <div class="d-flex" id="navBtn">
                 <div id="socialMediaLinks">
