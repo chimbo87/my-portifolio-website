@@ -1,0 +1,68 @@
+#contactSection {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+#contactText h4 {
+  text-align: center;
+  color: goldenrod;
+  font-weight: 700;
+}
+#contactText span {
+  border-bottom: 2px solid goldenrod;
+  padding-bottom: 3px;
+}
+#contactInput input {
+  border: 1px solid #daa52071;
+  background-color: gainsboro;
+  border-radius: 0%;
+}
+#contactInput textarea {
+  border: 1px solid #daa52071;
+  background-color: gainsboro;
+  border-radius: 0%;
+}
+#contactInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  /* border: 1px solid goldenrod; */
+  height: 100%;
+  background-color: gainsboro;
+}
+#contactInfo i {
+  color: goldenrod;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+#contactInfo p {
+  color: gray;
+  margin-left: 20px;
+  font-size: 16px;
+  line-height: 1.6rem;
+  font-weight: 700;
+}
+#contactBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#contactBtn button {
+  border: none;
+  width: 100%;
+  padding: 10px 0px;
+  background-color: #caa13a;
+  color: #565252;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#contactBtn button:hover {
+  background-color: #ad8d3c;
+}

@@ -1,0 +1,132 @@
+#adminSection{
+    background-image: linear-gradient(#2c2c2be5, rgba(128, 128, 128, 0.47)),
+    url("https://s.astonaccountants.com.au/wp-content/uploads/businesswoman-670x415.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+   
+}
+#admnSectionHead h4{
+    background: -webkit-linear-gradient(0deg,#ffa200,#77a8ce,#d29968);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+#admnMenu{
+    border-radius: none;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#adminPanel{
+    position: relative;
+    top: -140px;
+}
+#adminBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+#dropdownMenu{
+  
+    
+    background-color: white;
+}
+#dropdownMenu li{
+   margin: 0px 5px;
+    padding: 5px 20px;
+    text-decoration: underline;
+    font-weight: 700;
+}
+#dropdownMenu li:hover{
+    background-color: rgba(128, 128, 128, 0.267);
+}
+#admniNotifications{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+#admniNotifications button{
+    margin-right: 20px;
+}
+#admniNotifications button i{
+    font-size: 20px;
+}
+#offcanvas-header{
+    background-color: gray;
+}
+#offcanvasWithBothOptionsLabel{
+    color: antiquewhite;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#offcanvasWithBothOptionsLabel i{
+    font-size: 25px;
+    color: rgb(247, 190, 120);
+    margin-left: 10px;
+}
+#noficationList{
+    background-color: #dcdcdc54;
+    padding: 5px 10px;
+    cursor: pointer;
+    box-shadow: 2px 2px 15px grey;
+}
+#noficationList:hover{
+    background-color: #dcdcdca1;
+}
+#noficationListItem{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+#noficationListItem small{
+    font-weight: 500;
+    color: rgb(13, 13, 71);
+    font-size: 14px;
+}
+#userName{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+#userName i{
+    color: #53463a;
+    margin-left: 10px;
+}
+#noficationListItemText{
+    border-top: 1px solid #80808038;
+}
+#noficationListItemText small{
+    font-size: 13px;
+}
+#userMessage{
+    text-align: end;
+    color: #53463a;
+    font-size: 12px;
+}
+/* #adminNavTxt{
+    margin: 0px 10px;
+    padding: 0px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.142);
+    background-color: rgba(250, 235, 215, 0.212);
+}
+#adminNavTxt p{
+    text-align: center;
+    font-weight: 700;
+    margin-top: 12px;
+    font-size: 12px;
+} */

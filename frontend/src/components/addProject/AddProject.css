@@ -1,0 +1,47 @@
+#projectSection{
+    padding-top: 40px;
+    background-color: #e6e5e5;
+    margin-top: 20px;
+    box-shadow: 2px 2px 15px #313131b0;
+}
+#formWrapBox h4{
+    text-align: center;
+    font-weight: 700;
+}
+#ProjectInput input{
+    border: 1px solid #3939396e;
+    border-radius: 0px;
+    background-color: rgb(132, 130, 130);
+}
+#ProjectInput textarea{
+    border: 1px solid #3939396e;
+    border-radius: 0px;
+    background-color: transparent;
+}
+#projectBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+#projectBtn button{
+    padding: 10px 0px;
+    width: 100%;
+    color: white;
+    background-color: #3f3f3f;
+    border: none;
+}
+#projectBtn button:hover{
+    background-color: gray;
+}
+#imageWrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#imageWrap img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    filter: brightness(90%);
+}

@@ -1,0 +1,291 @@
+#aboutSection {
+  background-image: linear-gradient(#2c2c2be5, #808080a4),
+  url("../assets/portifolio.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 50px;
+}
+#aboutSectionImg {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+#aboutSectionImg img {
+  width: 100%;
+  height: inherit;
+  border-radius: 50%;
+  object-fit: contain;
+  border: 2px solid #8c6b42;
+}
+#aboutTexts h4 {
+  font-weight: 700;
+  font-size: 35px;
+  background: -webkit-linear-gradient(0deg, #ffa200, #77a8ce, #d29968);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+#aboutPara p {
+  text-align: center;
+  max-width: 700px;
+  color: antiquewhite;
+}
+#aboutIcons i {
+  font-size: 22px;
+  margin-right: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  color: #8c6b42;
+}
+#aboutIcons i:hover {
+  color: gray;
+}
+#aboutMe {
+  position: relative;
+  margin-top: -80px;
+  background-color: #ffffff;
+  padding: 20px 10px;
+  border-radius: 5px 5px 0px 0px;
+}
+#profileTextImg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#profileText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 20px;
+}
+#profileText h5 {
+  color: #8c6b42;
+  text-align: center;
+}
+#profileText small {
+  color: #8c6b42;
+  text-align: center;
+  margin-top: 20px;
+}
+#profileImgBox {
+  position: relative;
+  top: -70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#profileImg {
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid #8080802d;
+}
+#profileImg img {
+  width: 250px;
+  height: inherit;
+  border-radius: 50%;
+  border: 2px solid #80808049;
+}
+#aboutMeProfile {
+  margin-top: 30px;
+}
+#aboutMeText h4 {
+  text-align: center;
+  color: goldenrod;
+  font-weight: 700;
+}
+#aboutMeText p {
+  line-height: 2rem;
+}
+#aboutMeText h5 {
+  line-height: 2rem;
+}
+#aboutSkills h4 {
+  text-align: center;
+  color: goldenrod;
+  font-weight: 700;
+  margin-top: 20px;
+}
+#aboutMeImg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 450px;
+}
+#aboutMeImg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#videoBtn {
+  position: relative;
+  top: -250px;
+}
+#videoBtn i {
+  color: black;
+  font-size: 100px;
+  cursor: pointer;
+}
+#modalVideoBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#modalVideo {
+  width: 100%;
+  border: 1px solid red;
+}
+#modalVideo video {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+}
+#aboutSkillTexts {
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 2px 2px 10px grey;
+  height: 300px;
+}
+#aboutTxtBox:hover {
+  transform: translate3D(0, -1px, 0) scale(1.03);
+  transition: all 0.4s ease;
+}
+#aboutSkillTexts i {
+  font-size: 60px;
+  background: -webkit-linear-gradient(#3a3737, #8c6b42);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#aboutSkillTexts i:hover {
+  rotate: 35deg;
+}
+#aboutSkillTexts h5 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+#aboutSkillTexts p {
+  /* line-height: 2rem; */
+}
+
+#moreExperience {
+  margin-top: 40px;
+  background-color: transparent;
+  padding: 10px 10px;
+}
+.accordion {
+  background-color: transparent;
+}
+.accordion-header button{
+  border: none;
+  margin-top: 10px;
+  background-color: #bdbdbd3a;
+}
+#moreExperience {
+  background-color: white;
+  border-radius: 4px;
+  padding: 20px;
+  /* box-shadow: 2px 2px 5px grey; */
+}
+#moreExperience h4 {
+  color: goldenrod;
+  text-align: center;
+}
+#moreExperience p {
+  text-align: start;
+  line-height: 2rem;
+  margin-bottom: 10px;
+}
+.accordion-header button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #593c19;
+  font-weight: 700;
+}
+#reviewCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#reviewSection {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 0px 10px;
+}
+#reviewSection h4 {
+  text-align: center;
+  font-weight: 700;
+  color: goldenrod;
+}
+#reviewCardBox {
+  height: 400px;
+  margin: 10px;
+  padding: 5px;
+  border: 1px solid rgba(218, 165, 32, 0.301);
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: white;
+  box-shadow: 2px 2px 10px rgba(218, 165, 32, 0.402);
+}
+#reviewCardBox:hover {
+  background-color: white;
+}
+#reviewImageBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#reviewCard img {
+  border: 2px solid rgba(218, 165, 32, 0.788);
+  border-radius: 10px 0px 0px 0px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+#reviewCard p {
+  text-align: start;
+  font-weight: 400;
+  line-height: 2rem;
+  padding-left: 5px;
+}
+#reviewCard span {
+  color: goldenrod;
+  font-size: 25px;
+  margin: 10px;
+}
+
+#reviewCard p2 {
+  text-align: center;
+  color: rgb(196, 145, 15);
+}
+#reviewCardName {
+  text-align: end;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  margin-right: 10px;
+  font-style: italic;
+}
